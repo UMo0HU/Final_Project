@@ -5,12 +5,52 @@
       "PackagePath": "staticwebassets\\BookStore.zk7abynole.bundle.scp.css"
     },
     {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\account.css",
+      "PackagePath": "staticwebassets\\css\\account.css"
+    },
+    {
       "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\EmailLogo.png",
+      "PackagePath": "staticwebassets\\images\\EmailLogo.png"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\FacebookCircled.svg",
+      "PackagePath": "staticwebassets\\images\\FacebookCircled.svg"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\Google.svg",
+      "PackagePath": "staticwebassets\\images\\Google.svg"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\LinkedInCircled.svg",
+      "PackagePath": "staticwebassets\\images\\LinkedInCircled.svg"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\Password.svg",
+      "PackagePath": "staticwebassets\\images\\Password.svg"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\PasswordLogo.png",
+      "PackagePath": "staticwebassets\\images\\PasswordLogo.png"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\User.svg",
+      "PackagePath": "staticwebassets\\images\\User.svg"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\UserLogo.png",
+      "PackagePath": "staticwebassets\\images\\UserLogo.png"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\loginBackground.jpeg",
+      "PackagePath": "staticwebassets\\images\\loginBackground.jpeg"
     },
     {
       "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\js\\site.js",

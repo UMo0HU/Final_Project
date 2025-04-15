@@ -1,11 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&display=swap');
+
+
+*:not(.store-title) {
+    font-family: "Inter", sans-serif;
+}
+
 html {
-  font-size: 14px;
+    font-size: 14px;
+}
+
+.store-title {
+    font-family: "Pacifico", cursive;
+    font-size: 100%;
+    margin: 0;
+}
+
+.search-input {
+    border-radius: 20px;
+    border: none;
 }
 
 @media (min-width: 768px) {
-  html {
+    html {
     font-size: 16px;
-  }
+    }
+
+    .store-title {
+        font-size: 32px;
+        margin: 10px;
+    }
+
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -19,4 +43,20 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.navbar-dark .nav-item .nav-link {
+    color: #fff;
+}
+
+    .navbar-dark .nav-item .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        border-radius: 0.25rem;
+        color: #fff;
+    }
+
+.fa-li {
+    position: relative;
+    left: 0;
 }

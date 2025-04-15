@@ -1,5 +1,15 @@
+wwwroot\css\account.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\EmailLogo.png
+wwwroot\images\FacebookCircled.svg
+wwwroot\images\Google.svg
+wwwroot\images\LinkedInCircled.svg
+wwwroot\images\loginBackground.jpeg
+wwwroot\images\Password.svg
+wwwroot\images\PasswordLogo.png
+wwwroot\images\User.svg
+wwwroot\images\UserLogo.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

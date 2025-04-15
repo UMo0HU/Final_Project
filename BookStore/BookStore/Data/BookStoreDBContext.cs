@@ -1,8 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BookStore.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-namespace BookStore.Models
+namespace BookStore.Data
 {
-    public class BookStoreDBContext : DbContext
+    public class BookStoreDBContext : IdentityDbContext<User>
     {
         public BookStoreDBContext(DbContextOptions options) : base(options)
         {
@@ -10,6 +13,7 @@ namespace BookStore.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             // BookCategory relationship
             modelBuilder.Entity<BookCategory>()
                 .HasKey(bc => new { bc.BookId, bc.CategoryId });

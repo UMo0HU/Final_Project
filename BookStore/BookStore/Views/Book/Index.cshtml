@@ -1,0 +1,25 @@
+﻿@using BookStore.Models;
+@model List<Book>;
+
+<h2>Read Free Library Books Online!</h2>
+
+<p>Search, explore, enjoy. Our digital library puts millions of books and articles at your fingertips. Join us today!</p>
+
+<img src="/images/books.jpg" alt="Books Illustration" />
+
+<h3>Popular</h3>
+
+<div class="row">
+    @foreach (var book in Model)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <img src="@book.Img" class="card-img-top" alt="@book.Img">
+                <div class="card-body">
+                    <h5 class="card-title">@book.Title</h5>
+                    <a href="/Book/Details/@book.Id" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

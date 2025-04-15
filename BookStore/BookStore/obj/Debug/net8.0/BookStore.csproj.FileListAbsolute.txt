@@ -10,6 +10,9 @@ D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\BookStore.pdb
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Azure.Core.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Azure.Identity.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Humanizer.dll
+D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -25,6 +28,8 @@ D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Ext
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\DEPI\Project_Documentation\BookStore\BookStore\bin\Debug\net8.0\Microsoft.Extensions.Options.dll

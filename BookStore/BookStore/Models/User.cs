@@ -1,12 +1,10 @@
-﻿namespace BookStore.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace BookStore.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Phone { get; set; }
+        public byte[]? ProfilePicture { get; set; }
 
         public Cart Cart { get; set; }
         public ICollection<Wishlist> Wishlists { get; set; }
