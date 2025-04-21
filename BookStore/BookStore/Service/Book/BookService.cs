@@ -26,7 +26,15 @@ namespace BookStore.Service.BookService
                 .ThenInclude(bc => bc.Category)
                 .Include(b => b.reviews)
                 .ThenInclude(r => r.User)
-                .FirstOrDefault(b => b.Id == id);
+                .FirstOrDefault(b => b.Id == id)!;
         }
+
+        public List<Models.Book> GetUserWashList(string id) {
+
+            return null;      
+        
+        }   
+    
     }
+      
 }
