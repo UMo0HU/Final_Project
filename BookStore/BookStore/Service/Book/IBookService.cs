@@ -2,8 +2,9 @@
 {
     public interface IBookService
     {
-        public List<Models.Book> GetAllBooks();
-        public Models.Book GetBookDetails(int id);
+        public Task<List<Models.Book>> GetAllBooks();
+        public Task<Models.Book> GetBookDetails(int id);
+        public Task AddBook(Models.Book book);
 
     }
 }

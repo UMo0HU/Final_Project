@@ -10,10 +10,10 @@
         public decimal Price { get; set; }
         public int Stock { get; set; }
 
-        public ICollection<BookCategory> Book_Categories { get; set; }
-        public ICollection<Wishlist> Wishlists { get; set; }
-        public ICollection<Review> reviews { get; set; }
-        public ICollection<CartItem> CartItems { get; set; }
-        public ICollection<OrderItem> orderItems { get; set; }
+        public ICollection<BookCategory>? Book_Categories { get; set; }
+        public ICollection<Wishlist>? Wishlists { get; set; }
+        public ICollection<Review>? reviews { get; set; }
+        public ICollection<CartItem>? CartItems { get; set; }
+        public ICollection<OrderItem>? orderItems { get; set; }
     }
 }

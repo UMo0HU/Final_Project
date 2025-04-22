@@ -7,6 +7,8 @@ using BookStore.Service;
 using BookStore.Service.Book;
 using BookStore.Service.BookService;
 using BookStore.Service.Account;
+using BookStore.Service.Wishlist;
+using BookStore.Service.Category;
 
 namespace BookStore
 {
@@ -35,6 +37,8 @@ namespace BookStore
 
             builder.Services.AddScoped<IBookService, BookService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<IWishlistService, WishlistService>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             var app = builder.Build();
 

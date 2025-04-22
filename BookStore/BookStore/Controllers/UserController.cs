@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BookStore.Service.Wishlist;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
-        public IActionResult Profile()
+        private readonly IWishlistService _wishlistService;
+        public UserController(IWishlistService wishlistService)
         {
-            return View();
+            _wishlistService = wishlistService;
+        }
+        public async Task<IActionResult> Profile()
+        {
+            var wishlist = await _wishlistService.GetAllWishlists();
+            return View(wishlist);
         }
     }
 }
