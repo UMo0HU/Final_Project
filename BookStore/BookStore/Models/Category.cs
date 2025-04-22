@@ -6,6 +6,6 @@
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public ICollection<BookCategory> Book_Categories { get; set; }
+        public ICollection<BookCategory>? Book_Categories { get; set; }
     }
 }

@@ -1,0 +1,35 @@
+﻿@model List<Wishlist>
+@{
+    ViewBag.Title = "Profile";
+    Layout = "_Layout";
+}
+<!-- Profile Section -->
+<div class="container profile-section">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyQj1a4i_d_Uw51VxX9FMapTeFxh4v-f_POg&s" alt="Profile Image" class="profile-img">
+    <h2 class="profile-name">Anas Habib</h2>
+    <h4 class="profile-books">23 Books</h4>
+    <p class="profile-bio">Lorem ipsum dolor sit amet consectetur.</p>
+    <div class="social-icons">
+        <a href="#" class="text-primary"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
+<!-- Books Section -->
+<div class="container books-section">
+    <h3>My Books</h3>
+    <div class="row justify-content-center">
+        @foreach (var wishlist in Model)
+        {
+            <div class="col-6 col-sm-4 col-md-3 book-card">
+                <img src="~/book-images/@wishlist.Book.Img" alt="Book Image">
+                <i class="fas fa-heart heart-icon" onclick="toggleFavorite(this)"></i>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    function toggleFavorite(heartIcon) {
+        heartIcon.classList.toggle('favorited');
+    }
+</script>

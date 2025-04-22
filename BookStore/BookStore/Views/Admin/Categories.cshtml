@@ -1,0 +1,52 @@
+﻿@model Category
+@{
+    ViewBag.Title = "Categories";
+    Layout = "_Layout";
+    var Categories = ViewBag.Categories as List<Category>;
+}
+
+<form asp-controller="Admin" asp-action="Categories" method="post">
+	<div class="form-group">
+		<label asp-for="Name"></label>
+		<input type="text" class="form-control" asp-for="Name" placeholder="Enter name">
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Description"></label>
+		<textarea class="form-control" asp-for="Description" placeholder="Enter description"></textarea>
+		<span asp-validation-for="Description" class="text-danger"></span>
+	</div>
+	<input type="submit" class="btn btn-primary" value="Add Book Category">
+</form>
+
+@if(Categories.Count == 0) {
+	<div  class="text-center">No categories available</div>
+}
+else {
+<table class="table table-dark">
+	<tr>
+		<th scope="col">#</th>
+		<th scope="col">Name</th>
+		<th scope="col">Description</th>
+		<th scope="col">Edit</th>
+		<th scope="col">Delete</th>
+	</tr>
+
+	@foreach (var category in Categories)
+	{
+		<tr>
+			<td scope="row">@category.Id</td>
+			<td scope="row">@category.Name</td>
+			<td scope="row">@category.Description</td>
+			<td scope="row"><a asp-controller="Admin" asp-action="EditForm" asp-route-id="@category.Id" class="btn btn-warning fs-6">Edit</a></td>
+			<td scope="row"><a asp-controller="Admin" asp-action="DeleteCategory" asp-route-id="@category.Id" class="btn btn-danger fs-6">Delete</a></td>
+		</tr>
+	}
+</table>
+}
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+	}
+}

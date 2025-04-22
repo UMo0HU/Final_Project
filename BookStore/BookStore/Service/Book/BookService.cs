@@ -12,21 +12,31 @@ namespace BookStore.Service.BookService
         {
             _context = context;
         }
-        public List<Models.Book> GetAllBooks()
+        public Task<List<Models.Book>> GetAllBooks()
         {
             return _context.Books
                 .Include(b => b.Book_Categories)
                 .ThenInclude(bc => bc.Category)
-                .ToList();
+                .ToListAsync();
         }
-        public Models.Book GetBookDetails(int id)
+        public Task<Models.Book> GetBookDetails(int id)
         {
             return _context.Books
                 .Include(b => b.Book_Categories)
                 .ThenInclude(bc => bc.Category)
                 .Include(b => b.reviews)
                 .ThenInclude(r => r.User)
-                .FirstOrDefault(b => b.Id == id);
+                .FirstOrDefaultAsync(b => b.Id == id)!;
         }
+
+        public async Task AddBook(Models.Book book)
+        {
+            await _context.Books.AddAsync(book);
+            await _context.SaveChangesAsync();
+        }
+
+
+
     }
+      
 }
