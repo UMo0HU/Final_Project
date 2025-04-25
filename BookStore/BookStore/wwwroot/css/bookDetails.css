@@ -1,0 +1,113 @@
+﻿.book-details {
+    display: flex;
+    padding: 20px;
+}
+
+.book-cover {
+    flex: 0 0 200px;
+    margin-right: 20px;
+}
+
+.book-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.book-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.book-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #5c3d2e;
+}
+
+.rating {
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+
+.rating-value {
+    color: #333;
+    margin-right: 5px;
+}
+
+.author, .category {
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.description {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.actions button {
+    background-color: #8f7161;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+    .actions button:first-child {
+        margin-left: 0;
+    }
+
+.wishlist {
+    margin-top: 15px;
+}
+
+    .wishlist a {
+        color: #d35400;
+        text-decoration: none;
+    }
+
+        .wishlist a i {
+            margin-left: 5px;
+        }
+
+.share {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+    .share span {
+        margin-left: 10px;
+        color: #777;
+    }
+
+.social-icon {
+    color: #fff;
+    background-color: #3b5998; /* Facebook */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+    .social-icon.fa-twitter {
+        background-color: #1da1f2;
+    }
+
+    .social-icon.fa-instagram {
+        background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    }
+
+    .social-icon.fa-linkedin-in {
+        background-color: #0077b5;
+    }
+

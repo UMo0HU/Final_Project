@@ -17,5 +17,6 @@ namespace BookStore.Controllers
             var wishlist = await _wishlistService.GetAllWishlists();
             return View(wishlist);
         }
+
     }
 }

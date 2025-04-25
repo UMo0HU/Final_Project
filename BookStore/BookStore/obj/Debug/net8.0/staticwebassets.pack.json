@@ -5,8 +5,32 @@
       "PackagePath": "staticwebassets\\BookStore.zk7abynole.bundle.scp.css"
     },
     {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\book-images\\TheOldManAndTheSea.jpg",
+      "PackagePath": "staticwebassets\\book-images\\TheOldManAndTheSea.jpg"
+    },
+    {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\book-images\\The_Days_(book)_book_cover.jpg",
+      "PackagePath": "staticwebassets\\book-images\\The_Days_(book)_book_cover.jpg"
+    },
+    {
       "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\account.css",
       "PackagePath": "staticwebassets\\css\\account.css"
+    },
+    {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\bookDetails.css",
+      "PackagePath": "staticwebassets\\css\\bookDetails.css"
+    },
+    {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\categories.css",
+      "PackagePath": "staticwebassets\\css\\categories.css"
+    },
+    {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\profile.css",
+      "PackagePath": "staticwebassets\\css\\profile.css"
     },
     {
       "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\site.css",
@@ -189,6 +213,10 @@
       "PackagePath": "staticwebassets\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\6046205542424233186.jpg",
+      "PackagePath": "staticwebassets\\images\\6046205542424233186.jpg"
+    },
+    {
       "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\EmailLogo.png",
       "PackagePath": "staticwebassets\\images\\EmailLogo.png"
     },
@@ -199,6 +227,10 @@
     {
       "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\Google.svg",
       "PackagePath": "staticwebassets\\images\\Google.svg"
+    },
+    {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\Group 104.png",
+      "PackagePath": "staticwebassets\\images\\Group 104.png"
     },
     {
       "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\LinkedInCircled.svg",
@@ -213,6 +245,10 @@
       "PackagePath": "staticwebassets\\images\\PasswordLogo.png"
     },
     {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\Search.png",
+      "PackagePath": "staticwebassets\\images\\Search.png"
+    },
+    {
       "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\User.svg",
       "PackagePath": "staticwebassets\\images\\User.svg"
     },
@@ -221,8 +257,24 @@
       "PackagePath": "staticwebassets\\images\\UserLogo.png"
     },
     {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\image (3).png",
+      "PackagePath": "staticwebassets\\images\\image (3).png"
+    },
+    {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\image (4).png",
+      "PackagePath": "staticwebassets\\images\\image (4).png"
+    },
+    {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\image (5).png",
+      "PackagePath": "staticwebassets\\images\\image (5).png"
+    },
+    {
       "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\images\\loginBackground.jpeg",
       "PackagePath": "staticwebassets\\images\\loginBackground.jpeg"
+    },
+    {
+      "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\js\\heartToggler.js",
+      "PackagePath": "staticwebassets\\js\\heartToggler.js"
     },
     {
       "Id": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\js\\site.js",

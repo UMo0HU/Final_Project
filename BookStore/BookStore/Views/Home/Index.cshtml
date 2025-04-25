@@ -1,8 +1,42 @@
-﻿@{
+﻿    @{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+    <div id="home">
+        <div class="home-info">
+            <h2 class="home-title">read free library books online !</h2>
+            <div class="home-description">search, explore, enjoy. Our digital library puts millions of books and articles at your fingertips. Join us today!</div>
+        </div>
+        <div class="home-image"><img src="~/images/6046205542424233186.jpg" alt=""></div>
+    </div>
+    <div class="popular">
+        <p class="main-line">_________________________________________________________________________________________________</p>
+        <h3 class="popular-title">popular</h3>
+        <div class="cards">
+            <div class="cards-card">
+                <div class="card-img"><img src="~/images/image (3).png" alt=""></div>
+                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
+            </div>
+            <div class="cards-card">
+                <div class="card-img"><img src="~/images/image (5).png" alt=""></div>
+                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
+            </div>
+            <div class="cards-card">
+                <div class="card-img "><img src="~/images/image (4).png" alt=""></div>
+                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
+            </div>
+            <div class="cards-card">
+                <div class="card-img"><img src="~/images/Group 104.png" alt=""></div>
+                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
+            </div>
+        </div>
+    </div>
+
+@section Styles {
+    <link href="~/css/home.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/js/heartToggler.js"></script>
+}

@@ -1,4 +1,6 @@
-﻿namespace BookStore.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BookStore.Models
 {
     public class Book
     {
@@ -6,7 +8,9 @@
         public string Title { get; set; }
         public string Author { get; set; }
         public string Description { get; set; }
-        public string Img { get; set; }
+        public string? Img { get; set; }
+        [NotMapped]
+        public IFormFile ClientFile { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
 

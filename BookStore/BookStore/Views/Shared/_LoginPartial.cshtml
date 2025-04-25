@@ -4,12 +4,18 @@
 @if (SignInManager.IsSignedIn(User))
 {
 	<li class="nav-item">
+		<a class="nav-link" asp-controller="User" asp-action="Profile"><i class="fas fa-heart"></i></a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+	</li>
+	<li class="nav-item">
 		<a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
 	</li>
 }
 else
 {
 	<li class="nav-item">
-		<a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+		<a class="btn header-button" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
 	</li>
-})
+}

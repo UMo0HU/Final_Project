@@ -38,7 +38,7 @@ else {
 			<td scope="row">@category.Id</td>
 			<td scope="row">@category.Name</td>
 			<td scope="row">@category.Description</td>
-			<td scope="row"><a asp-controller="Admin" asp-action="EditForm" asp-route-id="@category.Id" class="btn btn-warning fs-6">Edit</a></td>
+			<td scope="row"><a asp-controller="Admin" asp-action="EditCategory" asp-route-id="@category.Id" class="btn btn-warning fs-6">Edit</a></td>
 			<td scope="row"><a asp-controller="Admin" asp-action="DeleteCategory" asp-route-id="@category.Id" class="btn btn-danger fs-6">Delete</a></td>
 		</tr>
 	}

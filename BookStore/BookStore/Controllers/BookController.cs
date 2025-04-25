@@ -13,14 +13,14 @@ namespace BookStore.Controllers
         {
             _bookService = bookService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var books = _bookService.GetAllBooks();
+            var books = await _bookService.GetAllBooks();
             return View(books);
         }
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            Book book = _bookService.GetBookDetails(id);
+            Book book = await _bookService.GetBookDetails(id);
             return View(book);
         }
     }

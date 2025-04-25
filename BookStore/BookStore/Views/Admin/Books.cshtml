@@ -1,1 +1,122 @@
-﻿<h1>This is Book Adding and veiwing page</h1>
+﻿@model BookViewModel
+@{
+    ViewData["Title"] = "Books";
+    var Books = ViewBag.Books as List<Book>;
+}
+
+
+<form asp-controller="Admin" asp-action="Books" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Stock"></label>
+        <input asp-for="Stock" class="form-control" />
+        <span asp-validation-for="Stock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SelectedCategoryIds">Categories</label>
+        <select asp-for="SelectedCategoryIds" asp-items="@(new MultiSelectList(Model.AllCategories, "Id", "Name"))" multiple class="form-control">
+        </select>
+        <span asp-validation-for="SelectedCategoryIds" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ClientFile"></label>
+        <input type="file" id="input_image" accept="image/*" class="form-control" asp-for="ClientFile">
+        <span asp-validation-for="ClientFile" class="text-danger"></span>
+    </div>
+    <div id="preview" class="form-group d-flex justify-content-center align-content-center mt-3">
+    </div>
+    <div class="form-group d-flex justify-content-center align-content-center mt-3">
+        <button type="submit" class="w-50 fs-1 btn btn-primary text-center">Add Book</button>
+    </div>
+</form>
+
+
+<h1>@ViewData["Title"]</h1>
+@if(Books.Count == 0) {
+	<div  class="text-center">No Books available</div>
+}
+else {
+    <table class="table table-dark">
+	    <tr>
+		    <th scope="col">#</th>
+		    <th scope="col">Title</th>
+		    <th scope="col">Price</th>
+		    <th scope="col">Description</th>
+		    <th scope="col">Image</th>
+		    <th scope="col">categories</th>
+            <th scope="col">Stock</th>
+		    <th scope="col">Edit</th>
+		    <th scope="col">Delete</th>
+		    <th scope="col">Details</th>
+	    </tr>
+	    @foreach (var book in Books)
+	    {
+		    <tr>
+			    <td scope="row">@book.Id</td>
+			    <td scope="row">@book.Title</td>
+			    <td scope="row">@book.Price</td>
+			    <td scope="row">@book.Description.Substring(0, 90)...</td>
+			    <td scope="row"><img src="/book-images/@book.Img" width="200" height="200" alt="@book.Img" /></td>
+			    <td scope="row">
+			    @foreach(var category in book.Book_Categories) {
+			    <span>@category.Category.Name</span>
+			    }
+			    </td>
+                <td scope="row">@book.Stock</td>
+			    <td scope="row"><a asp-controller="Admin" asp-action="EditBook" asp-route-id="@book.Id" class="btn btn-warning fs-6">Edit</a></td>
+			    <td scope="row"><a asp-controller="Admin" asp-action="DeleteBook" asp-route-id="@book.Id" class="btn btn-danger fs-6">Delete</a></td>
+			    <td scope="row"><a asp-controller="Admin" asp-action="Details" asp-route-id="@book.Id" class="btn btn-success fs-6">Show Details</a></td>
+		    </tr>
+	    }
+    </table>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        const inputImage = document.getElementById("input_image");
+        const previewContainer = document.getElementById("preview");
+        inputImage.addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.createElement("img");
+                    img.classList.add("img-thumbnail");
+                    img.src = e.target.result;
+                    img.width = 200;
+                    img.height = 200;
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+}
