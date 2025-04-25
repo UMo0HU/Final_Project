@@ -21,8 +21,8 @@ namespace BookStore
             builder.Services.AddControllersWithViews();
 
             // Configure Entity Framework and SQL Server
-            string connectionString = @"Server=.; Database=BookStore; Integrated Security=True; TrustServerCertificate = True;";
-            builder.Services.AddDbContext<BookStoreDBContext>(options => options.UseSqlServer(connectionString));
+            //string connectionString = @"Server=.; Database=BookStore; Integrated Security=True; TrustServerCertificate = True;";
+            builder.Services.AddDbContext<BookStoreDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
 
             builder.Services.AddIdentity<User, IdentityRole>(options =>
             {

@@ -72,7 +72,6 @@ else {
             <th scope="col">Stock</th>
 		    <th scope="col">Edit</th>
 		    <th scope="col">Delete</th>
-		    <th scope="col">Details</th>
 	    </tr>
 	    @foreach (var book in Books)
 	    {
@@ -90,7 +89,6 @@ else {
                 <td scope="row">@book.Stock</td>
 			    <td scope="row"><a asp-controller="Admin" asp-action="EditBook" asp-route-id="@book.Id" class="btn btn-warning fs-6">Edit</a></td>
 			    <td scope="row"><a asp-controller="Admin" asp-action="DeleteBook" asp-route-id="@book.Id" class="btn btn-danger fs-6">Delete</a></td>
-			    <td scope="row"><a asp-controller="Admin" asp-action="Details" asp-route-id="@book.Id" class="btn btn-success fs-6">Show Details</a></td>
 		    </tr>
 	    }
     </table>
