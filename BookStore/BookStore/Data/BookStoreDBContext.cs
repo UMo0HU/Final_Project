@@ -71,7 +71,7 @@ namespace BookStore.Data
                 .HasForeignKey(r => r.UserId);
             modelBuilder.Entity<Review>()
                 .HasOne(r => r.Book)
-                .WithMany(b => b.reviews)
+                .WithMany(b => b.Reviews)
                 .HasForeignKey(r => r.BookId);
 
         }

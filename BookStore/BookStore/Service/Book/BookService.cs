@@ -28,7 +28,7 @@ namespace BookStore.Service.BookService
             return _context.Books
                 .Include(b => b.Book_Categories)
                 .ThenInclude(bc => bc.Category)
-                .Include(b => b.reviews)
+                .Include(b => b.Reviews)
                 .ThenInclude(r => r.User)
                 .FirstOrDefaultAsync(b => b.Id == id)!;
         }

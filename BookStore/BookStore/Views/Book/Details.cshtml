@@ -31,22 +31,61 @@
             <p>@Model.Description</p>
         </div>
         <div class="actions">
-            <button class="read-button">Read</button>
-            <button class="download-button">Download</button>
+            <button class="read-button">Add to cart</button>
+            <button class="download-button">Add to wishlist</button>
         </div>
-        <div class="wishlist">
-            <a href="#"><i class="far fa-heart"></i> Add To WishList</a>
-        </div>
-        <div class="share">
-            <span>Share</span>
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+       
+        
     </div>
+</div>
+
+
+<h2>@Model.Title</h2>
+<p><strong>Author:</strong> @Model.Author</p>
+
+<hr />
+
+<h3>Customer Reviews</h3>
+
+@if (Model.Reviews != null && Model.Reviews.Any())
+{
+    <ul>
+        @foreach (BookStore.Models.Review review in Model.Reviews)
+        {
+            <li>
+                <div>
+                    <strong>@(review.User != null ? review.User.UserName : "Anonymous")</strong> 
+                    - @review.Rating/5 Stars
+                </div>
+                <div>@review.Content</div>
+                <div><small>Posted on @review.CreatedAt.ToLocalTime().ToString("g")</small></div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No reviews yet for this book.</p>
+}
+<div class="add-review">
+    <h3>Add Comment </h3>
+    @using (Html.BeginForm("AddReview", "Book", FormMethod.Post)) 
+    {
+        @Html.AntiForgeryToken()
+       
+        @Html.HiddenFor(model => model.Id)
+       
+        <div class="form-group">
+            <label for="Comment">Comments:</label>
+            @Html.TextArea("Comment", new { @class = "form-control", rows = "5" })
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+    }
 </div>
 
 @section Styles {
     <link href="~/css/bookDetails.css" rel="stylesheet" />
 }
+
+ 
+
