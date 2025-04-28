@@ -1,35 +1,34 @@
-﻿    @{
+﻿@model List<Book>
+
+@{
     ViewData["Title"] = "Home Page";
+    var wishlistBookIds = ViewBag.WishlistBookIds as List<int> ?? new List<int>();
 }
 
 
-    <div id="home">
-        <div class="home-info">
-            <h2 class="home-title">read free library books online !</h2>
-            <div class="home-description">search, explore, enjoy. Our digital library puts millions of books and articles at your fingertips. Join us today!</div>
-        </div>
-        <div class="home-image"><img src="~/images/6046205542424233186.jpg" alt=""></div>
+<div id="home">
+    <div class="home-info">
+        <h2 class="home-title">read free library books online !</h2>
+        <div class="home-description">search, explore, enjoy. Our digital library puts millions of books and articles at your fingertips. Join us today!</div>
     </div>
-    <div class="popular">
-        <p class="main-line">_________________________________________________________________________________________________</p>
-        <h3 class="popular-title">popular</h3>
-        <div class="cards">
-            <div class="cards-card">
-                <div class="card-img"><img src="~/images/image (3).png" alt=""></div>
-                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-            </div>
-            <div class="cards-card">
-                <div class="card-img"><img src="~/images/image (5).png" alt=""></div>
-                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-            </div>
-            <div class="cards-card">
-                <div class="card-img "><img src="~/images/image (4).png" alt=""></div>
-                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-            </div>
-            <div class="cards-card">
-                <div class="card-img"><img src="~/images/Group 104.png" alt=""></div>
-                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-            </div>
+    <div class="home-image"><img src="~/images/6046205542424233186.jpg" alt=""></div>
+</div>
+<div class="popular">
+    <p class="main-line">_________________________________________________________________________________________________</p>
+    <h3 class="popular-title">popular</h3>
+    <div class="cards">
+            @foreach(var book in Model) {
+                <div class="cards-card">
+                    @await Html.PartialAsync("_WishlistButtonPartial", new WishlistButtonViewModel
+                    {
+                        BookId = book.Id,
+                        IsInWishlist = wishlistBookIds.Contains(book.Id)
+                    })
+                    <a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
+                        <div class="card-img"><img src="~/book-images/@book.Img" width="200" height="300" alt=""></div>
+                    </a>
+                </div>
+            }
         </div>
     </div>
 
@@ -38,5 +37,9 @@
 }
 
 @section Scripts {
+    <script>
+        const addToWishlistUrl = '@Url.Action("AddToWishlist", "Book")';
+        const removeFromWishlistUrl = '@Url.Action("RemoveFromWishlist", "Book")';
+    </script>
     <script src="~/js/heartToggler.js"></script>
 }

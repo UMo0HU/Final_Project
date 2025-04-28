@@ -1,5 +1,7 @@
 using System.Diagnostics;
 using BookStore.Models;
+using BookStore.Service.Book;
+using BookStore.Service.Wishlist;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
@@ -7,15 +9,22 @@ namespace BookStore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IBookService _bookService;
+        private readonly IWishlistService _wishlistService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBookService bookService, IWishlistService wishlistService)
         {
             _logger = logger;
+            _bookService = bookService;
+            _wishlistService = wishlistService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var books = await  _bookService.GetAllBooks();
+            var Wishlist = await _wishlistService.GetUserWishlist();
+            ViewBag.WishlistBookIds = Wishlist.Select(w =>  w.BookId).ToList();
+            return View(books);
         }
 
         public IActionResult Privacy()

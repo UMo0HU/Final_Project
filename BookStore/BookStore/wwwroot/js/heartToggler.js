@@ -1,19 +1,20 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
-    const wishlistIcons = document.querySelectorAll('.book-details-page-wishlist');
+﻿function ToggleWishlist(BookId) { 
+    var button = $(`#wishlist-btn-${BookId}`);
+    const isInWishlist = button.find('i').hasClass('fa-solid');
 
-    wishlistIcons.forEach((wishlistIcon) => {
-        const wishlistText = wishlistIcon.querySelector('i');
-
-        wishlistIcon.addEventListener('click', () => {
-            if (wishlistText.classList.contains('fa-regular')) {
-                wishlistText.classList.remove('fa-regular');
-                wishlistText.classList.add('fa-solid');
-                wishlistText.style.color = "red";
-            } else {
-                wishlistText.classList.remove('fa-solid');
-                wishlistText.classList.add('fa-regular');
-                wishlistText.style.color = "";
+    $.ajax({
+        type: "POST",
+        url: isInWishlist ? removeFromWishlistUrl : addToWishlistUrl,
+        data: { id: BookId },
+        success: function (response) {
+            if (response.success) {
+                button.find('i')
+                    .toggleClass('fa-solid fa-regular')
+                    .parent().css('color', isInWishlist ? 'inherit' : 'red');
             }
-        });
+        },
+        error: function () {
+            alert("An error occurred while adding the book to the wishlist.");
+        }
     });
-});
+}

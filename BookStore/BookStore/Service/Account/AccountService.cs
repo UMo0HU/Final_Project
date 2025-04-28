@@ -32,8 +32,12 @@ namespace BookStore.Service.Account
 
         public async Task<SignInResult> LoginUserAsync(LoginViewModel model)
         {
-            var username =  _userManager.FindByEmailAsync(model.Email).Result.UserName;
-            var result = await _signInManager.PasswordSignInAsync(username, model.Password, true, false);
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return SignInResult.Failed;
+            }
+            var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, true, false);
             return result;
         }
 

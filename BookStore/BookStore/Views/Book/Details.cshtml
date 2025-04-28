@@ -1,9 +1,10 @@
-﻿@using BookStore.Models; 
+﻿@using Microsoft.AspNetCore.Identity;
 @model Book
-
+@inject SignInManager<User> SignInManager
 @{
     ViewBag.Title = "Book Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    var bookCategories = ViewBag.BookCategories as List<Category>;
+    bool bookInWishlist = ViewBag.BookInWishlist;
 }
 
 <div class="container book-details">
@@ -11,7 +12,7 @@
         <img src="~/book-images/@Model.Img" alt="@Model.Img">
     </div>
     <div class="book-info">
-        <h1 class="book-title">I Don't Love You Anymore</h1>
+        <h1 class="book-title">@Model.Title</h1>
         <div class="rating">
             <span class="star"><i class="fas fa-star"></i></span>
             <span class="star"><i class="fas fa-star"></i></span>
@@ -20,28 +21,34 @@
             <span class="star-empty"><i class="far fa-star"></i></span>
             <span class="rating-value">4.0</span>
         </div>
-        <p class="author">Auther: @Model.Author</p>
-        <p class="category">Category: 
-            @foreach (var bookCategory in Model.Book_Categories)
+        <p class="author"><strong>Auther:</strong> @Model.Author</p>
+        <p class="category"><strong>Category:</strong> 
+            @foreach (var category in bookCategories)
             {
-                <span class="category-item">@bookCategory.Category.Name</span>
+                if (category == bookCategories.Last())
+                {
+                    <span>@category.Name.</span>
+                }
+                else {
+                    <span>@category.Name, </span>
+                }
             }
-        </p>
+            </p>
         <div class="description">
             <p>@Model.Description</p>
         </div>
-        <div class="actions">
-            <button class="read-button">Add to cart</button>
-            <button class="download-button">Add to wishlist</button>
-        </div>
-       
-        
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div class="actions">
+                <button class="read-button">Add to cart</button>
+                <button id="wishlistButton" onclick="WishlistToggler(@Model.Id)" class="download-button @(bookInWishlist? "added" : "")"> @(bookInWishlist ? "Added to wishlist" : "Add to wishlist")</button>
+            </div>
+        }
+        else {
+            <h3 class="login-prompt">Please <a class="btn btn-primary" href="@Url.Action("Login", "Account")">login</a> to add this book to your wishlist/cart.</h3>
+        }
     </div>
 </div>
-
-
-<h2>@Model.Title</h2>
-<p><strong>Author:</strong> @Model.Author</p>
 
 <hr />
 
@@ -68,24 +75,55 @@ else
     <p>No reviews yet for this book.</p>
 }
 <div class="add-review">
-    <h3>Add Comment </h3>
-    @using (Html.BeginForm("AddReview", "Book", FormMethod.Post)) 
+    @if (!SignInManager.IsSignedIn(User))
     {
-        @Html.AntiForgeryToken()
-       
-        @Html.HiddenFor(model => model.Id)
-       
-        <div class="form-group">
-            <label for="Comment">Comments:</label>
-            @Html.TextArea("Comment", new { @class = "form-control", rows = "5" })
-        </div>
-        <button type="submit" class="btn btn-primary">Send</button>
+        <h3 class="login-prompt">Please login to add a review.</h3>
     }
+    else
+    {
+    <h3>Add Comment </h3>
+        using (Html.BeginForm("AddReview", "Book", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                <label for="Comment">Comments:</label>
+                @Html.TextArea("Comment", new { @class = "form-control", rows = "5" })
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        }       }
+
 </div>
 
 @section Styles {
     <link href="~/css/bookDetails.css" rel="stylesheet" />
 }
 
- 
+@section Scripts {
+    <script>
+        function WishlistToggler(BookId) {
+            const button = document.getElementById("wishlistButton");
+
+            $.ajax({
+                type: "POST",
+                url: button.classList.contains("added")? '@Url.Action("RemoveFromWishlist", "Book")' : '@Url.Action("AddToWishlist", "Book")',
+                data: { id: BookId },
+                success: function () {
+                    if (button.classList.contains("added")) {
+                        button.classList.remove("added");
+                        button.innerHTML = "Add to wishlist";
+                    } else {
+                        button.classList.add("added");
+                        button.innerHTML = "Added to wishlist";
+                    }
+                },
+                error: function () {
+                    alert("An error occurred while adding the book to the wishlist.");
+                }
+            });
+        }
+    </script>
+}
 

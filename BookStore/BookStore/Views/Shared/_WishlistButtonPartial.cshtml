@@ -1,0 +1,14 @@
+﻿@model WishlistButtonViewModel
+
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<User> SignInManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div id="wishlist-btn-@Model.BookId"
+         class="card-icon book-details-page-wishlist" onclick="ToggleWishlist(@Model.BookId)"
+         style="color:@(Model.IsInWishlist? "red" : "inherit")">
+        <i class="@(Model.IsInWishlist? "fa-solid" : "fa-regular") fa-heart"></i>
+    </div>
+}
+

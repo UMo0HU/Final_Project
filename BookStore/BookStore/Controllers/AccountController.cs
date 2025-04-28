@@ -1,6 +1,7 @@
 ﻿using BookStore.Models;
 using BookStore.Service.Account;
 using BookStore.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
@@ -8,10 +9,12 @@ namespace BookStore.Controllers
     public class AccountController : Controller
     {
         private readonly IAccountService _accountService;
+
         public AccountController(IAccountService accountService)
         {
             _accountService = accountService;
         }
+
         public IActionResult Login()
         {
             return View();
@@ -22,8 +25,8 @@ namespace BookStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = _accountService.LoginUserAsync(loginViewModel);
-                if (result.Result.Succeeded)
+                var result = await _accountService.LoginUserAsync(loginViewModel);
+                if (result.Succeeded)
                 {
                     if (User.IsInRole("Admin"))
                     {
@@ -53,14 +56,14 @@ namespace BookStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = _accountService.RegisterUserAsync(registerViewModel);
-                if (result.Result.Succeeded)
+                var result = await _accountService.RegisterUserAsync(registerViewModel);
+                if (result.Succeeded)
                 {
                     return RedirectToAction("Login", "Account");
                 }
                 else
                 {
-                    foreach (var error in result.Result.Errors)
+                    foreach (var error in result.Errors)
                     {
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
