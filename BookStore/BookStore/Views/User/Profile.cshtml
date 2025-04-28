@@ -1,13 +1,20 @@
-﻿@model List<Wishlist>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<User> SignInManager
+@model List<Book>
 @{
     ViewBag.Title = "Profile";
-    Layout = "_Layout";
+    var user = ViewBag.User as User;
 }
 <!-- Profile Section -->
 <div class="container profile-section">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyQj1a4i_d_Uw51VxX9FMapTeFxh4v-f_POg&s" alt="Profile Image" class="profile-img">
-    <h2 class="profile-name">Anas Habib</h2>
-    <h4 class="profile-books">23 Books</h4>
+    @if(user.ProfilePicture != null){
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyQj1a4i_d_Uw51VxX9FMapTeFxh4v-f_POg&s" alt="Profile Image" class="profile-img">
+    } 
+    else {
+        <img src="~/images/default_user.jpg" alt="Profile Image" class="profile-img">
+    }
+    <h2 class="profile-name">@User.Identity.Name</h2>
+    <h4 class="profile-books">@Model.Count() Books</h4>
     <p class="profile-bio">Lorem ipsum dolor sit amet consectetur.</p>
     <div class="social-icons">
         <a href="#" class="text-primary"><i class="fab fa-facebook-f"></i></a>
@@ -19,22 +26,19 @@
 <div class="container books-section">
     <h3>My Books</h3>
     <div class="cards">
+        @foreach (var book in Model)
+        {
         <div class="cards-card">
-            <div class="card-img"><img src="~/images/image (3).png" alt=""></div>
-            <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
+            <div id="wishlist-btn-@book.Id"
+                    class="card-icon book-details-page-wishlist" onclick="ToggleWishlist(@book.Id)"
+                    style="color: red">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
+                <div class="card-img"><img src="~/book-images/@book.Img" width="200" height="300" alt=""></div>
+            </a>
         </div>
-        <div class="cards-card">
-            <div class="card-img"><img src="~/images/image (5).png" alt=""></div>
-            <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-        </div>
-        <div class="cards-card">
-            <div class="card-img "><img src="~/images/image (4).png" alt=""></div>
-            <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-        </div>
-        <div class="cards-card">
-            <div class="card-img"><img src="~/images/Group 104.png" alt=""></div>
-            <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-        </div>
+        }
     </div>
 </div>
 
@@ -43,5 +47,9 @@
 }
 
 @section Scripts {
+    <script>
+        const addToWishlistUrl = '@Url.Action("AddToWishlist", "Book")';
+        const removeFromWishlistUrl = '@Url.Action("RemoveFromWishlist", "Book")';
+    </script>
     <script src="~/js/heartToggler.js"></script>
 }

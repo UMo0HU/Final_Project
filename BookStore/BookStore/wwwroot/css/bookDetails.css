@@ -1,4 +1,10 @@
-﻿.book-details {
+﻿:root {
+    --buttons-color: #AAB396;
+    --hover-color: #8C9A6B;
+    --active-color: #8f7161;
+}
+
+.book-details {
     display: flex;
     padding: 20px;
 }
@@ -47,7 +53,7 @@
 }
 
 .actions button {
-    background-color: #8f7161;
+    background-color: var(--buttons-color);
     color: #fff;
     border: none;
     padding: 15px 30px;
@@ -55,12 +61,21 @@
     cursor: pointer;
     margin-left: 10px;
     font-size: 16px;
+    font-weight: 500;
 }
 
-    .actions button:first-child {
-        margin-left: 0;
-    }
+.actions button:first-child {
+    margin-left: 0;
+}
 
+.actions button:hover, .actions button.added:hover {
+    background-color: var(--hover-color);
+}
+
+.actions button.added {
+    background-color: var(--active-color);
+    color: #fff;
+}
 
 .add-review {
     border: 1px solid #ddd; /* لون رمادي فاتح للإطار */
@@ -69,39 +84,40 @@
     border-radius: 5px; /* حواف مدورة بسيطة */
 }
 
-    .add-review h3 {
-        font-size: 1.2em; 
-        color: #333;
-        margin-top: 0; 
-        margin-bottom: 10px; 
-    }
+.add-review h3 {
+    font-size: 1.2em; 
+    color: #333;
+    margin-top: 0; 
+    margin-bottom: 10px; 
+}
 
-    .add-review .form-group {
-        margin-bottom: 15px;
-    }
+.add-review .form-group {
+    margin-bottom: 15px;
+}
 
-    .add-review label {
-        display: block; 
-        margin-bottom: 5px;
-        font-weight: bold; 
+.add-review label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-    .add-review textarea.form-control {
-        width: 100%; 
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box; 
-    }
+.add-review textarea.form-control {
+    width: 100%; 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
 
-    .add-review button.btn-primary {
-        background-color: #007bff; 
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+.add-review button.btn-primary {
+    background-color: #007bff; 
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        .add-review button.btn-primary:hover {
-            background-color: #0056b3;
-        }
+.add-review button.btn-primary:hover {
+    background-color: #0056b3;
+}

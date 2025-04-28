@@ -51,6 +51,7 @@ wwwroot\font-awesome\webfonts\fa-solid-900.woff2
 wwwroot\font-awesome\webfonts\fa-v4compatibility.ttf
 wwwroot\font-awesome\webfonts\fa-v4compatibility.woff2
 wwwroot\images\6046205542424233186.jpg
+wwwroot\images\default_user.jpg
 wwwroot\images\EmailLogo.png
 wwwroot\images\FacebookCircled.svg
 wwwroot\images\Google.svg
