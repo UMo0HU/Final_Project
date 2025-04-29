@@ -787,3 +787,14 @@ D:\DEPI\BookStoreProject\BookStore\BookStore\obj\Debug\net8.0\refint\BookStore.d
 D:\DEPI\BookStoreProject\BookStore\BookStore\obj\Debug\net8.0\BookStore.pdb
 D:\DEPI\BookStoreProject\BookStore\BookStore\obj\Debug\net8.0\BookStore.genruntimeconfig.cache
 D:\DEPI\BookStoreProject\BookStore\BookStore\obj\Debug\net8.0\ref\BookStore.dll
+E:\Final project\BookStore\BookStore\bin\Debug\net8.0\libman.json
+E:\Final project\BookStore\BookStore\bin\Debug\net8.0\Google.Apis.dll
+E:\Final project\BookStore\BookStore\bin\Debug\net8.0\Google.Apis.Auth.dll
+E:\Final project\BookStore\BookStore\bin\Debug\net8.0\Google.Apis.Auth.AspNetCore3.dll
+E:\Final project\BookStore\BookStore\bin\Debug\net8.0\Google.Apis.Core.dll
+E:\Final project\BookStore\BookStore\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+E:\Final project\BookStore\BookStore\bin\Debug\net8.0\Newtonsoft.Json.dll
+E:\Final project\BookStore\BookStore\bin\Debug\net8.0\System.Management.dll
+E:\Final project\BookStore\BookStore\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll
+E:\Final project\BookStore\BookStore\obj\Debug\net8.0\BookStore.MvcApplicationPartsAssemblyInfo.cs
+E:\Final project\BookStore\BookStore\obj\Debug\net8.0\BookStore.sourcelink.json

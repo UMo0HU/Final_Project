@@ -26,5 +26,10 @@ namespace BookStore.Controllers
             return View(books);
         }
 
+        public async Task<IActionResult> CheckOut()
+        {
+            
+            return View();
+        }
     }
 }

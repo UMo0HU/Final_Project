@@ -1,0 +1,116 @@
+﻿@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+.table {
+    background-color: #F5F5DC;
+    color: #5C4033;
+    border-radius: 8px;
+}
+
+    .table thead th {
+        background-color: #D2B48C;
+        color: #5C4033;
+        font-weight: 600;
+    }
+
+    .table tbody tr {
+        border-bottom: 1px solid #D2B48C;
+        transition: background-color 0.2s ease;
+    }
+
+        .table tbody tr:hover {
+            background-color: #FFF8DC;
+        }
+
+.card {
+    background: linear-gradient(135deg, #F5F5DC 0%, #FFF8DC 100%);
+    border: 1px solid #D2B48C;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    color: #5C4033;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
+    border: none;
+    color: #F5F5DC;
+    font-weight: 600;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .btn-primary:hover {
+        background: #6B3A1E;
+        transform: scale(1.05);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+.btn-link {
+    color: #A0522D;
+    transition: color 0.2s ease;
+}
+
+    .btn-link:hover {
+        color: #6B3A1E;
+    }
+
+.form-control {
+    background-color: #FFF8DC;
+    border: 1px solid #D2B48C;
+    color: #5C4033;
+    border-radius: 6px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .form-control:focus {
+        border-color: #A0522D;
+        box-shadow: 0 0 0 0.2rem rgba(160, 82, 45, 0.25);
+    }
+
+.form-label {
+    color: #8B4513;
+    font-weight: 500;
+}
+
+.form-check-input:checked {
+    background-color: #A0522D;
+    border-color: #A0522D;
+}
+
+.rounded.border {
+    border-color: #D2B48C !important;
+    background-color: #FFF8DC;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+    .rounded.border:hover {
+        background-color: #F5F5DC;
+    }
+
+p, span {
+    color: #ad8370;
+}
+
+.text-body {
+    color: #bc846a !important;
+}
+
+.fas, .fab {
+    color: #A0522D;
+}
+
+hr {
+    border-color: #D2B48C;
+}
+
+.d-flex.justify-content-between p {
+    color: #ac7359;
+    font-weight: 600;
+}
