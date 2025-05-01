@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nmmLT4QTdAIwMJQSIwvR0ossPxcbSVcIRPW6C5YETl8=",
+  "Hash": "UEmJMzxUwdtGsPeDQdshwekED4zkEOdsAwEGvip+ZS8=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -1506,27 +1506,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\UserLogo.png"
-    },
-    {
-      "Identity": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\js\\heartToggler.js",
-      "SourceId": "BookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\",
-      "BasePath": "_content/BookStore",
-      "RelativePath": "js/heartToggler#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "3r8b2a0bt1",
-      "Integrity": "8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\heartToggler.js"
     },
     {
       "Identity": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\js\\site.js",
@@ -8798,88 +8777,6 @@
         {
           "Name": "integrity",
           "Value": "sha256-G3DGwanhi2N38HsC0NlhXLT0r5VkSfstCJKlFw/5hpU="
-        }
-      ]
-    },
-    {
-      "Route": "js/heartToggler.3r8b2a0bt1.js",
-      "AssetFile": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\js\\heartToggler.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 01 May 2025 01:56:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "3r8b2a0bt1"
-        },
-        {
-          "Name": "label",
-          "Value": "js/heartToggler.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U="
-        }
-      ]
-    },
-    {
-      "Route": "js/heartToggler.js",
-      "AssetFile": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\js\\heartToggler.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 01 May 2025 01:56:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U="
         }
       ]
     },

@@ -281,10 +281,6 @@
       "PackagePath": "staticwebassets\\images\\loginBackground.jpeg"
     },
     {
-      "Id": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\js\\heartToggler.js",
-      "PackagePath": "staticwebassets\\js\\heartToggler.js"
-    },
-    {
       "Id": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

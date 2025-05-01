@@ -67,7 +67,6 @@ wwwroot\images\PasswordLogo.png
 wwwroot\images\Search.png
 wwwroot\images\User.svg
 wwwroot\images\UserLogo.png
-wwwroot\js\heartToggler.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
