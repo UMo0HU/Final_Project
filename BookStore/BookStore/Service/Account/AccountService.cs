@@ -16,6 +16,25 @@ namespace BookStore.Service.Account
 
         public async Task<IdentityResult> RegisterUserAsync(RegisterViewModel model)
         {
+            var existingUsername = await _userManager.FindByNameAsync(model.Name);
+            if (existingUsername != null)
+            {
+                return IdentityResult.Failed(new IdentityError
+                {
+                    Code = "DuplicateUserName",
+                    Description = "Username is already taken."
+                });
+            }
+            var existingEmail = await _userManager.FindByEmailAsync(model.Email);
+            if (existingEmail != null)
+            {
+                return IdentityResult.Failed(new IdentityError
+                {
+                    Code = "DuplicateEmail",
+                    Description = "Email is already taken."
+                });
+            }
+
             var user = new User
             {
                 UserName = model.Name,

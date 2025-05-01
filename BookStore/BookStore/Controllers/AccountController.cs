@@ -14,7 +14,7 @@ namespace BookStore.Controllers
         {
             _accountService = accountService;
         }
-
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
@@ -45,7 +45,7 @@ namespace BookStore.Controllers
             }
             return View(loginViewModel);
         }
-
+        [HttpGet]
         public IActionResult Register()
         {
             return View();

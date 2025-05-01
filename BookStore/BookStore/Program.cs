@@ -9,6 +9,7 @@ using BookStore.Service.BookService;
 using BookStore.Service.Account;
 using BookStore.Service.Wishlist;
 using BookStore.Service.Category;
+using BookStore.Service.Review;
 
 namespace BookStore
 {
@@ -35,10 +36,11 @@ namespace BookStore
             .AddEntityFrameworkStores<BookStoreDBContext>()
             .AddDefaultTokenProviders();
 
-            builder.Services.AddScoped<IBookService, BookService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
-            builder.Services.AddScoped<IWishlistService, WishlistService>();
+            builder.Services.AddScoped<IBookService, BookService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<IWishlistService, WishlistService>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
 
             var app = builder.Build();
 
