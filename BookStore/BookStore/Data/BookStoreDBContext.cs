@@ -64,8 +64,6 @@ namespace BookStore.Data
 
             // Review relationship
             modelBuilder.Entity<Review>()
-                .HasKey(r => new { r.UserId, r.BookId });
-            modelBuilder.Entity<Review>()
                 .HasOne(r => r.User)
                 .WithMany(u => u.Reviews)
                 .HasForeignKey(r => r.UserId);
@@ -73,6 +71,8 @@ namespace BookStore.Data
                 .HasOne(r => r.Book)
                 .WithMany(b => b.Reviews)
                 .HasForeignKey(r => r.BookId);
+
+
 
         }
 

@@ -126,3 +126,14 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\sweetalert2\sweetalert2.all.js
+wwwroot\sweetalert2\sweetalert2.all.min.js
+wwwroot\sweetalert2\sweetalert2.css
+wwwroot\sweetalert2\sweetalert2.d.ts
+wwwroot\sweetalert2\sweetalert2.esm.all.js
+wwwroot\sweetalert2\sweetalert2.esm.all.min.js
+wwwroot\sweetalert2\sweetalert2.esm.js
+wwwroot\sweetalert2\sweetalert2.esm.min.js
+wwwroot\sweetalert2\sweetalert2.js
+wwwroot\sweetalert2\sweetalert2.min.css
+wwwroot\sweetalert2\sweetalert2.min.js

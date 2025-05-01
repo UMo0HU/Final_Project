@@ -1,18 +1,20 @@
 ﻿@using Microsoft.AspNetCore.Identity;
-@model Book
+@model ReviewViewModel
 @inject SignInManager<User> SignInManager
 @{
     ViewBag.Title = "Book Details";
+    var Book = Model.Book;
     var bookCategories = ViewBag.BookCategories as List<Category>;
+    var userReviewIds = ViewBag.UserReviewIds as List<int> ?? new List<int>();
     bool bookInWishlist = ViewBag.BookInWishlist;
 }
 
 <div class="container book-details">
     <div class="book-cover">
-        <img src="~/book-images/@Model.Img" alt="@Model.Img">
+        <img src="~/book-images/@Book.Img" alt="@Book.Img">
     </div>
     <div class="book-info">
-        <h1 class="book-title">@Model.Title</h1>
+        <h1 class="book-title">@Book.Title</h1>
         <div class="rating">
             <span class="star"><i class="fas fa-star"></i></span>
             <span class="star"><i class="fas fa-star"></i></span>
@@ -21,7 +23,7 @@
             <span class="star-empty"><i class="far fa-star"></i></span>
             <span class="rating-value">4.0</span>
         </div>
-        <p class="author"><strong>Auther:</strong> @Model.Author</p>
+        <p class="author"><strong>Auther:</strong> @Book.Author</p>
         <p class="category"><strong>Category:</strong> 
             @foreach (var category in bookCategories)
             {
@@ -35,13 +37,13 @@
             }
             </p>
         <div class="description">
-            <p>@Model.Description</p>
+            <p>@Book.Description</p>
         </div>
         @if (SignInManager.IsSignedIn(User))
         {
             <div class="actions">
                 <button class="read-button">Add to cart</button>
-                <button id="wishlistButton" onclick="WishlistToggler(@Model.Id)" class="download-button @(bookInWishlist? "added" : "")"> @(bookInWishlist ? "Added to wishlist" : "Add to wishlist")</button>
+                <button id="wishlistButton" onclick="WishlistToggler(@Book.Id)" class="download-button @(bookInWishlist? "added" : "")"> @(bookInWishlist ? "Added to wishlist" : "Add to wishlist")</button>
             </div>
         }
         else {
@@ -52,28 +54,12 @@
 
 <hr />
 
-<h3>Customer Reviews</h3>
-
-@if (Model.Reviews != null && Model.Reviews.Any())
-{
-    <ul>
-        @foreach (BookStore.Models.Review review in Model.Reviews)
-        {
-            <li>
-                <div>
-                    <strong>@(review.User != null ? review.User.UserName : "Anonymous")</strong> 
-                    - @review.Rating/5 Stars
-                </div>
-                <div>@review.Content</div>
-                <div><small>Posted on @review.CreatedAt.ToLocalTime().ToString("g")</small></div>
-            </li>
-        }
-    </ul>
-}
-else
-{
-    <p>No reviews yet for this book.</p>
-}
+<div id="reviwesContainer">
+    @await Html.PartialAsync("_ReviewsPartial", new UserReviewsViewModel{
+        reviews = Book.Reviews.ToList(),
+        UserReviewsId = userReviewIds
+    })
+</div>
 <div class="add-review">
     @if (!SignInManager.IsSignedIn(User))
     {
@@ -82,18 +68,32 @@ else
     else
     {
     <h3>Add Comment </h3>
-        using (Html.BeginForm("AddReview", "Book", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-
-            @Html.HiddenFor(model => model.Id)
-
+        <form id="reviewForm" method="post">
+            <input type="hidden" asp-for="BookId" value="@Book.Id" />
+            <h5 class="mb-2">Rating:</h5>
+            <div class="form-group">
+                <div class="star-rating animated-stars">
+                    <input type="radio" id="star5" asp-for="Rating" value="5">
+                    <label for="star5" class="fas fa-star"></label>
+                    <input type="radio" id="star4" asp-for="Rating" value="4">
+                    <label for="star4" class="fas fa-star"></label>
+                    <input type="radio" id="star3" asp-for="Rating" value="3">
+                    <label for="star3" class="fas fa-star"></label>
+                    <input type="radio" id="star2" asp-for="Rating" value="2">
+                    <label for="star2" class="fas fa-star"></label>
+                    <input type="radio" id="star1" asp-for="Rating" value="1">
+                    <label for="star1" class="fas fa-star"></label>
+                </div>
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label for="Comment">Comments:</label>
-                @Html.TextArea("Comment", new { @class = "form-control", rows = "5" })
+                <textarea class="form-control" asp-for="Content" rows="4" required></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary">Send</button>
-        }       }
+        </form>
+    }
 
 </div>
 
@@ -103,6 +103,14 @@ else
 
 @section Scripts {
     <script>
+        document.querySelectorAll('.star-rating:not(.readonly) label').forEach(star => {
+            star.addEventListener('click', function() {
+                this.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
         function WishlistToggler(BookId) {
             const button = document.getElementById("wishlistButton");
 
@@ -118,12 +126,69 @@ else
                         button.classList.add("added");
                         button.innerHTML = "Added to wishlist";
                     }
+                    Swal.fire(button.classList.contains("added")? "Book Added To Wishlist." : "Book Removed From Wishlist.");
                 },
                 error: function () {
-                    alert("An error occurred while adding the book to the wishlist.");
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!",
+                    });
                 }
             });
         }
+
+        function DeleteReview(reviewId, bookId) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("DeleteReview", "Review")',
+                data: {id: reviewId},
+                success: function () {
+                    $("#reviwesContainer").load('@Url.Action("GetReviews", "Review")?bookId=' + bookId);
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "Review Deleted Successfully!",
+                        icon: "success"
+                    });
+                },
+                error: function () {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+
+        $("#reviewForm").submit(function (e) {
+            e.preventDefault();
+            const formData = {
+                BookId: $('input[name="BookId"]').val(),
+                Rating: $('input[name="Rating"]:checked').val(),
+                Content: $('textarea[name="Content"]').val(),
+            };
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddReview", "Review")',
+                data: formData,
+                success: function () {
+                    $("#reviwesContainer").load('@Url.Action("GetReviews", "Review")?bookId=@Book.Id');
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "Review Created Successfully!",
+                        icon: "success"
+                    });
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+            });
+        });
     </script>
 }
 

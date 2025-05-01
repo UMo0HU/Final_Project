@@ -1,6 +1,7 @@
 ﻿using BookStore.Data;
 using BookStore.Models;
 using BookStore.Service.Book;
+using BookStore.Service.Review;
 using BookStore.Service.Wishlist;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -13,11 +14,12 @@ namespace BookStore.Controllers
     {
         private readonly IBookService _bookService;
         private readonly IWishlistService _wishlistService;
-
-        public BookController(IBookService bookService, IWishlistService wishlistService)
+        private readonly IReviewService _reviewService;
+        public BookController(IBookService bookService, IWishlistService wishlistService, IReviewService reviewService)
         {
             _bookService = bookService;
             _wishlistService = wishlistService;
+            _reviewService = reviewService;
         }
 
         public async Task<IActionResult> Index()
@@ -27,12 +29,15 @@ namespace BookStore.Controllers
         }
         public async Task<IActionResult> Details(int id)
         {
+            ReviewViewModel reviewViewModel = new ReviewViewModel();
             Book book = await _bookService.GetBookDetails(id);
             ViewBag.BookCategories = book.Book_Categories
                 .Select(bc => bc.Category)
                 .ToList();
+            reviewViewModel.Book = book;
             ViewBag.BookInWishlist = await _wishlistService.IsBookInWishlist(id);
-            return View(book);
+            ViewBag.UserReviewIds = (await _reviewService.GetReviewsByUserId(id)).Select(r => r.Id).ToList();
+            return View(reviewViewModel);
         }
 
         [HttpPost]

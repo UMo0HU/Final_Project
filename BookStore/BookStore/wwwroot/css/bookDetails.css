@@ -121,3 +121,77 @@
 .add-review button.btn-primary:hover {
     background-color: #0056b3;
 }
+
+/*Rating Stars Style:*/
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    cursor: pointer;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    font-size: 24px;
+    padding: 0 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+i.star {
+    color: #ffc107;
+    font-size: 24px;
+    padding: 0 2px;
+}
+
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: #ffc107;
+}
+
+/* Comment Section Style: */
+.comment-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.comment-box {
+    background: #8C9A6B;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+    border: 1px solid #e9ecef;
+    font-weight: 900;
+    color: #5c3d2e;
+}
+
+.comment-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.comment-time {
+    color: #8f7161;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
