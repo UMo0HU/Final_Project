@@ -5,8 +5,10 @@
     ViewBag.Title = "Book Details";
     var Book = Model.Book;
     var bookCategories = ViewBag.BookCategories as List<Category>;
-    var userReviewIds = ViewBag.UserReviewIds as List<int> ?? new List<int>();
+    var userReview = ViewBag.UserReview as Review ?? null;
     bool bookInWishlist = ViewBag.BookInWishlist;
+    double bookRating = ViewBag.BookRating;
+
 }
 
 <div class="container book-details">
@@ -15,13 +17,8 @@
     </div>
     <div class="book-info">
         <h1 class="book-title">@Book.Title</h1>
-        <div class="rating">
-            <span class="star"><i class="fas fa-star"></i></span>
-            <span class="star"><i class="fas fa-star"></i></span>
-            <span class="star"><i class="fas fa-star"></i></span>
-            <span class="star"><i class="fas fa-star"></i></span>
-            <span class="star-empty"><i class="far fa-star"></i></span>
-            <span class="rating-value">4.0</span>
+        <div id="ratingContainer">
+            @await Html.PartialAsync("_BookRatePartial", bookRating)
         </div>
         <p class="author"><strong>Auther:</strong> @Book.Author</p>
         <p class="category"><strong>Category:</strong> 
@@ -55,10 +52,7 @@
 <hr />
 
 <div id="reviwesContainer">
-    @await Html.PartialAsync("_ReviewsPartial", new UserReviewsViewModel{
-        reviews = Book.Reviews.ToList(),
-        UserReviewsId = userReviewIds
-    })
+    @await Html.PartialAsync("_ReviewsPartial", Book.Reviews.ToList())
 </div>
 <div class="add-review">
     @if (!SignInManager.IsSignedIn(User))
@@ -67,32 +61,39 @@
     }
     else
     {
-    <h3>Add Comment </h3>
-        <form id="reviewForm" method="post">
-            <input type="hidden" asp-for="BookId" value="@Book.Id" />
-            <h5 class="mb-2">Rating:</h5>
-            <div class="form-group">
-                <div class="star-rating animated-stars">
-                    <input type="radio" id="star5" asp-for="Rating" value="5">
-                    <label for="star5" class="fas fa-star"></label>
-                    <input type="radio" id="star4" asp-for="Rating" value="4">
-                    <label for="star4" class="fas fa-star"></label>
-                    <input type="radio" id="star3" asp-for="Rating" value="3">
-                    <label for="star3" class="fas fa-star"></label>
-                    <input type="radio" id="star2" asp-for="Rating" value="2">
-                    <label for="star2" class="fas fa-star"></label>
-                    <input type="radio" id="star1" asp-for="Rating" value="1">
-                    <label for="star1" class="fas fa-star"></label>
+        @if (userReview != null)
+        {
+            <h3 class="login-prompt">You have already reviewed this book.</h3>
+        }
+        else
+        {
+            <h3>Add Comment </h3>
+            <form id="reviewForm" method="post">
+                <input type="hidden" asp-for="BookId" value="@Book.Id" />
+                <h5 class="mb-2">Rating:</h5>
+                <div class="form-group">
+                    <div class="star-rating animated-stars">
+                        <input type="radio" id="star5" asp-for="Rating" value="5">
+                        <label for="star5" class="fas fa-star"></label>
+                        <input type="radio" id="star4" asp-for="Rating" value="4">
+                        <label for="star4" class="fas fa-star"></label>
+                        <input type="radio" id="star3" asp-for="Rating" value="3">
+                        <label for="star3" class="fas fa-star"></label>
+                        <input type="radio" id="star2" asp-for="Rating" value="2">
+                        <label for="star2" class="fas fa-star"></label>
+                        <input type="radio" id="star1" asp-for="Rating" value="1" checked>
+                        <label for="star1" class="fas fa-star"></label>
+                    </div>
+                    <span asp-validation-for="Rating" class="text-danger"></span>
                 </div>
-                <span asp-validation-for="Rating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label for="Comment">Comments:</label>
-                <textarea class="form-control" asp-for="Content" rows="4" required></textarea>
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary">Send</button>
-        </form>
+                <div class="form-group">
+                    <label for="Comment">Comments:</label>
+                    <textarea class="form-control" asp-for="Content" rows="4" required></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        }
     }
 
 </div>
@@ -138,17 +139,21 @@
             });
         }
 
-        function DeleteReview(reviewId, bookId) {
+        function DeleteReview(userId, bookId) {
             $.ajax({
                 type: "POST",
                 url: '@Url.Action("DeleteReview", "Review")',
-                data: {id: reviewId},
+                data: {bookId: bookId, userId: userId},
                 success: function () {
-                    $("#reviwesContainer").load('@Url.Action("GetReviews", "Review")?bookId=' + bookId);
                     Swal.fire({
-                        title: "Good job!",
-                        text: "Review Deleted Successfully!",
+                        title: "Success!",
+                        text: "Review Deleted successfull",
                         icon: "success"
+
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        }
                     });
                 },
                 error: function () {
@@ -173,11 +178,14 @@
                 url: '@Url.Action("AddReview", "Review")',
                 data: formData,
                 success: function () {
-                    $("#reviwesContainer").load('@Url.Action("GetReviews", "Review")?bookId=@Book.Id');
                     Swal.fire({
-                        title: "Good job!",
-                        text: "Review Created Successfully!",
+                        title: "Success!",
+                        text: "Review Added successfully",
                         icon: "success"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        }
                     });
                 },
                 error: function () {

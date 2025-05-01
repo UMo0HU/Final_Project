@@ -1,13 +1,15 @@
-﻿@model UserReviewsViewModel
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> userManager
+@model List<Review>
 @{
-    var reviewIds = Model.UserReviewsId;
-    var reviews = Model.reviews;
+
+    var userId = userManager.GetUserId(User);
 }
 <h3>Customer Reviews</h3>
 
-@if (reviews != null && reviews.Any())
+@if (Model != null && Model.Any())
 {
-    @foreach (var review in reviews)
+    @foreach (var review in Model)
     {
     <div class="comment-box">
         <div class="d-flex gap-3">
@@ -38,9 +40,9 @@
                 <p class="mb-2">
                     @review.Content
                 </p>
-                @if (reviewIds.Contains(review.Id))
+                @if (review.UserId == userId)
                 {
-                        <button onclick="DeleteReview(@review.Id, @review.BookId)" class="btn btn-danger">Delete Review</button>
+                        <button onclick="DeleteReview('@userId', '@review.BookId')" class="btn btn-danger">Delete Review</button>
                 }
             </div>
         </div>

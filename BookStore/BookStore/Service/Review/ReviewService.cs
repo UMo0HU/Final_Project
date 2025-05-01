@@ -37,14 +37,13 @@ namespace BookStore.Service.Review
             }
             return false;
         }
-        public async Task<bool> DeleteReview(int id)
+        public async Task<bool> DeleteReview(int bookId, string userId)
         {
             var user = _httpContextAccessor.HttpContext?.User;
             if (user != null || user.Identity.IsAuthenticated)
             {
-                var userId = _userManager.GetUserId(user);
                 var reviewerId = await _context.Reviews
-                    .Where(r => r.Id == id)
+                    .Where(r => r.BookId == bookId && r.UserId == userId)
                     .Select(r => r.UserId)
                     .FirstOrDefaultAsync();
                 if(reviewerId != userId)
@@ -52,7 +51,7 @@ namespace BookStore.Service.Review
                     return false;
                 }
                 var review = await _context.Reviews
-                    .FirstOrDefaultAsync(r => r.Id == id && r.UserId == userId);
+                    .FirstOrDefaultAsync(r => r.BookId == bookId && r.UserId == userId);
                 _context.Reviews.Remove(review);
                 await _context.SaveChangesAsync();
                 return true;
@@ -70,28 +69,11 @@ namespace BookStore.Service.Review
             return reviews;
         }
 
-        public async Task<List<Models.Review>> GetReviewsByUserId(int bookId)
+        public async Task<Models.Review> GetUserReview(int bookId, string userId)
         {
-            var user = _httpContextAccessor.HttpContext?.User;
-            if (user != null || user.Identity.IsAuthenticated)
-            {
-                var userReviewsId = await _context.Reviews
-                    .Include(r => r.User)
-                    .Where(r => r.UserId == _userManager.GetUserId(user) && r.BookId == bookId)
-                    .ToListAsync();
-                
-                return userReviewsId;
-            }
-            return null;
-        }
-
-        public async Task<int> GetBookIdByReviewId(int reviewId)
-        {
-            var bookId = await _context.Reviews
-                .Where(r => r.Id == reviewId)
-                .Select(r => r.BookId)
-                .FirstOrDefaultAsync();
-            return bookId;
+            var review = await _context.Reviews
+                .FirstOrDefaultAsync(r => r.BookId == bookId && r.UserId == userId);
+            return review;
         }
     }
 }

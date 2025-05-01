@@ -1,0 +1,23 @@
+﻿@model double
+
+<div class="rating">
+    @if (Model == 0)
+    {
+        <span class="no-rating">No rating yet</span>
+    }
+    else
+    {
+        @for (int i = 1; i <= 5; i++)
+        {
+            if (i <= Model)
+            {
+                <span class="star"><i class="fas fa-star"></i></span>
+            }
+            else
+            {
+                <span class="star-empty"><i class="far fa-star"></i></span>
+            }
+        }
+        <span class="rating-value">@Model</span>
+    }
+</div>

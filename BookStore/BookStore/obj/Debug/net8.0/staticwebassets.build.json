@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UEmJMzxUwdtGsPeDQdshwekED4zkEOdsAwEGvip+ZS8=",
+  "Hash": "Ft5cU6QXz/BAnmop8mlgRQQMzpIt3CVkUaWXuDuy+oI=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -99,6 +99,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\book-images\\TheOldManAndTheSea.jpg"
+    },
+    {
+      "Identity": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\book-images\\Thinking_Like_a_Human.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "book-images/Thinking_Like_a_Human#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ruga0o8idf",
+      "Integrity": "LSxn2Usnc5qg6p6U84ao0Sg7HbROZ+mv6pd7Ct8+RxM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\book-images\\Thinking_Like_a_Human.jpg"
     },
     {
       "Identity": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\css\\account.css",
@@ -2981,7 +3002,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 20:55:14 GMT"
+          "Value": "Thu, 01 May 2025 16:34:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3026,7 +3047,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 20:55:14 GMT"
+          "Value": "Thu, 01 May 2025 16:34:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3063,7 +3084,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 20:53:36 GMT"
+          "Value": "Thu, 01 May 2025 16:31:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3108,7 +3129,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Apr 2025 20:53:36 GMT"
+          "Value": "Thu, 01 May 2025 16:31:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3119,6 +3140,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-l4RsCi/WcCboQ6RJsPe1DC84mgdY/X20m9jIF5BKu/c="
+        }
+      ]
+    },
+    {
+      "Route": "book-images/Thinking_Like_a_Human.jpg",
+      "AssetFile": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\book-images\\Thinking_Like_a_Human.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1410751"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LSxn2Usnc5qg6p6U84ao0Sg7HbROZ+mv6pd7Ct8+RxM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 01 May 2025 16:37:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LSxn2Usnc5qg6p6U84ao0Sg7HbROZ+mv6pd7Ct8+RxM="
+        }
+      ]
+    },
+    {
+      "Route": "book-images/Thinking_Like_a_Human.ruga0o8idf.jpg",
+      "AssetFile": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\book-images\\Thinking_Like_a_Human.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1410751"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LSxn2Usnc5qg6p6U84ao0Sg7HbROZ+mv6pd7Ct8+RxM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 01 May 2025 16:37:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ruga0o8idf"
+        },
+        {
+          "Name": "label",
+          "Value": "book-images/Thinking_Like_a_Human.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LSxn2Usnc5qg6p6U84ao0Sg7HbROZ+mv6pd7Ct8+RxM="
         }
       ]
     },

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\book-images\\The_Days_(book)_book_cover.jpg"
     },
     {
+      "Id": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\book-images\\Thinking_Like_a_Human.jpg",
+      "PackagePath": "staticwebassets\\book-images\\Thinking_Like_a_Human.jpg"
+    },
+    {
       "Id": "D:\\DEPI\\BookStoreProject\\BookStore\\BookStore\\wwwroot\\css\\account.css",
       "PackagePath": "staticwebassets\\css\\account.css"
     },

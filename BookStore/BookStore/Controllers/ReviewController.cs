@@ -25,31 +25,20 @@ namespace BookStore.Controllers
         [Authorize]
         public async Task<IActionResult> AddReview(ReviewViewModel reviewViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { success = false, message = "Invalid data" });
+            }
             var result = await _reviewService.AddReview(reviewViewModel);
             return Json(new { success = result });
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> DeleteReview(int id)
+        public async Task<IActionResult> DeleteReview(int bookId, string userId)
         {
-            var result = await _reviewService.DeleteReview(id);
+            var result = await _reviewService.DeleteReview(bookId, userId);
             return Json(new { success = result });
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetReviews(int bookId)
-        {
-            var reviews = await _reviewService.GetReviewsByBookId(bookId);
-            var userReviewIds = (await _reviewService.GetReviewsByUserId(bookId)).Select(r => r.Id).ToList();
-
-            UserReviewsViewModel userReviewsViewModel = new UserReviewsViewModel
-            {
-                reviews = reviews,
-                UserReviewsId = userReviewIds
-            };
-            return PartialView("_ReviewsPartial", userReviewsViewModel);
-        }
-
     }
 }
