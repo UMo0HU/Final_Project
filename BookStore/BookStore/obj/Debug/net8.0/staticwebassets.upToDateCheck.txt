@@ -1,5 +1,6 @@
 wwwroot\book-images\The_Days_(book)_book_cover.jpg
 wwwroot\book-images\TheOldManAndTheSea.jpg
+wwwroot\book-images\Thinking_Like_a_Human.jpg
 wwwroot\css\account.css
 wwwroot\css\bookDetails.css
 wwwroot\css\categories.css

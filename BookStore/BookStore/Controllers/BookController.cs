@@ -1,5 +1,7 @@
-﻿using BookStore.Data;
+﻿using AspNetCoreGeneratedDocument;
+using BookStore.Data;
 using BookStore.Models;
+using BookStore.Service.Account;
 using BookStore.Service.Book;
 using BookStore.Service.Review;
 using BookStore.Service.Wishlist;
@@ -15,11 +17,13 @@ namespace BookStore.Controllers
         private readonly IBookService _bookService;
         private readonly IWishlistService _wishlistService;
         private readonly IReviewService _reviewService;
-        public BookController(IBookService bookService, IWishlistService wishlistService, IReviewService reviewService)
+        private readonly IAccountService _accountService;
+        public BookController(IBookService bookService, IWishlistService wishlistService, IReviewService reviewService, IAccountService accountService)
         {
             _bookService = bookService;
             _wishlistService = wishlistService;
             _reviewService = reviewService;
+            _accountService = accountService;
         }
 
         public async Task<IActionResult> Index()
@@ -36,7 +40,26 @@ namespace BookStore.Controllers
                 .ToList();
             reviewViewModel.Book = book;
             ViewBag.BookInWishlist = await _wishlistService.IsBookInWishlist(id);
-            ViewBag.UserReviewIds = (await _reviewService.GetReviewsByUserId(id)).Select(r => r.Id).ToList();
+            var Reviews = await _reviewService.GetReviewsByBookId(id);
+            var ratingGroup = Reviews.GroupBy(r => r.Rating)
+                        .Select(g => new { Rating = g.Key, Count = g.Count() })
+                        .OrderByDescending(g => g.Rating);
+            if (ratingGroup.Count() == 0)
+            {
+                ViewBag.BookRating = 0;
+                return View(reviewViewModel);
+            }
+            var weightedRating = ratingGroup.Sum(g => g.Rating * g.Count) / ratingGroup.Sum(g => g.Count);
+            ViewBag.BookRating = Math.Round((double)weightedRating, 1);
+            var userId = await _accountService.GetUserId();
+            if(userId != null)
+            {
+                var userReview = await _reviewService.GetUserReview(id, userId);
+                if(userReview != null)
+                {
+                    ViewBag.UserReview = userReview;
+                }
+            }
             return View(reviewViewModel);
         }
 

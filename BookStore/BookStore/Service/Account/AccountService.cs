@@ -60,6 +60,16 @@ namespace BookStore.Service.Account
             return result;
         }
 
+        public async Task<string> GetUserId()
+        {
+            var user = _signInManager.Context.User;
+            if (user != null && user.Identity.IsAuthenticated)
+            {
+                return _userManager.GetUserId(user);
+            }
+            return null;
+        }
+
         public async Task LogoutUserAsync()
         {
             await _signInManager.SignOutAsync();

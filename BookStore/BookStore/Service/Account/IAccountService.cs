@@ -8,6 +8,8 @@ namespace BookStore.Service.Account
         public Task<IdentityResult> RegisterUserAsync(RegisterViewModel model);
         public Task<SignInResult> LoginUserAsync(LoginViewModel model);
         public Task LogoutUserAsync();
+        public Task<string> GetUserId();
+
 
     }
 }
