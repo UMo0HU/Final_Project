@@ -1,0 +1,25 @@
+﻿@model BookStore.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 title">Book Details</h2>
+
+    <div class="card p-4 shadow-sm">
+        <h4>@Model.Title</h4>
+        <p><strong>Author:</strong> @Model.Author</p>
+        <p><strong>Categories:</strong>
+            @foreach (var cat in Model.BookCategories)
+            {
+                <span class="badge bg-secondary me-1">@cat.Category.Name</span>
+            }
+        </p>
+        <a class="btn btn-edit" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        <a class="btn btn-delete" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+        <a class="btn btn-add" asp-action="Index">Back to List</a>
+    </div>
+</div>
+
