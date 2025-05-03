@@ -1,4 +1,5 @@
 ﻿using BookStore.Models;
+using BookStore.Service.Cart;
 using BookStore.Service.Wishlist;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -11,11 +12,13 @@ namespace BookStore.Controllers
     public class UserController : Controller
     {
         private readonly IWishlistService _wishlistService;
+        private readonly ICartService _cartService;
         private readonly UserManager<User> _userManager;
 
-        public UserController(IWishlistService wishlistService, UserManager<User> userManager)
+        public UserController(IWishlistService wishlistService, ICartService cartService, UserManager<User> userManager)
         {
             _wishlistService = wishlistService;
+            _cartService = cartService;
             _userManager = userManager;
         }
         public async Task<IActionResult> Profile()
@@ -28,8 +31,9 @@ namespace BookStore.Controllers
 
         public async Task<IActionResult> CheckOut()
         {
+            List<Book> books = await _cartService.GetBooksFromCart();
             
-            return View();
+            return View(books);
         }
     }
 }

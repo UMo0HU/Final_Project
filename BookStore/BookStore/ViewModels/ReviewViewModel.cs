@@ -12,7 +12,6 @@ namespace BookStore.ViewModels
         public string Content { get; set; }
         [Required]
         [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
-        [DefaultValue(1)]
         public int Rating { get; set; }
         public Book? Book { get; set; }
     }

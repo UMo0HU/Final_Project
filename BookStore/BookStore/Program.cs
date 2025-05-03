@@ -10,6 +10,7 @@ using BookStore.Service.Account;
 using BookStore.Service.Wishlist;
 using BookStore.Service.Category;
 using BookStore.Service.Review;
+using BookStore.Service.Cart;
 
 namespace BookStore
 {
@@ -41,6 +42,7 @@ namespace BookStore
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IWishlistService, WishlistService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
+            builder.Services.AddScoped<ICartService, CartService>();
 
             var app = builder.Build();
 

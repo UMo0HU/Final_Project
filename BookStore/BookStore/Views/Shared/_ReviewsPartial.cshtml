@@ -40,9 +40,9 @@
                 <p class="mb-2">
                     @review.Content
                 </p>
-                @if (review.UserId == userId)
+                @if (review.UserId == userId || User.IsInRole("Admin"))
                 {
-                        <button onclick="DeleteReview('@userId', '@review.BookId')" class="btn btn-danger">Delete Review</button>
+                        <button onclick="DeleteReview('@review.UserId', '@review.BookId')" class="btn btn-danger">Delete Review</button>
                 }
             </div>
         </div>
