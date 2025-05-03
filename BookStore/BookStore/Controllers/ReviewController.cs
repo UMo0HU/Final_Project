@@ -25,12 +25,19 @@ namespace BookStore.Controllers
         [Authorize]
         public async Task<IActionResult> AddReview(ReviewViewModel reviewViewModel)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return Json(new { success = false, message = "Invalid data" });
-            }
             var result = await _reviewService.AddReview(reviewViewModel);
             return Json(new { success = result });
+            }
+            return Json(new
+            {
+                success = false,
+                errors = ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList()
+            });
         }
 
         [HttpPost]

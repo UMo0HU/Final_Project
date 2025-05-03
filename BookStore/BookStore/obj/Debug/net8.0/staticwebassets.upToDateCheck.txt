@@ -53,14 +53,11 @@ wwwroot\font-awesome\webfonts\fa-solid-900.woff2
 wwwroot\font-awesome\webfonts\fa-v4compatibility.ttf
 wwwroot\font-awesome\webfonts\fa-v4compatibility.woff2
 wwwroot\images\6046205542424233186.jpg
+wwwroot\images\contactUsImage.jpg
 wwwroot\images\default_user.jpg
 wwwroot\images\EmailLogo.png
 wwwroot\images\FacebookCircled.svg
 wwwroot\images\Google.svg
-wwwroot\images\Group 104.png
-wwwroot\images\image (3).png
-wwwroot\images\image (4).png
-wwwroot\images\image (5).png
 wwwroot\images\LinkedInCircled.svg
 wwwroot\images\loginBackground.jpeg
 wwwroot\images\Password.svg

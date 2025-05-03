@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using AspNetCoreGeneratedDocument;
 using BookStore.Models;
 using BookStore.Service.Book;
 using BookStore.Service.Wishlist;
@@ -27,7 +28,8 @@ namespace BookStore.Controllers
             return View(books);
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult ContactUs()
         {
             return View();
         }

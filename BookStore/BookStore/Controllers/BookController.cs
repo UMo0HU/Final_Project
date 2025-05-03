@@ -3,6 +3,7 @@ using BookStore.Data;
 using BookStore.Models;
 using BookStore.Service.Account;
 using BookStore.Service.Book;
+using BookStore.Service.Cart;
 using BookStore.Service.Review;
 using BookStore.Service.Wishlist;
 using BookStore.ViewModels;
@@ -18,12 +19,14 @@ namespace BookStore.Controllers
         private readonly IWishlistService _wishlistService;
         private readonly IReviewService _reviewService;
         private readonly IAccountService _accountService;
-        public BookController(IBookService bookService, IWishlistService wishlistService, IReviewService reviewService, IAccountService accountService)
+        private readonly ICartService _cartService;
+        public BookController(IBookService bookService, IWishlistService wishlistService, IReviewService reviewService, IAccountService accountService, ICartService cartService)
         {
             _bookService = bookService;
             _wishlistService = wishlistService;
             _reviewService = reviewService;
             _accountService = accountService;
+            _cartService = cartService;
         }
 
         public async Task<IActionResult> Index()
@@ -40,6 +43,7 @@ namespace BookStore.Controllers
                 .ToList();
             reviewViewModel.Book = book;
             ViewBag.BookInWishlist = await _wishlistService.IsBookInWishlist(id);
+            ViewBag.BookInCart = await _cartService.BookInCart(id);
             var Reviews = await _reviewService.GetReviewsByBookId(id);
             var ratingGroup = Reviews.GroupBy(r => r.Rating)
                         .Select(g => new { Rating = g.Key, Count = g.Count() })

@@ -7,6 +7,7 @@
     var bookCategories = ViewBag.BookCategories as List<Category>;
     var userReview = ViewBag.UserReview as Review ?? null;
     bool bookInWishlist = ViewBag.BookInWishlist;
+    bool bookInCart = ViewBag.BookInCart;
     double bookRating = ViewBag.BookRating;
 
 }
@@ -39,8 +40,8 @@
         @if (SignInManager.IsSignedIn(User))
         {
             <div class="actions">
-                <button class="read-button">Add to cart</button>
-                <button id="wishlistButton" onclick="WishlistToggler(@Book.Id)" class="download-button @(bookInWishlist? "added" : "")"> @(bookInWishlist ? "Added to wishlist" : "Add to wishlist")</button>
+                <button id="cartButton" onclick="cartToggler(@Book.Id)" class="read-button @(bookInCart? "added" : "")"><i class="fa-solid @(bookInCart? "fa-cart-shopping" : "fa-cart-plus")"></i> @(bookInCart ? "Remove From Cart" : "Add To Cart")</button>
+                <button id="wishlistButton" onclick="WishlistToggler(@Book.Id)" class="download-button @(bookInWishlist? "added" : "")"><i class="fa-solid fa-heart" style="color: @(bookInWishlist? "red" : "white");"></i> @(bookInWishlist? "Remove From Wishlist" : "Add To Wishlist")</button>
             </div>
         }
         else {
@@ -84,8 +85,8 @@
                         <input type="radio" id="star1" asp-for="Rating" value="1" checked>
                         <label for="star1" class="fas fa-star"></label>
                     </div>
-                    <span asp-validation-for="Rating" class="text-danger"></span>
                 </div>
+                <span asp-validation-for="Rating" class="text-danger"></span>
                 <div class="form-group">
                     <label for="Comment">Comments:</label>
                     <textarea class="form-control" asp-for="Content" rows="4" required></textarea>
@@ -103,6 +104,9 @@
 }
 
 @section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
     <script>
         document.querySelectorAll('.star-rating:not(.readonly) label').forEach(star => {
             star.addEventListener('click', function() {
@@ -112,6 +116,34 @@
                 }, 200);
             });
         });
+
+        function cartToggler(BookId){
+                        const button = document.getElementById("cartButton");
+
+            $.ajax({
+                type: "POST",
+                url: button.classList.contains("added")? '@Url.Action("RemoveFromCart", "Cart")' : '@Url.Action("AddToCart", "Cart")',
+                data: { bookId: BookId },
+                success: function () {
+                    if (button.classList.contains("added")) {
+                        button.classList.remove("added");
+                        button.innerHTML = `<i class="fa-solid  fa-cart-plus"></i> Add To Cart`;
+                    } else {
+                        button.classList.add("added");
+                        button.innerHTML = `<i class="fa-solid  fa-cart-shopping"></i> Remove From Cart`;
+                    }
+                    Swal.fire(button.classList.contains("added")? "Book Added To Cart." : "Book Removed From Cart.");
+                },
+                error: function () {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+
         function WishlistToggler(BookId) {
             const button = document.getElementById("wishlistButton");
 
@@ -122,10 +154,10 @@
                 success: function () {
                     if (button.classList.contains("added")) {
                         button.classList.remove("added");
-                        button.innerHTML = "Add to wishlist";
+                        button.innerHTML = `<i class="fa-solid fa-heart" style="color: white"></i> Add to wishlist`;
                     } else {
                         button.classList.add("added");
-                        button.innerHTML = "Added to wishlist";
+                        button.innerHTML = `<i class="fa-solid fa-heart" style="color: red"></i> Remove from wishlist`;
                     }
                     Swal.fire(button.classList.contains("added")? "Book Added To Wishlist." : "Book Removed From Wishlist.");
                 },
@@ -168,6 +200,7 @@
 
         $("#reviewForm").submit(function (e) {
             e.preventDefault();
+
             const formData = {
                 BookId: $('input[name="BookId"]').val(),
                 Rating: $('input[name="Rating"]:checked').val(),
@@ -177,16 +210,26 @@
                 type: "POST",
                 url: '@Url.Action("AddReview", "Review")',
                 data: formData,
-                success: function () {
-                    Swal.fire({
-                        title: "Success!",
-                        text: "Review Added successfully",
-                        icon: "success"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.reload();
-                        }
-                    });
+                success: function (response) {
+                    if(response.success) {
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Review Added successfully",
+                            icon: "success"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: response.errors.join("\n") || "Failed To Add Review",
+                        });
+                    }
                 },
                 error: function () {
                     Swal.fire({
