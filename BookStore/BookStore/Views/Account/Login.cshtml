@@ -1,5 +1,4 @@
-﻿@using BookStore.ViewModels;
-@model LoginViewModel
+﻿@model LoginViewModel
 @{
     ViewBag.Title = "Login";
     Layout = "_LoginLayout";
@@ -38,7 +37,7 @@
             <p>Don't have an account? <a asp-controller="Account" asp-action="Register" class="link-info register-page-link">Sign up</a></p>
         </div>
         <div class="form-group text-center">
-            <a asp-controller="Account" asp-action="VerifyAccount" class="forget-password-link">Forgot Password</a>
+            <a asp-controller="Account" asp-action="ForgetPassword" class="forget-password-link">Forgot Password</a>
         </div>
     </form>
 </div>

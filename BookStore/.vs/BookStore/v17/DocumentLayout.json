@@ -1,20 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DEPI\\OnlineBookStore\\BookStore\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\onlinebookstore\\bookstore\\bookstore\\views\\user\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\user\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\onlinebookstore\\bookstore\\bookstore\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\onlinebookstore\\bookstore\\bookstore\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "WorkspaceRootPath": "D:\\DEPI\\Project_Documentation\\BookStore\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,44 +30,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\DEPI\\OnlineBookStore\\BookStore\\BookStore\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "BookStore\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\DEPI\\OnlineBookStore\\BookStore\\BookStore\\Controllers\\UserController.cs",
-              "RelativeToolTip": "BookStore\\Controllers\\UserController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACMAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T11:48:15.451Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "D:\\DEPI\\OnlineBookStore\\BookStore\\BookStore\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "BookStore\\Views\\_ViewImports.cshtml",
-              "ToolTip": "D:\\DEPI\\OnlineBookStore\\BookStore\\BookStore\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "BookStore\\Views\\_ViewImports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-03T01:08:26.632Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "checkout.cshtml",
-              "DocumentMoniker": "D:\\DEPI\\OnlineBookStore\\BookStore\\BookStore\\Views\\User\\checkout.cshtml",
-              "RelativeDocumentMoniker": "BookStore\\Views\\User\\checkout.cshtml",
-              "ToolTip": "D:\\DEPI\\OnlineBookStore\\BookStore\\BookStore\\Views\\User\\checkout.cshtml",
-              "RelativeToolTip": "BookStore\\Views\\User\\checkout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-03T00:59:06.436Z",
-              "EditorCaption": ""
             }
           ]
         }

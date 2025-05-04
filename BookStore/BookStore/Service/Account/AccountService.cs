@@ -1,6 +1,9 @@
 ﻿using BookStore.Models;
 using BookStore.ViewModels;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.VisualBasic;
+using System.Net;
 
 namespace BookStore.Service.Account
 {
@@ -19,20 +22,12 @@ namespace BookStore.Service.Account
             var existingUsername = await _userManager.FindByNameAsync(model.Name);
             if (existingUsername != null)
             {
-                return IdentityResult.Failed(new IdentityError
-                {
-                    Code = "DuplicateUserName",
-                    Description = "Username is already taken."
-                });
+                throw new ArgumentException("Username already Exist.", nameof(model.Name));
             }
             var existingEmail = await _userManager.FindByEmailAsync(model.Email);
             if (existingEmail != null)
             {
-                return IdentityResult.Failed(new IdentityError
-                {
-                    Code = "DuplicateEmail",
-                    Description = "Email is already taken."
-                });
+                throw new ArgumentException("Email already Exist.", nameof(model.Email));
             }
 
             var user = new User
@@ -74,5 +69,32 @@ namespace BookStore.Service.Account
         {
             await _signInManager.SignOutAsync();
         }
+
+        public async Task<bool> AccountExist(string email)
+        {
+            if((await _userManager.FindByEmailAsync(email)) == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<string> GenerateForgetPasswordTokenEncoded(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            return WebUtility.UrlEncode(token);
+        }
+
+        public async Task<bool> ResetPassword(string email, string encodedToken, string newPassword)
+        {
+            string token = WebUtility.UrlDecode(encodedToken);
+            var user = await _userManager.FindByEmailAsync(email);
+
+            var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
+            if (result.Succeeded) return true;
+            return false;
+        }
+
     }
 }
