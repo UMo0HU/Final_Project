@@ -9,7 +9,9 @@ namespace BookStore.Service.Account
         public Task<SignInResult> LoginUserAsync(LoginViewModel model);
         public Task LogoutUserAsync();
         public Task<string> GetUserId();
-
+        public Task<bool> AccountExist(string email);
+        public Task<string> GenerateForgetPasswordTokenEncoded(string email);
+        public Task<bool> ResetPassword(string email, string encodedToken, string newPassword);
 
     }
 }
