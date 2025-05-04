@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "D:\\DEPI\\Project_Documentation\\BookStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\service\\account\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\service\\account\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\service\\cart\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\service\\cart\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,54 +38,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RegisterViewModel.cs",
-              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\ViewModels\\RegisterViewModel.cs",
-              "RelativeDocumentMoniker": "BookStore\\ViewModels\\RegisterViewModel.cs",
-              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\ViewModels\\RegisterViewModel.cs",
-              "RelativeToolTip": "BookStore\\ViewModels\\RegisterViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAowAgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:23:28.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "BookStore\\Views\\Account\\Register.cshtml",
-              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "BookStore\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAqwDQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-04T05:18:08.853Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Service\\Account\\AccountService.cs",
-              "RelativeDocumentMoniker": "BookStore\\Service\\Account\\AccountService.cs",
-              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Service\\Account\\AccountService.cs",
-              "RelativeToolTip": "BookStore\\Service\\Account\\AccountService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwB0AAABWAAAAAAAAAA==",
+              "Title": "CartService.cs",
+              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Service\\Cart\\CartService.cs",
+              "RelativeDocumentMoniker": "BookStore\\Service\\Cart\\CartService.cs",
+              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Service\\Cart\\CartService.cs",
+              "RelativeToolTip": "BookStore\\Service\\Cart\\CartService.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAuwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:05:18.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "BookStore\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "BookStore\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAiwFYAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T05:05:07.338Z",
+              "WhenOpened": "2025-05-04T06:34:58.797Z",
               "EditorCaption": ""
             }
           ]
