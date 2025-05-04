@@ -30,37 +30,18 @@ namespace BookStore.Service.Cart
 
         public async Task<bool> AddBookToCart(int bookId)
         {
-            if(!_userCartExists)
+            if (_user != null && _user.Identity.IsAuthenticated)
             {
-                await _context.Carts.AddAsync(new Models.Cart { UserId = _userId });
-                await _context.SaveChangesAsync();
-            }
-
-            var userCart = await _context.Carts.FirstOrDefaultAsync(c => c.UserId == _userId);
-           if(userCart != null)
-            {
-                await _context.CartItems.AddAsync(new Models.CartItem { BookId = bookId, CartId = userCart.Id });
-                await _context.SaveChangesAsync();
-                return true;
-            }
-
-            return false;
-        }
-        public async Task<bool> RemoveBookFromCart(int bookId)
-        {
-            if (!_userCartExists)
-            {
-                await _context.Carts.AddAsync(new Models.Cart { UserId = _userId });
-                await _context.SaveChangesAsync();
-            }
-
-            var userCart = await _context.Carts.FirstOrDefaultAsync(c => c.UserId == _userId);
-            if (userCart != null)
-            {
-                var cartItemToDelete = await _context.CartItems.FirstOrDefaultAsync(ci => ci.CartId == userCart.Id && ci.BookId == bookId);
-                if (cartItemToDelete != null)
+                if (!_userCartExists)
                 {
-                    _context.CartItems.Remove(cartItemToDelete);
+                    await _context.Carts.AddAsync(new Models.Cart { UserId = _userId });
+                    await _context.SaveChangesAsync();
+                }
+
+                var userCart = await _context.Carts.FirstOrDefaultAsync(c => c.UserId == _userId);
+                if (userCart != null)
+                {
+                    await _context.CartItems.AddAsync(new Models.CartItem { BookId = bookId, CartId = userCart.Id });
                     await _context.SaveChangesAsync();
                     return true;
                 }
@@ -69,46 +50,78 @@ namespace BookStore.Service.Cart
 
             return false;
         }
-        public async Task<bool> BookInCart(int bookId)
+        public async Task<bool> RemoveBookFromCart(int bookId)
         {
-            if (!_userCartExists)
+            if (_user != null && _user.Identity.IsAuthenticated)
             {
-                await _context.Carts.AddAsync(new Models.Cart { UserId = _userId });
-                await _context.SaveChangesAsync();
-            }
-
-            var userCart = await _context.Carts.FirstOrDefaultAsync(c => c.UserId == _userId);
-            if (userCart != null)
-            {
-                var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.CartId == userCart.Id && ci.BookId == bookId);
-                if (cartItem != null)
+                if (!_userCartExists)
                 {
-                    return true;
+                    await _context.Carts.AddAsync(new Models.Cart { UserId = _userId });
+                    await _context.SaveChangesAsync();
                 }
-                return false;
+
+                var userCart = await _context.Carts.FirstOrDefaultAsync(c => c.UserId == _userId);
+                if (userCart != null)
+                {
+                    var cartItemToDelete = await _context.CartItems.FirstOrDefaultAsync(ci => ci.CartId == userCart.Id && ci.BookId == bookId);
+                    if (cartItemToDelete != null)
+                    {
+                        _context.CartItems.Remove(cartItemToDelete);
+                        await _context.SaveChangesAsync();
+                        return true;
+                    }
+                    return false;
+                }
             }
 
             return false;
         }
+        public async Task<bool> BookInCart(int bookId)
+        {
+            if (_user != null && _user.Identity.IsAuthenticated)
+            {
+                if (!_userCartExists)
+                {
+                    await _context.Carts.AddAsync(new Models.Cart { UserId = _userId });
+                    await _context.SaveChangesAsync();
+                }
+
+                var userCart = await _context.Carts.FirstOrDefaultAsync(c => c.UserId == _userId);
+                if (userCart != null)
+                {
+                    var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.CartId == userCart.Id && ci.BookId == bookId);
+                    if (cartItem != null)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+
+            }
+            return false;
+        }
         public async Task<List<Models.Book>> GetBooksFromCart()
         {
-            if (!_userCartExists)
+            if (_user != null && _user.Identity.IsAuthenticated)
             {
-                await _context.Carts.AddAsync(new Models.Cart { UserId = _userId });
-                await _context.SaveChangesAsync();
-            }
-
-            var userCart = await _context.Carts.FirstOrDefaultAsync(c => c.UserId == _userId);
-            if (userCart != null)
-            {
-                var books = _context.CartItems.Where(ci => ci.CartId == userCart.Id).Select(ci => ci.Book).ToList();
-                if (books != null)
+                if (!_userCartExists)
                 {
-                    return books;
+                    await _context.Carts.AddAsync(new Models.Cart { UserId = _userId });
+                    await _context.SaveChangesAsync();
                 }
-                return null;
-            }
 
+                var userCart = await _context.Carts.FirstOrDefaultAsync(c => c.UserId == _userId);
+                if (userCart != null)
+                {
+                    var books = _context.CartItems.Where(ci => ci.CartId == userCart.Id).Select(ci => ci.Book).ToList();
+                    if (books != null)
+                    {
+                        return books;
+                    }
+                    return null;
+                }
+
+            }
             return null;
         }
     }
