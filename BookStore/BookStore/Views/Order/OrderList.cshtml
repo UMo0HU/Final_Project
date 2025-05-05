@@ -1,0 +1,282 @@
+﻿@model List<Order>
+
+@{
+    ViewBag.Title = "My Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <h1>My Orders</h1>
+</div>
+
+<div class="container">
+    <h2>Order History</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="empty-orders">
+            <p>You haven't placed any orders yet.</p>
+            <a href="@Url.Action("Index", "Shop")" class="shop-btn">Start Shopping</a>
+        </div>
+    }
+    else
+    {
+        <div class="orders-list">
+            @foreach (var order in Model.OrderByDescending(o => o.OrderDate))
+            {
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-meta">
+                            <span class="order-number">Order #@order.Id</span>
+                            <span class="order-date">@order.OrderDate.ToString("MMMM dd, yyyy")</span>
+                        </div>
+                        <span class="status @order.Status.ToLowerInvariant()">@order.Status</span>
+                    </div>
+
+                    <div class="order-preview">
+                        @foreach (var item in order.OrderItems.Take(2))
+                        {
+                            <div class="preview-item">
+                                <div class="book-image">
+                                    <!-- Placeholder for book cover -->
+                                    <div class="image-placeholder"></div>
+                                </div>
+                                <div class="book-info">
+                                    <p class="book-title">@item.Book?.Title</p>
+                                    <p class="book-qty">Qty: @item.Quantity</p>
+                                </div>
+                            </div>
+                        }
+                        @if (order.OrderItems.Count > 2)
+                        {
+                            <div class="additional-items">
+                                +@(order.OrderItems.Count - 2) more item@(order.OrderItems.Count - 2 > 1 ? "s" : "")
+                            </div>
+                        }
+                    </div>
+
+                    <div class="order-footer">
+                        <div class="total-amount">
+                            <span>Total:</span>
+                            <span>
+                                $@order.OrderItems.Sum(oi => oi.Quantity * (oi.Book?.Price ?? 0)).ToString("0.00")
+                            </span>
+                        </div>
+                        <a href="@Url.Action("OrderDetails", "Orders", new { id = order.Id })" class="view-details">View Details</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@section Styles {
+    <style>
+        body {
+            background-color: #FFF9F3;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #4E342E;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #4E342E;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .orders-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .order-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .order-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .order-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order-number {
+            font-weight: 600;
+            color: #4E342E;
+        }
+
+        .order-date {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+            .status.pending {
+                background-color: #FFF3E0;
+                color: #E65100;
+            }
+
+            .status.processing {
+                background-color: #E3F2FD;
+                color: #1565C0;
+            }
+
+            .status.completed {
+                background-color: #E8F5E9;
+                color: #388E3C;
+            }
+
+            .status.shipped {
+                background-color: #E0F7FA;
+                color: #00838F;
+            }
+
+        .order-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .preview-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: calc(50% - 10px);
+        }
+
+        .book-image {
+            flex-shrink: 0;
+        }
+
+        .image-placeholder {
+            width: 50px;
+            height: 70px;
+            background-color: #F5F5F5;
+            border-radius: 4px;
+        }
+
+        .book-info {
+            flex-grow: 1;
+        }
+
+        .book-title {
+            font-size: 14px;
+            margin: 0;
+            color: #333;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .book-qty {
+            font-size: 13px;
+            color: #666;
+            margin: 3px 0 0 0;
+        }
+
+        .additional-items {
+            font-size: 13px;
+            color: #666;
+            align-self: center;
+        }
+
+        .order-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .total-amount {
+            font-weight: 600;
+            color: #4E342E;
+        }
+
+            .total-amount span:first-child {
+                margin-right: 5px;
+            }
+
+        .view-details {
+            color: #4E342E;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border: 1px solid #4E342E;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+            .view-details:hover {
+                background-color: #4E342E;
+                color: white;
+            }
+
+        .empty-orders {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+            .empty-orders p {
+                color: #666;
+                margin-bottom: 20px;
+            }
+
+        .shop-btn {
+            display: inline-block;
+            background-color: #4E342E;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+            .shop-btn:hover {
+                background-color: #3E2723;
+            }
+    </style>
+}

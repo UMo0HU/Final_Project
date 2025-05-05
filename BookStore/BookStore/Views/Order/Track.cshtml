@@ -1,0 +1,80 @@
+﻿@model Order
+
+@{
+    ViewBag.Title = "Order Tracking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var orderitems = Model.OrderItems;
+}
+
+
+
+<div class="header">
+    <h1>My Orders</h1>
+</div>
+
+<div class="container">
+    <h2>Track Your Orders</h2>
+
+    <div class="order-card">
+        <div class="order-title">@Model.User</div>
+        <p><strong>Date:</strong> @Model.OrderDate.ToString("yyyy-MM-dd")</p>
+        <p><strong>Status:</strong> <span class="status">@Model.Status</span></p>
+        @foreach (var orderItem in orderitems)
+        {
+            <p>@orderItem.Book.Title</p>
+        }
+    </div>
+
+</div>
+
+@section Styles {
+    <style>
+        body {
+            background-color: #FFF9F3;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .header {
+            background-color: #4E342E;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        h2 {
+            color: #4E342E;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .order-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .order-card:hover {
+                transform: scale(1.01);
+            }
+
+        .order-title {
+            font-size: 20px;
+            color: #4E342E;
+        }
+
+        .status {
+            color: #388E3C;
+            font-weight: bold;
+        }
+    </style>
+
+
+}

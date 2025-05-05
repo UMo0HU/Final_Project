@@ -1,7 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DEPI\\Project_Documentation\\BookStore\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|c:\\users\\alsaad\\onedrive - office 365\\documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\bookstore\\bookstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|c:\\users\\alsaad\\onedrive - office 365\\documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\bookstore\\bookstore\\views\\order\\orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\order\\orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|c:\\users\\alsaad\\onedrive - office 365\\documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\bookstore\\bookstore\\views\\order\\track.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\order\\track.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|c:\\users\\alsaad\\onedrive - office 365\\documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\bookstore\\bookstore\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|c:\\users\\alsaad\\onedrive - office 365\\documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\bookstore\\bookstore\\service\\order\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\service\\order\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|c:\\users\\alsaad\\onedrive - office 365\\documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\bookstore\\bookstore\\service\\order\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\service\\order\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +34,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -21,15 +54,85 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Program.cs",
+              "RelativeDocumentMoniker": "BookStore\\Program.cs",
+              "ToolTip": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Program.cs",
+              "RelativeToolTip": "BookStore\\Program.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAADwvzEAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T21:08:56.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderList.cshtml",
+              "DocumentMoniker": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Views\\Order\\OrderList.cshtml",
+              "RelativeDocumentMoniker": "BookStore\\Views\\Order\\OrderList.cshtml",
+              "ToolTip": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Views\\Order\\OrderList.cshtml",
+              "RelativeToolTip": "BookStore\\Views\\Order\\OrderList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T21:07:24.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Track.cshtml",
+              "DocumentMoniker": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Views\\Order\\Track.cshtml",
+              "RelativeDocumentMoniker": "BookStore\\Views\\Order\\Track.cshtml",
+              "ToolTip": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Views\\Order\\Track.cshtml",
+              "RelativeToolTip": "BookStore\\Views\\Order\\Track.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-05T21:06:23.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IorderService.cs",
+              "DocumentMoniker": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Service\\Order\\IorderService.cs",
+              "RelativeDocumentMoniker": "BookStore\\Service\\Order\\IorderService.cs",
+              "ToolTip": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Service\\Order\\IorderService.cs",
+              "RelativeToolTip": "BookStore\\Service\\Order\\IorderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T21:04:17.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Service\\Order\\OrderService.cs",
+              "RelativeDocumentMoniker": "BookStore\\Service\\Order\\OrderService.cs",
+              "ToolTip": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Service\\Order\\OrderService.cs",
+              "RelativeToolTip": "BookStore\\Service\\Order\\OrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T21:03:41.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "BookStore\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\alsaad\\OneDrive - Office 365\\Documents\\\u0627\u0644\u0645\u0634\u0631\u0648\u0639\\BookStore\\BookStore\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "BookStore\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvxEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T21:02:08.965Z",
+              "EditorCaption": ""
             }
           ]
         }
