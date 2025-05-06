@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "aHt3CheU0dEmcRWDLGlk6iMPlg8CwCd374804eyq6fc=",
+=======
+  "Hash": "igzoSik3OV6gLbSaruxBtY8wrgeN1HoPhMk1rzMqAoE=",
+>>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -248,7 +252,32 @@
       "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\profile.css",
+=======
+      "Identity": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "css/Manage#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yx1jdh7xyd",
+      "Integrity": "aq66qju6IGru3H1vrJY9jPo32GEIZc9iJCstgzZnuiw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Manage.css"
+    },
+    {
+      "Identity": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\profile.css",
+>>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
       "SourceId": "BookStore",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\",
@@ -283,8 +312,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "gjwd1xacuf",
-      "Integrity": "BLXB1hqaFB/FuvX8mY/2FpSoIoQu+YEomViq4yZBARU=",
+      "Fingerprint": "pg4bylvjut",
+      "Integrity": "p45tVTfUVTPqa9QAb1ywKEe0715+TVYBMyeTj3DREko=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1445,7 +1474,32 @@
       "OriginalItemSpec": "wwwroot\\images\\PasswordLogo.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\images\\Search.png",
+=======
+      "Identity": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "images/resetPasswordImage#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "t50pojjamm",
+      "Integrity": "EcGNisn9tpka9EEYDwnRNzlZkutoShJ/LIes++TQiC8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\resetPasswordImage.jpg"
+    },
+    {
+      "Identity": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\Search.png",
+>>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
       "SourceId": "BookStore",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\",
@@ -3861,6 +3915,88 @@
       ]
     },
     {
+      "Route": "css/Manage.css",
+      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "725"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aq66qju6IGru3H1vrJY9jPo32GEIZc9iJCstgzZnuiw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 00:39:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aq66qju6IGru3H1vrJY9jPo32GEIZc9iJCstgzZnuiw="
+        }
+      ]
+    },
+    {
+      "Route": "css/Manage.yx1jdh7xyd.css",
+      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "725"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aq66qju6IGru3H1vrJY9jPo32GEIZc9iJCstgzZnuiw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 00:39:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yx1jdh7xyd"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Manage.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aq66qju6IGru3H1vrJY9jPo32GEIZc9iJCstgzZnuiw="
+        }
+      ]
+    },
+    {
       "Route": "css/profile.css",
       "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\profile.css",
       "Selectors": [],
@@ -3953,7 +4089,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3073"
+          "Value": "4239"
         },
         {
           "Name": "Content-Type",
@@ -3961,11 +4097,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BLXB1hqaFB/FuvX8mY/2FpSoIoQu+YEomViq4yZBARU=\""
+          "Value": "\"p45tVTfUVTPqa9QAb1ywKEe0715+TVYBMyeTj3DREko=\""
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 06 May 2025 04:36:57 GMT"
+=======
+          "Value": "Sun, 04 May 2025 18:21:45 GMT"
+>>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
         },
         {
           "Name": "Cache-Control",
@@ -3975,13 +4115,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-BLXB1hqaFB/FuvX8mY/2FpSoIoQu+YEomViq4yZBARU="
+          "Value": "sha256-p45tVTfUVTPqa9QAb1ywKEe0715+TVYBMyeTj3DREko="
         }
       ]
     },
     {
+<<<<<<< HEAD
       "Route": "css/site.gjwd1xacuf.css",
       "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\site.css",
+=======
+      "Route": "css/site.pg4bylvjut.css",
+      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\site.css",
+>>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3990,7 +4135,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3073"
+          "Value": "4239"
         },
         {
           "Name": "Content-Type",
@@ -3998,11 +4143,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BLXB1hqaFB/FuvX8mY/2FpSoIoQu+YEomViq4yZBARU=\""
+          "Value": "\"p45tVTfUVTPqa9QAb1ywKEe0715+TVYBMyeTj3DREko=\""
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Tue, 06 May 2025 04:36:57 GMT"
+=======
+          "Value": "Sun, 04 May 2025 18:21:45 GMT"
+>>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
         },
         {
           "Name": "Cache-Control",
@@ -4012,7 +4161,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "gjwd1xacuf"
+          "Value": "pg4bylvjut"
         },
         {
           "Name": "label",
@@ -4020,7 +4169,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BLXB1hqaFB/FuvX8mY/2FpSoIoQu+YEomViq4yZBARU="
+          "Value": "sha256-p45tVTfUVTPqa9QAb1ywKEe0715+TVYBMyeTj3DREko="
         }
       ]
     },
@@ -8531,6 +8680,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-f9mxxGb+vftzeKm+6AQ2zBOgtM4YheZAlYeRVepXQs0="
+        }
+      ]
+    },
+    {
+      "Route": "images/resetPasswordImage.jpg",
+      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59501"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EcGNisn9tpka9EEYDwnRNzlZkutoShJ/LIes++TQiC8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:53:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EcGNisn9tpka9EEYDwnRNzlZkutoShJ/LIes++TQiC8="
+        }
+      ]
+    },
+    {
+      "Route": "images/resetPasswordImage.t50pojjamm.jpg",
+      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "59501"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EcGNisn9tpka9EEYDwnRNzlZkutoShJ/LIes++TQiC8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 13:53:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t50pojjamm"
+        },
+        {
+          "Name": "label",
+          "Value": "images/resetPasswordImage.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EcGNisn9tpka9EEYDwnRNzlZkutoShJ/LIes++TQiC8="
         }
       ]
     },

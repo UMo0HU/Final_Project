@@ -1,9 +1,11 @@
 ﻿using BookStore.Models;
 using BookStore.ViewModels;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualBasic;
 using System.Net;
+using System.Security.Claims;
 
 namespace BookStore.Service.Account
 {
@@ -11,10 +13,14 @@ namespace BookStore.Service.Account
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        public AccountService(UserManager<User> userManager, SignInManager<User> signInManager)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ClaimsPrincipal _user;
+        public AccountService(UserManager<User> userManager, SignInManager<User> signInManager, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _httpContextAccessor = httpContextAccessor;
+            _user = _httpContextAccessor.HttpContext?.User;
         }
 
         public async Task<IdentityResult> RegisterUserAsync(RegisterViewModel model)
@@ -96,5 +102,44 @@ namespace BookStore.Service.Account
             return false;
         }
 
+        public async Task<bool> ChangePassword(string currentPassword, string newPassword)
+        {
+            if(_user != null && _user.Identity.IsAuthenticated)
+            {
+                var user = await _userManager.GetUserAsync(_user);
+                var result = await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+                if(result.Succeeded)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> ChangeProfilePicture(IFormFile profilePicture)
+        {
+            if (_user != null && _user.Identity.IsAuthenticated)
+            {
+                var user = await _userManager.GetUserAsync(_user);
+                using (var memoryStream = new MemoryStream())
+                {
+                    await profilePicture.CopyToAsync(memoryStream);
+                    if (memoryStream.Length < 2097152)
+                    {
+                        user.ProfilePicture = memoryStream.ToArray();
+                        var result = await _userManager.UpdateAsync(user);
+                        if(result.Succeeded)
+                        {
+                            return true;
+                        }
+                        throw new ArgumentException("Error Has Happened.", nameof(profilePicture));
+                    }
+                    throw new ArgumentException("The File Is Too Large.", nameof(profilePicture));
+                }
+            }
+            return false;
+        }
     }
 }

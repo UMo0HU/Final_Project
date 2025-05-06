@@ -17,7 +17,15 @@
       "PackagePath": "staticwebassets\\book-images\\Thinking_Like_a_Human.jpg"
     },
     {
+<<<<<<< HEAD
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\account.css",
+=======
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
+      "PackagePath": "staticwebassets\\css\\Manage.css"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\account.css",
+>>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
       "PackagePath": "staticwebassets\\css\\account.css"
     },
     {
@@ -281,7 +289,15 @@
       "PackagePath": "staticwebassets\\images\\loginBackground.jpeg"
     },
     {
+<<<<<<< HEAD
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\js\\site.js",
+=======
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
+      "PackagePath": "staticwebassets\\images\\resetPasswordImage.jpg"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\js\\site.js",
+>>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
