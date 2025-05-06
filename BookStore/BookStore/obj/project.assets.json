@@ -4470,23 +4470,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Start\\.nuget\\packages\\": {},
+    "C:\\Users\\UMoOHU\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DEPI_FINAL\\BookStore\\BookStore\\BookStore.csproj",
+      "projectUniqueName": "D:\\DEPI\\test-features\\BookStore\\BookStore\\BookStore.csproj",
       "projectName": "BookStore",
-      "projectPath": "D:\\DEPI_FINAL\\BookStore\\BookStore\\BookStore.csproj",
-      "packagesPath": "C:\\Users\\Start\\.nuget\\packages\\",
-      "outputPath": "D:\\DEPI_FINAL\\BookStore\\BookStore\\obj\\",
+      "projectPath": "D:\\DEPI\\test-features\\BookStore\\BookStore\\BookStore.csproj",
+      "packagesPath": "C:\\Users\\UMoOHU\\.nuget\\packages\\",
+      "outputPath": "D:\\DEPI\\test-features\\BookStore\\BookStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Start\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\UMoOHU\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -1,7 +1,7 @@
 ﻿@model Category
 @{
 	ViewBag.Title = "Categories";
-	Layout = "_Layout";
+	Layout = "_AdminLayout";
 }
 
 <form asp-controller="Admin" asp-action="EditCategory" asp-route-Id="@Model.Id" method="post">

@@ -1,6 +1,7 @@
 ﻿@model BookViewModel
 @{
     ViewBag.Title = "Edit Book";
+    Layout = "_AdminLayout";
 }
 
 <form asp-controller="Admin" asp-action="EditBook" asp-route-Id="@Model.Id" method="post" enctype="multipart/form-data">

@@ -1,8 +1,8 @@
 ﻿@model Category
 @{
     ViewBag.Title = "Categories";
-    Layout = "_Layout";
-    var Categories = ViewBag.Categories as List<Category>;
+	Layout = "_AdminLayout";
+	var Categories = ViewBag.Categories as List<Category>;
 }
 
 <form asp-controller="Admin" asp-action="Categories" method="post">
