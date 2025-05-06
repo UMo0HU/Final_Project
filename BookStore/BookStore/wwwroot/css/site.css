@@ -98,15 +98,59 @@ body {
     padding-left: 10px;
 }
 
+.user-toggler {
+    background-color: transparent;
+    border: none;
+}
+
+.user-toggler-list {
+    position: absolute;
+    right: 2%;
+    top: 65px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid var(--first-color);
+    display: none;
+}
+
+.user-toggler-list > ul {
+    list-style-type: none;
+    list-style-position: outside;
+    padding: 5px;
+    
+}
+
+.user-toggler-list > ul li {
+    padding-bottom: 5px; 
+    font-weight: 700;
+}
+
+.user-toggler-list > ul li:hover {
+    transform: scale(1.05);
+}
+
+.user-toggler-list a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.user-toggler-list a:hover {
+    text-decoration: underline
+}
+
+.user-toggled {
+    display: block;
+}
 
 /* Make sure the mobile search doesn't show on desktop */
 @media (min-width: 992px) {
     .search-container-mobile {
         display: none !important;
     }
+
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
 
     .nav-link {
         font-size: 0.95rem;
@@ -123,6 +167,39 @@ body {
 
     .header-button {
         margin: auto;
+    }
+
+    .cards {
+        flex-wrap: wrap;
+    }
+
+    .cards-card {
+        width: 170px;
+        gap: 10px;
+    }
+
+    .card-img img {
+        width: 100%;
+    }
+    .user-toggler {
+        display: none;
+    }
+    .user-toggler-list {
+        position: relative;
+        background-color: transparent;
+        transform: translate(12px, -60px);
+    }
+
+    .user-toggler-list > ul li {
+        font-weight: 300;
+    }
+
+    .user-toggler-list > ul li:hover {
+        transform: scale(1);
+    }
+
+    .user-toggler-list a {
+        color: var(--body-color);
     }
 }
 
@@ -149,16 +226,5 @@ body {
 
 
 @media only screen and (max-width:990px) {
-    .cards {
-        flex-wrap: wrap;
-    }
 
-    .cards-card {
-        width: 170px;
-        gap: 10px;
-    }
-
-    .card-img img {
-        width: 100%;
-    }
 }

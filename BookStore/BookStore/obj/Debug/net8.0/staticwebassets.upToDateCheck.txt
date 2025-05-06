@@ -2,12 +2,15 @@ wwwroot\book-images\The_Days_(book)_book_cover.jpg
 wwwroot\book-images\TheOldManAndTheSea.jpg
 wwwroot\book-images\Thinking_Like_a_Human.jpg
 wwwroot\css\account.css
+wwwroot\css\admin.css
 wwwroot\css\bookDetails.css
 wwwroot\css\categories.css
 wwwroot\css\checkout.css
 wwwroot\css\home.css
+wwwroot\css\Manage.css
 wwwroot\css\profile.css
 wwwroot\css\site.css
+wwwroot\css\userOrder.css
 wwwroot\favicon.ico
 wwwroot\font-awesome\css\all.css
 wwwroot\font-awesome\css\all.min.css
@@ -62,6 +65,7 @@ wwwroot\images\LinkedInCircled.svg
 wwwroot\images\loginBackground.jpeg
 wwwroot\images\Password.svg
 wwwroot\images\PasswordLogo.png
+wwwroot\images\resetPasswordImage.jpg
 wwwroot\images\Search.png
 wwwroot\images\User.svg
 wwwroot\images\UserLogo.png

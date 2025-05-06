@@ -8,7 +8,7 @@
 <!-- Profile Section -->
 <div class="container profile-section">
     @if(user.ProfilePicture != null){
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyQj1a4i_d_Uw51VxX9FMapTeFxh4v-f_POg&s" alt="Profile Image" class="profile-img">
+        <img src="data:image/*;base64,@(Convert.ToBase64String(user.ProfilePicture))" alt="Profile Image" class="profile-img">
     } 
     else {
         <img src="~/images/default_user.jpg" alt="Profile Image" class="profile-img">

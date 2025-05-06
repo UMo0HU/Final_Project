@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BookStore.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/font-awesome/css/all.css" />
     <script src="~/sweetalert2/sweetalert2.min.js"></script>
@@ -26,32 +27,23 @@
             <div class="collapse navbar-collapse text-center" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item nav-item">
-                        <a class="nav-link nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link nav-link active" asp-controller="Admin" asp-action="Index">Admin Home</a>
                     </li>
                     <li class="nav-item nav-item">
-                        <a class="nav-link nav-link" asp-controller="Category" asp-action="Index">Categories</a>
+                        <a class="nav-link nav-link" asp-controller="Admin" asp-action="Books">Manage Books</a>
                     </li>
                     <li class="nav-item nav-item">
-                        <a class="nav-link nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        <a class="nav-link nav-link" asp-controller="Admin" asp-action="Categories">Manage Categories</a>
+                    </li>
+                    <li class="nav-item nav-item">
+                        <a class="nav-link nav-link" href="#">Manage Orders</a>
                     </li>
                 </ul>
 
-                <div class="d-none d-lg-flex search-container mx-3">
-                    <img src="~/images/Search.png" alt="Search">
-                    <input type="text" class="search-input" placeholder="Search">
-                </div>
-
-                <div class="d-lg-none mb-3 search-container-mobile w-100">
-                    <div class="input-group">
-                        <span class="input-group-text bg-transparent border-0">
-                            <img src="~/images/Search.png" alt="Search">
-                        </span>
-                        <input type="text" class="form-control search-input-mobile" placeholder="Search">
-                    </div>
-                </div>
-
                 <ul class="navbar-nav">
-                    <partial name="_LoginPartial" />
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -64,39 +56,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script>
-        const addToWishlistUrl = '@Url.Action("AddToWishlist", "Book")';
-        const removeFromWishlistUrl = '@Url.Action("RemoveFromWishlist", "Book")';
-        function ToggleWishlist(BookId) {
-            var button = $(`#wishlist-btn-${BookId}`);
-            const isInWishlist = button.find('i').hasClass('fa-solid');
-
-            $.ajax({
-                type: "POST",
-                url: isInWishlist ? removeFromWishlistUrl : addToWishlistUrl,
-                data: { id: BookId },
-                success: function (response) {
-                    if (response.success) {
-                        button.find('i')
-                            .toggleClass('fa-solid fa-regular')
-                            .parent().css('color', isInWishlist ? 'inherit' : 'red');
-                            Swal.fire({
-                                icon: 'success',
-                                title: isInWishlist ? 'Removed from Wishlist' : 'Added to Wishlist',
-                            });
-                    }
-                },
-                error: function () {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong!',
-                    });
-                }
-            });
-        }
-
-    </script>
     @await RenderSectionAsync("Scripts", required: false)
     @RenderSection("Styles", required: false)
 </body>

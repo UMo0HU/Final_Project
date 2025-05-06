@@ -12,6 +12,9 @@ namespace BookStore.Service.Account
         public Task<bool> AccountExist(string email);
         public Task<string> GenerateForgetPasswordTokenEncoded(string email);
         public Task<bool> ResetPassword(string email, string encodedToken, string newPassword);
+        public Task<bool> ChangePassword(string currentPassword, string newPassword);
+        public Task<bool> ChangeProfilePicture(IFormFile profilePicture);
+
 
     }
 }

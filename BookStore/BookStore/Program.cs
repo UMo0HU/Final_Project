@@ -13,6 +13,7 @@ using BookStore.Service.Review;
 using BookStore.Service.Cart;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using BookStore.Service.Email;
+using BookStore.Service.Order;
 
 namespace BookStore
 {
@@ -46,6 +47,12 @@ namespace BookStore
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<ICartService, CartService>();
             builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
+
+            builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+            {
+                options.TokenLifespan = TimeSpan.FromHours(1);
+            });
 
             var app = builder.Build();
 
