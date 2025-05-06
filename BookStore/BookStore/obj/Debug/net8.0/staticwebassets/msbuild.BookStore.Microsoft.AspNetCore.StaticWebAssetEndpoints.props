@@ -1,4 +1,4 @@
-<Project>
+﻿<Project>
   <ItemGroup>
     <StaticWebAssetEndpoint Include="_content/BookStore/book-images/TheOldManAndTheSea.d76g881nnq.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\book-images\TheOldManAndTheSea.jpg'))</AssetFile>
@@ -143,6 +143,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gjwd1xacuf"},{"Name":"integrity","Value":"sha256-BLXB1hqaFB/FuvX8mY/2FpSoIoQu\u002BYEomViq4yZBARU="},{"Name":"label","Value":"_content/BookStore/css/site.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3073"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022BLXB1hqaFB/FuvX8mY/2FpSoIoQu\u002BYEomViq4yZBARU=\u0022"},{"Name":"Last-Modified","Value":"Tue, 06 May 2025 04:36:57 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookStore/css/userOrder.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\userOrder.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8\u002BQ7Znmnm5E="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3403"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8\u002BQ7Znmnm5E=\u0022"},{"Name":"Last-Modified","Value":"Tue, 06 May 2025 11:31:07 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/BookStore/css/userOrder.nmy7d6f6zi.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\userOrder.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"nmy7d6f6zi"},{"Name":"integrity","Value":"sha256-DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8\u002BQ7Znmnm5E="},{"Name":"label","Value":"_content/BookStore/css/userOrder.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3403"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8\u002BQ7Znmnm5E=\u0022"},{"Name":"Last-Modified","Value":"Tue, 06 May 2025 11:31:07 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BookStore/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>

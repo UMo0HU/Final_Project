@@ -9,6 +9,7 @@ wwwroot\css\checkout.css
 wwwroot\css\home.css
 wwwroot\css\profile.css
 wwwroot\css\site.css
+wwwroot\css\userOrder.css
 wwwroot\favicon.ico
 wwwroot\font-awesome\css\all.css
 wwwroot\font-awesome\css\all.min.css

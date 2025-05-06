@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "48HxKEL0wKfaYBalwFv8Jv5H9QhBr4datRrninEJDMc=",
+  "Hash": "xi3dzC9i4SOqk1/x+jkZm+zbO7G8hnByPIKnC0JOTD0=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -288,6 +288,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\userOrder.css",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "css/userOrder#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nmy7d6f6zi",
+      "Integrity": "DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8+Q7Znmnm5E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\userOrder.css"
     },
     {
       "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\favicon.ico",
@@ -4000,6 +4021,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-BLXB1hqaFB/FuvX8mY/2FpSoIoQu+YEomViq4yZBARU="
+        }
+      ]
+    },
+    {
+      "Route": "css/userOrder.css",
+      "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\userOrder.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3403"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8+Q7Znmnm5E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 11:31:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8+Q7Znmnm5E="
+        }
+      ]
+    },
+    {
+      "Route": "css/userOrder.nmy7d6f6zi.css",
+      "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\userOrder.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3403"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8+Q7Znmnm5E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 11:31:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nmy7d6f6zi"
+        },
+        {
+          "Name": "label",
+          "Value": "css/userOrder.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8+Q7Znmnm5E="
         }
       ]
     },

@@ -1299,3 +1299,4 @@ D:\DEPI\test-features\BookStore\BookStore\obj\Debug\net8.0\refint\BookStore.dll
 D:\DEPI\test-features\BookStore\BookStore\obj\Debug\net8.0\BookStore.pdb
 D:\DEPI\test-features\BookStore\BookStore\obj\Debug\net8.0\BookStore.genruntimeconfig.cache
 D:\DEPI\test-features\BookStore\BookStore\obj\Debug\net8.0\ref\BookStore.dll
+D:\DEPI\test-features\BookStore\BookStore\obj\Debug\net8.0\BookStore.sourcelink.json

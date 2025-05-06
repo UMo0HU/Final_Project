@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\userOrder.css",
+      "PackagePath": "staticwebassets\\css\\userOrder.css"
+    },
+    {
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },

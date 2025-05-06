@@ -987,6 +987,88 @@
       ]
     },
     {
+      "Route": "css/userOrder.css",
+      "AssetFile": "css/userOrder.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3403"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8+Q7Znmnm5E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 11:31:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8+Q7Znmnm5E="
+        }
+      ]
+    },
+    {
+      "Route": "css/userOrder.nmy7d6f6zi.css",
+      "AssetFile": "css/userOrder.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3403"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8+Q7Znmnm5E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 11:31:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nmy7d6f6zi"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DyB1htl3JQ8SyeuRlyQfYKgpbTeg89xT8+Q7Znmnm5E="
+        },
+        {
+          "Name": "label",
+          "Value": "css/userOrder.css"
+        }
+      ]
+    },
+    {
       "Route": "favicon.61n19gt1b8.ico",
       "AssetFile": "favicon.ico",
       "Selectors": [],
