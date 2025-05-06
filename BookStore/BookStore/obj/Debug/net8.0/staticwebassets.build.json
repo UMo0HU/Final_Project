@@ -1,10 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-  "Hash": "aHt3CheU0dEmcRWDLGlk6iMPlg8CwCd374804eyq6fc=",
-=======
-  "Hash": "igzoSik3OV6gLbSaruxBtY8wrgeN1HoPhMk1rzMqAoE=",
->>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
+  "Hash": "y6PwXuHyk0kg6gdRBU9mT9H57JRX/dHg+BzEVdzJDMI=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -252,13 +248,10 @@
       "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\profile.css",
-=======
-      "Identity": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
+      "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\",
+      "ContentRoot": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\",
       "BasePath": "_content/BookStore",
       "RelativePath": "css/Manage#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -276,8 +269,7 @@
       "OriginalItemSpec": "wwwroot\\css\\Manage.css"
     },
     {
-      "Identity": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\profile.css",
->>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
+      "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\profile.css",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\",
@@ -1474,13 +1466,10 @@
       "OriginalItemSpec": "wwwroot\\images\\PasswordLogo.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\images\\Search.png",
-=======
-      "Identity": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
+      "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\",
+      "ContentRoot": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\",
       "BasePath": "_content/BookStore",
       "RelativePath": "images/resetPasswordImage#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -1498,8 +1487,7 @@
       "OriginalItemSpec": "wwwroot\\images\\resetPasswordImage.jpg"
     },
     {
-      "Identity": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\Search.png",
->>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
+      "Identity": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\images\\Search.png",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\",
@@ -3281,7 +3269,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 12:09:28 GMT"
+          "Value": "Tue, 06 May 2025 13:25:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3318,7 +3306,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 12:09:28 GMT"
+          "Value": "Tue, 06 May 2025 13:25:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3355,7 +3343,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 12:09:28 GMT"
+          "Value": "Tue, 06 May 2025 13:25:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3400,7 +3388,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 12:09:28 GMT"
+          "Value": "Tue, 06 May 2025 13:25:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3916,7 +3904,7 @@
     },
     {
       "Route": "css/Manage.css",
-      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
+      "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3937,7 +3925,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 00:39:10 GMT"
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3953,7 +3941,7 @@
     },
     {
       "Route": "css/Manage.yx1jdh7xyd.css",
-      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
+      "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3974,7 +3962,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 00:39:10 GMT"
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4101,11 +4089,7 @@
         },
         {
           "Name": "Last-Modified",
-<<<<<<< HEAD
-          "Value": "Tue, 06 May 2025 04:36:57 GMT"
-=======
-          "Value": "Sun, 04 May 2025 18:21:45 GMT"
->>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4120,13 +4104,8 @@
       ]
     },
     {
-<<<<<<< HEAD
-      "Route": "css/site.gjwd1xacuf.css",
-      "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\site.css",
-=======
       "Route": "css/site.pg4bylvjut.css",
-      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\site.css",
->>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
+      "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4147,11 +4126,7 @@
         },
         {
           "Name": "Last-Modified",
-<<<<<<< HEAD
-          "Value": "Tue, 06 May 2025 04:36:57 GMT"
-=======
-          "Value": "Sun, 04 May 2025 18:21:45 GMT"
->>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8685,7 +8660,7 @@
     },
     {
       "Route": "images/resetPasswordImage.jpg",
-      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
+      "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8706,7 +8681,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:53:46 GMT"
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8722,7 +8697,7 @@
     },
     {
       "Route": "images/resetPasswordImage.t50pojjamm.jpg",
-      "AssetFile": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
+      "AssetFile": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8743,7 +8718,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:53:46 GMT"
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         },
         {
           "Name": "Cache-Control",

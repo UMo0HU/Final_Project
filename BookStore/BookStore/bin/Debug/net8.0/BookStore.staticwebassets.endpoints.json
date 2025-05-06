@@ -29,7 +29,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 12:09:28 GMT"
+          "Value": "Tue, 06 May 2025 13:25:33 GMT"
         }
       ],
       "EndpointProperties": [
@@ -66,7 +66,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 12:09:28 GMT"
+          "Value": "Tue, 06 May 2025 13:25:33 GMT"
         }
       ],
       "EndpointProperties": [
@@ -357,7 +357,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 00:39:10 GMT"
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         }
       ],
       "EndpointProperties": [
@@ -394,7 +394,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 00:39:10 GMT"
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1013,11 +1013,7 @@
         },
         {
           "Name": "Last-Modified",
-<<<<<<< HEAD
-          "Value": "Tue, 06 May 2025 04:36:57 GMT"
-=======
-          "Value": "Sun, 04 May 2025 18:21:45 GMT"
->>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1054,11 +1050,7 @@
         },
         {
           "Name": "Last-Modified",
-<<<<<<< HEAD
-          "Value": "Tue, 06 May 2025 04:36:57 GMT"
-=======
-          "Value": "Sun, 04 May 2025 18:21:45 GMT"
->>>>>>> b58436a7a452b5eeef6b1316f00a0eabebde40af
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5859,7 +5851,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:53:46 GMT"
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         }
       ],
       "EndpointProperties": [
@@ -5896,7 +5888,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 05 May 2025 13:53:46 GMT"
+          "Value": "Tue, 06 May 2025 13:23:29 GMT"
         }
       ],
       "EndpointProperties": [
