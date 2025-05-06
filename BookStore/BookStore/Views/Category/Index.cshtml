@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Categories";
     var books = ViewBag.Books as List<Book>;
+    var wishlistBookIds = ViewBag.WishlistBookIds as List<int> ?? new List<int>();
 }
 <div class="aside">
     <div class="aside__content">
@@ -42,6 +43,21 @@
     </div>
 
     <div class="main__books">
+        <div class="cards">
+            @foreach (var book in books)
+            {
+                <div class="cards-card">
+                    @await Html.PartialAsync("_WishlistButtonPartial", new WishlistButtonViewModel
+           {
+               BookId = book.Id,
+               IsInWishlist = wishlistBookIds.Contains(book.Id)
+           })
+                    <a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
+                        <div class="card-img"><img src="~/book-images/@book.Img" width="200" height="300" alt=""></div>
+                    </a>
+                </div>
+            }
+        </div>
     </div></div>
 
 @section Styles {
