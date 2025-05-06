@@ -3,58 +3,46 @@
     ViewBag.Title = "Categories";
     var books = ViewBag.Books as List<Book>;
 }
-<div class="container-fluid min-vh-100">
-    <div class="row">
-            <div class="col-md-3 col-lg-2  p-0 sticky-top vh-100">
-            <div class="p-3 border-bottom border-secondary">
-                <h4 class="m-0">Categories</h4>
-            </div>
+<div class="aside">
+    <div class="aside__content">
+        <h2 class="aside__h2">Categories</h2>
 
-            <div class="p-3">
-                <div class="input-group">
-                    <input type="text" id="search" class="form-control" placeholder="Search...">
-                    <button class="btn btn-dark" onclick="searchBook()"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-
-            <div class="nav flex-column">
-                @foreach (var category in Model)
-                {
-                    <a href="#" class="py-2 px-3 border-bottom border-secondary text-secondary">@category.Name</a>
-                }
-            </div>
+        <div class="aside__search">
+            <input type="text" class="aside__search__input" placeholder=" search ">
+            <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-
-        <div class="col-md-9 col-lg-10 p-4">
-            <div class="d-flex justify-content-between mb-4">
-                <h2 class="m-0">Books</h2>
-                <select class="form-select w-auto">
-                    <option>Sort by</option>
-                    <option>Popularity</option>
-                    <option>Newest</option>
-                </select>
-            </div>
-
-            <div class="row g-4">
-                <div class="d-flex">
-                @foreach (var book in books)
-                {
-                    <div class="card me-2">
-                        <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-                        <a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
-                            <div class="img-thumbnail"><img src="~/book-images/@book.Img" width="250px" height="250px" alt=""></div>
-                            <div class="card-body">
-                                <h6 class="card-title text-truncate">@book.Title</h6>
-                                <p class="card-text small text-muted">@book.Author</p>
-                            </div>
-                        </a>
-                    </div>
-                }
-                </div>
-            </div>
-        </div>
+        <ul class="aside__ul">
+            <button class="aside__ul__categories active" onclick="filterProduct('All')">All</button>
+            <button class="aside__ul__categories" onclick="filterProduct('Novels')">Novels</button>
+            <button class="aside__ul__categories" onclick="filterProduct('Fantasy')">Fantasy</button>
+            <button class="aside__ul__categories" onclick="filterProduct('Literary')">Literary</button>
+            <button class="aside__ul__categories" onclick="filterProduct('Crime')">Crime</button>
+            <button class="aside__ul__categories" onclick="filterProduct('Kids')">Kids</button>
+            <button class="aside__ul__categories" onclick="filterProduct('Thrillers')">Thrillers</button>
+            <button class="aside__ul__categories" onclick="filterProduct('Self-help')">Self-help</button>
+            <button class="aside__ul__categories" onclick="filterProduct('Romance')">Romance</button>
+            <button class="aside__ul__categories" onclick="filterProduct('History')">History</button>
+            <button class="aside__ul__categories" onclick="filterProduct('Science')">Science</button>
+        </ul>
     </div>
+    <div class="verticle-line"></div>
 </div>
+<div class="main">
+    <div class="main__top">
+        <h2 class="main__h2">Books</h2>
+
+        <form action="">
+            <select id="dropdown" name="filter">
+                <option value="most-read">Most Read</option>
+                <option value="popular">Popular</option>
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="main__books">
+    </div></div>
 
 @section Styles {
     <link href="~/css/categories.css" rel="stylesheet" />
@@ -62,20 +50,96 @@
 
 @section Scripts {
     <script>
-        function searchBook() {
-            const searchInput = document.getElementById('search');
-            const searchTerm = searchInput.value.toLowerCase();
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const author = card.querySelector('.card-text').textContent.toLowerCase();
-                if (title.includes(searchTerm) || author.includes(searchTerm)) {
-                    card.style.display = 'block';
+        let filteredArray = [];
+        let mainBooks = document.querySelector(".main__books");
+
+        function displayBooks(arr) {
+            mainBooks.innerText = "";
+            for (let i = 0; i < arr.length; i++) {
+                let imgContainer = document.createElement("div");
+                imgContainer.classList.add("main__book");
+
+                let image = document.createElement("img");
+                image.classList.add("main__book__img");
+                image.setAttribute("src", arr[i].image);
+
+                imgContainer.appendChild(image);
+                mainBooks.appendChild(imgContainer);
+            }
+        }
+        displayBooks(Books);
+
+        for (let i of Books) {
+            let imgContainer = document.createElement("div");
+            imgContainer.classList.add("main__book", i.category, "hide");
+
+            let image = document.createElement("img");
+            image.classList.add("main__book__img");
+            image.setAttribute("src", i.image);
+
+            imgContainer.appendChild(image);
+            mainBooks.appendChild(imgContainer);
+        }
+
+
+
+        function filterProduct(value) {
+            let buttons = document.querySelectorAll(".aside__ul__categories");
+            buttons.forEach((button) => {
+                if (value == button.innerText) {
+                    button.classList.add("active");
                 } else {
-                    card.style.display = 'none';
+                    button.classList.remove("active");
+                }
+            });
+
+
+            let items = document.querySelectorAll(".main__book");
+            items.forEach((item) => {
+                if (value == "All") {
+                    item.classList.remove("hide");
+                } else {
+                    if (item.classList.contains(value)) {
+                        item.classList.remove("hide");
+                    } else {
+                        item.classList.add("hide");
+                    }
                 }
             });
         }
+
+
+
+        let searchInput = document.querySelector(".aside__search__input");
+
+        searchInput.addEventListener("keyup", () => {
+            let searchValue = searchInput.value;
+
+            filteredArray = Books.filter((ele) => {
+                if (ele.name.includes(searchValue)) {
+                    return ele.name;
+                }
+            });
+            if (this.value == "") {
+                displayBooks(Books);
+            } else {
+                if (filteredArray == "") {
+                    mainBooks.innerHTML = "";
+                } else {
+                    displayBooks(filteredArray);
+                    mainBooks.computedStyleMap.display = 'none';
+                }
+            }
+        })
+
+
+
+        window.onload = () => {
+            filterProduct("All");
+        }
+
+
+
     </script>
     <script src="~/js/heartToggler.js"></script>
 }
