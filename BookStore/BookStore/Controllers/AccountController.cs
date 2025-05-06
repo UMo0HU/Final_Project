@@ -126,11 +126,12 @@ namespace BookStore.Controllers
                 );
                 string subject = "Password Reset Request";
                 string message = $@"
-                    <p>Please reset your password by <a href='{resetLink}'>clicking here</a>.</p>
-                    <p>This link expires in 1 hour. If you didn't request this, ignore this email.</p>
+                    <img src=""https://i.ibb.co/0R9YD3WJ/smile.jpg"" alt=""reset-Password-Image"" border=""0"" width=""200"" height=""200"">
+                    <p>This Link Is To Reset Your Password, <a href='{resetLink}'>Click Me</a> If You Want To Reset IT.</p>
+                    <p>This Link Expires In 1 Hour.</p>
                 ";
 
-                await _emailSenderService.SendEmailAsync(model.Email, subject, message);
+                await _emailSenderService.SendEmailAsync(model.Email, subject, message, true);
 
                 ModelState.Clear();
                 model.EmailSent = true;

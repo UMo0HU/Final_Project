@@ -6,6 +6,7 @@ wwwroot\css\bookDetails.css
 wwwroot\css\categories.css
 wwwroot\css\checkout.css
 wwwroot\css\home.css
+wwwroot\css\Manage.css
 wwwroot\css\profile.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
@@ -62,6 +63,7 @@ wwwroot\images\LinkedInCircled.svg
 wwwroot\images\loginBackground.jpeg
 wwwroot\images\Password.svg
 wwwroot\images\PasswordLogo.png
+wwwroot\images\resetPasswordImage.jpg
 wwwroot\images\Search.png
 wwwroot\images\User.svg
 wwwroot\images\UserLogo.png

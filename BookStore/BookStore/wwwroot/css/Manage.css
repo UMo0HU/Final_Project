@@ -1,0 +1,38 @@
+﻿.side-nav {
+    background-color: transparent;
+    border-right: 3px solid #674636;
+    border-left: 3px solid #674636;
+    height: 80vh;
+}
+
+.side-nav-link {
+    color: black !important;
+    width: 200px;
+}
+
+.side-nav .nav-item {
+    margin-bottom: 10px;
+}
+
+.active {
+    color: #FFF8E8 !important;
+    background-color: #674636 !important;
+}
+
+@media (max-width: 500px) {
+    .manage-content {
+        flex-direction: column !important;
+    }
+
+    .side-nav {
+        background-color: transparent;
+        border-right: none;
+        border-left: none;
+        border-bottom: 3px solid #674636;
+        height: fit-content;
+    }
+
+    .nav-pills {
+        align-items: center;
+    }
+}

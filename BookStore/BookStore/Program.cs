@@ -47,6 +47,11 @@ namespace BookStore
             builder.Services.AddScoped<ICartService, CartService>();
             builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
 
+            builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+            {
+                options.TokenLifespan = TimeSpan.FromHours(1);
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

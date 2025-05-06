@@ -16,10 +16,11 @@
             @if(review.User.ProfilePicture == null) {
                 <img src="~/images/default_user.jpg" alt="User Avatar" class="user-avatar">
             }
-            else {
-                <img src="https://randomuser.me/api/portraits/men/9.jpg" alt="User Avatar" class="user-avatar">
+            else
+            {
+                <img src="data:image/*;base64,@(Convert.ToBase64String(review.User.ProfilePicture))" alt="User Avatar" class="user-avatar">
             }
-            <div class="flex-grow-1">
+                <div class="flex-grow-1">
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="mb-0">@review.User.UserName</h6>
                     <span class="comment-time">Posted on @review.CreatedAt.ToLocalTime().ToString("g")</span>

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> _signInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -31,9 +33,11 @@
                     <li class="nav-item nav-item">
                         <a class="nav-link nav-link" asp-controller="Category" asp-action="Index">Categories</a>
                     </li>
-                    <li class="nav-item nav-item">
-                        <a class="nav-link nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
-                    </li>
+                    @if (_signInManager.IsSignedIn(User)){
+                        <li class="nav-item nav-item">
+                            <a class="nav-link nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                    }
                 </ul>
 
                 <div class="d-none d-lg-flex search-container mx-3">
@@ -95,7 +99,28 @@
                 }
             });
         }
+            function userToggler() {
+                const userTogglerList = document.querySelector(".user-toggler-list");
+                userTogglerList.classList.toggle("user-toggled");
+            }
+            window.addEventListener("resize", function(){
+                if(window.innerWidth <= 991) {
+                    const userTogglerList = document.querySelector(".user-toggler-list");
+                    userTogglerList.classList.add("user-toggled");
+                }
+                else
+                {
+                    const userTogglerList = document.querySelector(".user-toggler-list");
+                    userTogglerList.classList.remove("user-toggled");
+                }
+            })
 
+            document.addEventListener("DOMContentLoaded", function () {
+                if(window.innerWidth <= 991) {
+                    const userTogglerList = document.querySelector(".user-toggler-list");
+                    userTogglerList.classList.add("user-toggled");
+                }
+            })
     </script>
     @await RenderSectionAsync("Scripts", required: false)
     @RenderSection("Styles", required: false)

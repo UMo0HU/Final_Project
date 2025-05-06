@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\book-images\\Thinking_Like_a_Human.jpg"
     },
     {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
+      "PackagePath": "staticwebassets\\css\\Manage.css"
+    },
+    {
       "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\css\\account.css",
       "PackagePath": "staticwebassets\\css\\account.css"
     },
@@ -271,6 +275,10 @@
     {
       "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\loginBackground.jpeg",
       "PackagePath": "staticwebassets\\images\\loginBackground.jpeg"
+    },
+    {
+      "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\images\\resetPasswordImage.jpg",
+      "PackagePath": "staticwebassets\\images\\resetPasswordImage.jpg"
     },
     {
       "Id": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\wwwroot\\js\\site.js",
