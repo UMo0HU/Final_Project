@@ -1,7 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DEPI\\test-features\\BookStore\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\DEPI\\Final\\BookStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\final\\bookstore\\bookstore\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\final\\bookstore\\bookstore\\wwwroot\\css\\viewbooks.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\wwwroot\\css\\viewbooks.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\final\\bookstore\\bookstore\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,6 +43,45 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "viewBooks.css",
+              "DocumentMoniker": "D:\\DEPI\\Final\\BookStore\\BookStore\\wwwroot\\css\\viewBooks.css",
+              "RelativeDocumentMoniker": "BookStore\\wwwroot\\css\\viewBooks.css",
+              "ToolTip": "D:\\DEPI\\Final\\BookStore\\BookStore\\wwwroot\\css\\viewBooks.css",
+              "RelativeToolTip": "BookStore\\wwwroot\\css\\viewBooks.css",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAAAI8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-07T21:32:15.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "D:\\DEPI\\Final\\BookStore\\BookStore\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "BookStore\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "D:\\DEPI\\Final\\BookStore\\BookStore\\Views\\Shared\\_AdminLayout.cshtml*",
+              "RelativeToolTip": "BookStore\\Views\\Shared\\_AdminLayout.cshtml*",
+              "ViewState": "AgIAADcAAAAAAAAAAAAIwEIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-07T21:23:51.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\DEPI\\Final\\BookStore\\BookStore\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "BookStore\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\DEPI\\Final\\BookStore\\BookStore\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "BookStore\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAIwC4AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T10:56:52.136Z",
+              "EditorCaption": ""
             }
           ]
         }
