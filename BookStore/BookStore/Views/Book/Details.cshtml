@@ -34,13 +34,22 @@
                 }
             }
             </p>
+        @if(Book.Stock != 0) {
+            <p class="stock"><strong>Stock:</strong> @Book.Stock</p>
+        }
         <div class="description">
             <p>@Book.Description</p>
         </div>
         @if (SignInManager.IsSignedIn(User))
         {
             <div class="actions">
+            @if(Book.Stock == 0) {
+
+                <button id="cartButton" class="read-button"><i class="fa-solid fa-cart-shopping"></i> Out Of Stock</button>
+            }
+            else {
                 <button id="cartButton" onclick="cartToggler(@Book.Id)" class="read-button @(bookInCart? "added" : "")"><i class="fa-solid @(bookInCart? "fa-cart-shopping" : "fa-cart-plus")"></i> @(bookInCart ? "Remove From Cart" : "Add To Cart")</button>
+            }
                 <button id="wishlistButton" onclick="WishlistToggler(@Book.Id)" class="download-button @(bookInWishlist? "added" : "")"><i class="fa-solid fa-heart" style="color: @(bookInWishlist? "red" : "white");"></i> @(bookInWishlist? "Remove From Wishlist" : "Add To Wishlist")</button>
             </div>
         }
