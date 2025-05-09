@@ -9,287 +9,149 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookStore
 build_property.RootNamespace = BookStore
-<<<<<<< HEAD
-build_property.ProjectDir = C:\Users\alsaad\OneDrive - Office 365\Desktop\Book Details\BookStore\BookStore\
-=======
-build_property.ProjectDir = C:\Users\Nada\Desktop\Project\BookStore\BookStore\
->>>>>>> 9ad06a6c9a4705bd7385df74ec4c940c4e2955d1
+build_property.ProjectDir = D:\DEPI\solveConflicts\BookStore\BookStore\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-<<<<<<< HEAD
-build_property.MSBuildProjectDirectory = C:\Users\alsaad\OneDrive - Office 365\Desktop\Book Details\BookStore\BookStore
-=======
-build_property.MSBuildProjectDirectory = C:\Users\Nada\Desktop\Project\BookStore\BookStore
->>>>>>> 9ad06a6c9a4705bd7385df74ec4c940c4e2955d1
+build_property.MSBuildProjectDirectory = D:\DEPI\solveConflicts\BookStore\BookStore
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-<<<<<<< HEAD
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Account/ForgetPassword.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Account/ForgetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3JnZXRQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Account/Login.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Account/Register.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Account/ResetPassword.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Admin/Books.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9va3MuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Admin/Categories.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2F0ZWdvcmllcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Admin/EditBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEJvb2suY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Admin/EditCategory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdENhdGVnb3J5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Admin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Book/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Book/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Category/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Home/ContactUs.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0VXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Order/OrderList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcT3JkZXJMaXN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Order/Track.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcVHJhY2suY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_AccountLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BY2NvdW50TGF5b3V0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_AdminLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_BookRatePartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb29rUmF0ZVBhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_LoginLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_ReviewsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZXZpZXdzUGFydGlhbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_SideNavPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlTmF2UGFydGlhbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_WishlistButtonPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9XaXNobGlzdEJ1dHRvblBhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/User/AccountManage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBY2NvdW50TWFuYWdlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/User/ChangePassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/User/checkout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxjaGVja291dC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/User/Profile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/alsaad/OneDrive - Office 365/Desktop/Book Details/BookStore/BookStore/Views/Shared/_Layout.cshtml]
-=======
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Account/ForgetPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3JnZXRQYXNzd29yZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Account/ResetPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Admin/AddBook.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Admin/AddBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkQm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Admin/Books.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Admin/Books.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Admin/Categories.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Admin/Categories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2F0ZWdvcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Admin/EditBook.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Admin/EditBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEJvb2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Admin/EditCategory.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Admin/EditCategory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdENhdGVnb3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Admin/Index.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Book/Details.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Book/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Book/Index.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Book/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Category/Index.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Home/ContactUs.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Home/ContactUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0VXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Home/Index.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Order/OrderList.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Order/OrderList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcT3JkZXJMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Order/Track.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Order/Track.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcVHJhY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/Error.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_AccountLayout.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_AccountLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BY2NvdW50TGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_AdminLayout.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_BookRatePartial.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_BookRatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb29rUmF0ZVBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_LoginLayout.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_LoginPartial.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_ReviewsPartial.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_ReviewsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZXZpZXdzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_SideNavPartial.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_SideNavPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWRlTmF2UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_WishlistButtonPartial.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_WishlistButtonPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9XaXNobGlzdEJ1dHRvblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/User/AccountManage.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/User/AccountManage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBY2NvdW50TWFuYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/User/ChangePassword.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/User/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/User/checkout.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/User/checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxjaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/User/Profile.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/User/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/_ViewImports.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/_ViewStart.cshtml]
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Nada/Desktop/Project/BookStore/BookStore/Views/Shared/_Layout.cshtml]
->>>>>>> 9ad06a6c9a4705bd7385df74ec4c940c4e2955d1
+[D:/DEPI/solveConflicts/BookStore/BookStore/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-tqf8g8k84y
