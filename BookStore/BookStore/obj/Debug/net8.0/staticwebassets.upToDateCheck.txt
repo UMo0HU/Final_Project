@@ -8,6 +8,7 @@ wwwroot\css\categories.css
 wwwroot\css\checkout.css
 wwwroot\css\home.css
 wwwroot\css\Manage.css
+wwwroot\css\payment.css
 wwwroot\css\profile.css
 wwwroot\css\site.css
 wwwroot\css\userOrder.css

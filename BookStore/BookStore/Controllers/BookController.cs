@@ -82,5 +82,14 @@ namespace BookStore.Controllers
             var result = await _wishlistService.RemoveFromWishlist(id);
             return Json(new { success = result });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string keyword)
+        {
+            List<Book> books = await _bookService.Search(keyword);
+            var Wishlist = await _wishlistService.GetUserWishlist();
+            ViewBag.WishlistBookIds = Wishlist.Select(w => w.BookId).ToList();
+            return View(books);
+        }
     }
 }

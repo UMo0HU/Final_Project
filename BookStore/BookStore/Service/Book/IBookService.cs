@@ -9,8 +9,7 @@ namespace BookStore.Service.Book
         public Task AddBook(BookViewModel bookViewModel);
         public Task EditBook(BookViewModel bookViewModel);
         public Task DeleteBook(int id);
-
-
+        public Task<List<Models.Book>> Search(string keyword);
 
     }
 }

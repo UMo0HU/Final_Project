@@ -94,17 +94,15 @@
         background-color: #F5F5DC;
     }
 
-p, span {
-    color: #ad8370;
+span {
+    color: #FFF8F8;
 }
 
 .text-body {
     color: #bc846a !important;
 }
 
-.fas, .fab {
-    color: #A0522D;
-}
+
 
 hr {
     border-color: #D2B48C;
