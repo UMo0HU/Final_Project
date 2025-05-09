@@ -1,0 +1,22 @@
+﻿@model List<Book>
+
+@{
+    ViewData["Title"] = "Search Result";
+    var wishlistBookIds = ViewBag.WishlistBookIds as List<int> ?? new List<int>();
+}
+
+<div class="cards m-4">
+    @foreach (var book in Model)
+    {
+        <div class="cards-card">
+            @await Html.PartialAsync("_WishlistButtonPartial", new WishlistButtonViewModel
+   {
+       BookId = book.Id,
+       IsInWishlist = wishlistBookIds.Contains(book.Id)
+   })
+            <a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
+                <div class="card-img"><img src="~/book-images/@book.Img" width="200" height="300" alt=""></div>
+            </a>
+        </div>
+    }
+</div>

@@ -18,6 +18,7 @@
     <p class="main-line">_________________________________________________________________________________________________</p>
     <h3 class="popular-title">popular</h3>
     <div class="cards">
+<<<<<<< HEAD
         @await Html.PartialAsync("_LoadBooksPartial", new ShowBooksViewModel
         {
             books = Model,
@@ -33,6 +34,23 @@
             <h2>Top_Author_Name</h2>
         </div>
 </div>
+=======
+            @foreach(var book in Model) {
+                <div class="cards-card">
+                    @await Html.PartialAsync("_WishlistButtonPartial", new WishlistButtonViewModel
+                    {
+                        BookId = book.Id,
+                        IsInWishlist = wishlistBookIds.Contains(book.Id)
+                    })
+                    <a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
+                        <div class="card-img"><img src="~/book-images/@book.Img" width="200" height="300" alt=""></div>
+                    </a>
+                </div>
+            }
+    </div>
+</div>
+
+>>>>>>> b146043d546aede81c7549d4da796170cdf44756
 @section Styles {
     <link href="~/css/home.css" rel="stylesheet" />
 }

@@ -102,8 +102,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>gh9tdyycxy</Fingerprint>
-      <Integrity>vBVA2ZFGjG6DDoqgY7mrV0hibZqQgt+xJcjEBmtwLmw=</Integrity>
+      <Fingerprint>wqaza4qr75</Fingerprint>
+      <Integrity>KFuHcxJXjgQYZuoyLSJIq+F85kd/S8XbQluT+TMGrOo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\account.css'))</OriginalItemSpec>
@@ -210,8 +210,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>6j8sa5fo1d</Fingerprint>
-      <Integrity>MogWNvDvdxUilOIKjsYUeDXU7Qyl562ldbqRP+rKurk=</Integrity>
+      <Fingerprint>wx3zrmeuzx</Fingerprint>
+      <Integrity>tHF8xp9YyIQ76QIVtVsUhZjIFlgNXcVQRiHgB6okNMg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\checkout.css'))</OriginalItemSpec>
@@ -270,6 +270,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Manage.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\payment.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>BookStore</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/BookStore</BasePath>
+      <RelativePath>css/payment.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>e0l5u59tqx</Fingerprint>
+      <Integrity>YiTDb01Sez3LmJY09I7yFaPoollOhrhV4bUXSRCh8mA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\payment.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\profile.css'))">
       <SourceType>Package</SourceType>
       <SourceId>BookStore</SourceId>
@@ -300,8 +318,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+<<<<<<< HEAD
       <Fingerprint>dw4jv8up8r</Fingerprint>
       <Integrity>jV65emJ/wLos3d7ZTkT7UnrZGcIQlfiK2nNpYx6AnuE=</Integrity>
+=======
+      <Fingerprint>i75to2kf04</Fingerprint>
+      <Integrity>nh+0hBcqfhJwNsJGT88zaFgGKg92KFDIAGPSFGY9Spw=</Integrity>
+>>>>>>> b146043d546aede81c7549d4da796170cdf44756
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>

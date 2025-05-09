@@ -3,6 +3,7 @@ using BookStore.Service.Book;
 using BookStore.Models;
 using Microsoft.EntityFrameworkCore;
 using BookStore.ViewModels;
+using Microsoft.Identity.Client;
 
 namespace BookStore.Service.BookService
 {
@@ -126,6 +127,15 @@ namespace BookStore.Service.BookService
                     .ThenInclude(bc => bc.Book).SelectMany(c => c.Book_Categories.Select(bc => bc.Book)).ToListAsync();
             }
             return new List<Models.Book>();
+        }
+
+        public async Task<List<Models.Book>> Search(string keyword)
+        {
+            var matchesByTitle = _context.Books.Where(b => b.Title.Contains(keyword));
+            var matchesByAuthor = _context.Books.Where(b => b.Author.Contains(keyword));
+
+            return await matchesByTitle.Concat(matchesByAuthor).Distinct().ToListAsync();
+
         }
 
     }

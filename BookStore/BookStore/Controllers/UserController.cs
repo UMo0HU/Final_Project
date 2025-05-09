@@ -1,6 +1,9 @@
-﻿using BookStore.Models;
+﻿using BookStore.Data;
+using BookStore.Helper;
+using BookStore.Models;
 using BookStore.Service.Account;
 using BookStore.Service.Cart;
+using BookStore.Service.Order;
 using BookStore.Service.Wishlist;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -15,14 +18,12 @@ namespace BookStore.Controllers
     public class UserController : Controller
     {
         private readonly IWishlistService _wishlistService;
-        private readonly ICartService _cartService;
         private readonly UserManager<User> _userManager;
         private readonly IAccountService _accountService;
 
-        public UserController(IWishlistService wishlistService, ICartService cartService, UserManager<User> userManager, IAccountService accountService)
+        public UserController(IWishlistService wishlistService, ICartService cartService, UserManager<User> userManager, IAccountService accountService, IOrderService orderService, PaypalClient paypalClient)
         {
             _wishlistService = wishlistService;
-            _cartService = cartService;
             _userManager = userManager;
             _accountService = accountService;
         }
@@ -84,13 +85,6 @@ namespace BookStore.Controllers
                 return View(model);
             }
             return View(model);
-        }
-
-        public async Task<IActionResult> CheckOut()
-        {
-            List<Book> books = await _cartService.GetBooksFromCart();
-            
-            return View(books);
         }
     }
 }

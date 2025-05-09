@@ -39,10 +39,12 @@
                         </li>
                     }
                 </ul>
-
+                
                 <div class="d-none d-lg-flex search-container mx-3">
-                    <img src="~/images/Search.png" alt="Search">
-                    <input type="text" class="search-input" placeholder="Search">
+                    <form class="search-form" asp-controller="Book" asp-action="Search">
+                        <button type="submit" class="search-btn"><img src="~/images/Search.png" alt="Search" onclick="Search()"></button>
+                        <input type="text" class="search-input" name="keyword" placeholder="Search">
+                    </form>
                 </div>
 
                 <div class="d-lg-none mb-3 search-container-mobile w-100">

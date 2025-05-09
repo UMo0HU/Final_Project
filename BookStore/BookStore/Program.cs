@@ -49,9 +49,23 @@ namespace BookStore
             builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
             builder.Services.AddScoped<IOrderService, OrderService>();
 
+            builder.Services.AddSingleton(s => 
+            new PaypalClient(
+                clientId: builder.Configuration["PaypalSettings:ClientId"],
+                clientSecret: builder.Configuration["PaypalSettings:Secret"],
+                mode: builder.Configuration["PaypalSettings:Mode"]
+                ));
+
             builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
             {
                 options.TokenLifespan = TimeSpan.FromHours(1);
+            });
+
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
             });
 
             var app = builder.Build();
@@ -68,6 +82,8 @@ namespace BookStore
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 
