@@ -16,8 +16,20 @@
 <div class="popular">
     <p class="main-line">_________________________________________________________________________________________________</p>
     <h3 class="popular-title">popular</h3>
+
+    <div class="cart-item">
+        <div class="image-container">
+        <a href="https://business.facebook.com/about/login"> <img src="./book-images/The_Days_(book)_book_cover.jpg" alt="Photo"></a>
+        <span class="heart">♡</span>
+        </div>
+        <h2>Deep Learning</h2>
+        <p>by Ian Goodfellow</p>
+        <div class="price">$19.99</div>
+        <button>Add to Cart</button>
+    </div>
+
     <div class="cards">
-            @foreach(var book in Model) {
+           @foreach(var book in Model) {
                 <div class="cards-card">
                     @await Html.PartialAsync("_WishlistButtonPartial", new WishlistButtonViewModel
                     {
@@ -31,7 +43,13 @@
             }
         </div>
     </div>
-
+<div class="popular">
+<p class="main-line">_________________________________________________________________________________________________</p>
+<h3 class="popular-title">Top Authors</h3>
+        <div class="TOPAUTHOR-item">
+            <h2>Top_Author_Name</h2>
+        </div>
+</div>
 @section Styles {
     <link href="~/css/home.css" rel="stylesheet" />
 }
