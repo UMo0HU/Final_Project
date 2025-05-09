@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\alsaad\\OneDrive - Office 365\\Desktop\\Book Details\\BookStore\\BookStore\\BookStore.csproj": {}
   },
   "projects": {
@@ -12,20 +13,33 @@
         "projectPath": "C:\\Users\\alsaad\\OneDrive - Office 365\\Desktop\\Book Details\\BookStore\\BookStore\\BookStore.csproj",
         "packagesPath": "C:\\Users\\alsaad\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\alsaad\\OneDrive - Office 365\\Desktop\\Book Details\\BookStore\\BookStore\\obj\\",
+=======
+    "C:\\Users\\Nada\\Desktop\\Project\\BookStore\\BookStore\\BookStore.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nada\\Desktop\\Project\\BookStore\\BookStore\\BookStore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nada\\Desktop\\Project\\BookStore\\BookStore\\BookStore.csproj",
+        "projectName": "BookStore",
+        "projectPath": "C:\\Users\\Nada\\Desktop\\Project\\BookStore\\BookStore\\BookStore.csproj",
+        "packagesPath": "C:\\Users\\Nada\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nada\\Desktop\\Project\\BookStore\\BookStore\\obj\\",
+>>>>>>> 9ad06a6c9a4705bd7385df74ec4c940c4e2955d1
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\alsaad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "C:\\Users\\Nada\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> 9ad06a6c9a4705bd7385df74ec4c940c4e2955d1
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,8 +57,12 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
+<<<<<<< HEAD
         },
         "SdkAnalysisLevel": "9.0.200"
+=======
+        }
+>>>>>>> 9ad06a6c9a4705bd7385df74ec4c940c4e2955d1
       },
       "frameworks": {
         "net8.0": {
@@ -92,7 +110,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 9ad06a6c9a4705bd7385df74ec4c940c4e2955d1
         }
       }
     }
