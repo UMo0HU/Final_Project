@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\alsaad\\OneDrive - Office 365\\Desktop\\Book Details\\BookStore\\",
   "Documents": [
     {
@@ -11,6 +12,10 @@
       "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\book\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
+=======
+  "WorkspaceRootPath": "D:\\DEPI\\Final\\BookStore\\",
+  "Documents": [],
+>>>>>>> 9ad06a6c9a4705bd7385df74ec4c940c4e2955d1
   "DocumentGroupContainers": [
     {
       "Orientation": 0,

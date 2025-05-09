@@ -1,0 +1,112 @@
+﻿/* Card Styles */
+.add-book-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+/* Form Styles */
+.form-control, .form-select {
+    border-color: var(--first-color);
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: var(--buttons-color);
+    box-shadow: 0 0 0 0.25rem rgba(170, 179, 150, 0.25);
+}
+
+.input-group-text {
+    background-color: var(--second-color);
+    color: var(--first-color);
+}
+
+/* Button Styles */
+.btn-add {
+    background-color: var(--buttons-color);
+    border-color: var(--buttons-color);
+    color: var(--first-color);
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.btn-add:hover {
+    background-color: #9aa887;
+    border-color: #9aa887;
+    color: var(--first-color);
+}
+
+.btn-cancel {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.btn-cancel:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: white;
+}
+
+.btn-upload {
+    background-color: var(--second-color);
+    border-color: var(--first-color);
+    color: var(--first-color);
+    padding: 8px 15px;
+}
+
+.btn-upload:hover {
+    background-color: #e6d9b5;
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-name {
+    color: #666;
+}
+
+/* Checkbox Styles */
+.form-check-input {
+    border-color: var(--first-color);
+}
+
+.form-check-input:checked {
+    background-color: var(--buttons-color);
+    border-color: var(--buttons-color);
+}
+
+.current-cover-img {
+    width: 200px;
+    height: 200px;
+    background-color: var(--second-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 1030px) {
+    .buttons-container {
+        flex-direction: column;
+        align-items: start !important;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .current-cover-img {
+        width: 150px;
+        height: 150px;
+    }
+
+}
