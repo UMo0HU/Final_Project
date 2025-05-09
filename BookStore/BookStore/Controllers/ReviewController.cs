@@ -30,6 +30,7 @@ namespace BookStore.Controllers
             var result = await _reviewService.AddReview(reviewViewModel);
             return Json(new { success = result });
             }
+
             return Json(new
             {
                 success = false,

@@ -116,6 +116,18 @@ namespace BookStore.Service.BookService
             }
         }
 
+        public async Task<List<Models.Book>> GetBooksForCategory(int categoryId)
+        {
+            var categoryExist = await _context.Categories.FindAsync(categoryId);
+            if(categoryExist != null)
+            {
+                return await _context.Categories.Where(c => c.Id == categoryId)
+                    .Include(c => c.Book_Categories)
+                    .ThenInclude(bc => bc.Book).SelectMany(c => c.Book_Categories.Select(bc => bc.Book)).ToListAsync();
+            }
+            return new List<Models.Book>();
+        }
+
     }
-      
+
 }

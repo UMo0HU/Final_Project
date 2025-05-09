@@ -1,21 +1,22 @@
-﻿aside {
-    width: 25%;
-    float: left;
-    padding: 10px;
-}
-.aside__h2 {
-    color: #5c4033;
-    font-size: 20px;
-    margin-bottom: 10px;
+﻿.inner-container {
+    display: flex;
+    gap: 10px;
 }
 
-.aside__ul {
-    width: 18%;
+.aside-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.aside-ul {
     list-style: none;
-    padding: 0;
+    border-right: 2px solid #ccc;
+    padding-right: 20px;
 }
 
-.aside_ul_categories {
+.aside-ul li {
     width: 100%;
     padding: 10px;
     margin-bottom: 5px;
@@ -26,66 +27,42 @@
     text-align: left;
 }
 
-    .aside_ul_categories.active {
-        background-color: #5c4033;
-        color: white;
-    }
-
-.verticle-line {
-    border-left: 1px solid #ccc;
-    height: 65vh;
-    position: absolute;
-    left: 25%;
-    /*  margin-bottom: 30;*/
-    margin-top: -550px;
+.aside-ul li button {
+    border: none;
+    background-color: transparent;
 }
 
-.main {
-    width: 75%;
-    float: right;
-    padding: 20px;
-}
 
-.main__top {
+.main-top {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    /margin-bottom: 20px;
-    / position: relative;
-    top: -40px; /* Adjust to align with the header */
-    margin-top: -550px;
-}
-
-.main__h2 {
-    color: #5c4033;
-    font-size: 20px;
-    margin: 0;
-    margin-left: 100px;
+    margin-top: 10px;
 }
 
 select {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    position: relative;
-    top: -10px; /* Adjust to align with the header */
 }
 
-@media (max-width: 768px) {
-    .aside, .main {
-        width: 100%;
-        float: none;
+.cards {
+    display: flex;
+    flex-wrap: wrap
+}
+
+@media (max-width: 540px) {
+    .inner-container {
+        flex-direction: column;
     }
 
-    .verticle-line {
-        display: none;
+    .aside-ul {
+        border: none;
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
     }
 
-    .main__top {
-        top: 0;
-    }
-
-    select {
-        top: 0;
-    }
+        .aside-ul li {
+            flex: 1  1 calc(33.33% - 30px);
+        }
 }

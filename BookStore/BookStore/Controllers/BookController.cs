@@ -29,11 +29,6 @@ namespace BookStore.Controllers
             _cartService = cartService;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            var books = await _bookService.GetAllBooks();
-            return View(books);
-        }
         public async Task<IActionResult> Details(int id)
         {
             ReviewViewModel reviewViewModel = new ReviewViewModel();

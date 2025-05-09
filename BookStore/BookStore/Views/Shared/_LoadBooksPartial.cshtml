@@ -1,0 +1,23 @@
+﻿@model ShowBooksViewModel
+
+@foreach (var book in Model.books)
+{
+    <div class="card-item">
+        @await Html.PartialAsync("_WishlistButtonPartial", new WishlistButtonViewModel
+        {
+            BookId = book.Id,
+            IsInWishlist = Model.UserWishlist.Contains(book.Id)
+        })
+        <a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id" class="image-container">
+            <div><img src="~/book-images/@book.Img" alt="@book.Title"></div>
+        </a>
+        <h2>@book.Title</h2>
+        <p>@book.Author</p>
+        <div class="price">$@book.Price</div>
+        @await Html.PartialAsync("_CartButtonPartial", new CartButtonViewModel
+        {
+            BookId = book.Id,
+            IsInCart = Model.UserCart.Contains(book.Id)
+        })
+    </div>
+}

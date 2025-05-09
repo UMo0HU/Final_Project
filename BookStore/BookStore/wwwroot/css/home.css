@@ -56,39 +56,7 @@ h1, h2, h3, h4, h5, a, button {
     margin: 25px 0px;
 }
 
-.cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
 
-.cards-card {
-    position: relative;
-}
-
-.card-icon {
-    position: absolute;
-    top: 9px;
-    right: 9px;
-    font-size: 30px;
-}
-
-@media only screen and (max-width:990px) {
-    .cards {
-        flex-wrap: wrap;
-    }
-
-    .cards-card {
-        width: 170px;
-        gap: 10px;
-    }
-
-    .card-img img {
-        width: 100%;
-    }
-}
 
 
 @media (max-width: 560px) {
@@ -115,96 +83,9 @@ body {
     background-color:#FFF8E8;
 } */
 
-.cart-item {
-    background-color: #f6eac6;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 300px;
-    max-width: 90%;
-}
 
-    .cart-item img {
-        width: 100px;
-        height: auto;
-        margin-bottom: 15px;
-    }
 
-    .cart-item h2 {
-        font-size: 1.5em;
-        margin: 5px 0;
-        text-align: center;
-    }
 
-    .cart-item p {
-        font-size: 0.9em;
-        color: #666;
-        margin: 5px 0;
-        text-align: center;
-    }
-
-    .cart-item .price {
-        font-size: 1.2em;
-        font-weight: bold;
-        color: #333;
-        margin: 10px 0;
-    }
-
-    .cart-item button {
-        background-color: #AAB396;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 1em;
-        cursor: pointer;
-        width: 100%;
-        max-width: 200px;
-        transition: background-color 0.3s;
-    }
-
-        .cart-item button:hover {
-            background-color: #6a7454;
-        }
-
-@media (max-width: 600px) {
-    .cart-item {
-        width: 80%;
-        padding: 15px;
-    }
-
-        .cart-item h2 {
-            font-size: 1.2em;
-        }
-
-        .cart-item p {
-            font-size: 0.8em;
-        }
-
-        .cart-item .price {
-            font-size: 1em;
-        }
-
-        .cart-item button {
-            padding: 8px 15px;
-            font-size: 0.9em;
-        }
-}
-.heart {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    color: red;
-}
-.image-container {
-    position: relative;
-    width: 100px;
-    height: 170px;
-}
 .TOPAUTHOR-item {
     background-color: #f6eac6;
     border-radius: 10px;

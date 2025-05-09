@@ -2,41 +2,55 @@
 @{
     ViewBag.Title = "Categories";
     var books = ViewBag.Books as List<Book>;
+    var wishlistBookIds = ViewBag.WishlistBookIds as List<int> ?? new List<int>();
+    var cartBookIds = ViewBag.CartBookIds as List<int> ?? new List<int>();
 }
-<div class="aside">
-    <div class="aside__content">
-        <h2 class="aside__h2">Categories</h2>
+<div class="inner-container">
+    <div class="aside-content">
+        <h2 class="aside-h2">Categories</h2>
 
-        <ul class="aside__ul">
-            <button class="aside_ul_categories active" onclick="filterProduct('All')">All</button>
-            <button class="aside_ul_categories" onclick="filterProduct('Novels')">Novels</button>
-            <button class="aside_ul_categories" onclick="filterProduct('Fantasy')">Fantasy</button>
-            <button class="aside_ul_categories" onclick="filterProduct('Literary')">Literary</button>
-            <button class="aside_ul_categories" onclick="filterProduct('Crime')">Crime</button>
-            <button class="aside_ul_categories" onclick="filterProduct('Kids')">Kids</button>
-            <button class="aside_ul_categories" onclick="filterProduct('Thrillers')">Thrillers</button>
-            <button class="aside_ul_categories" onclick="filterProduct('Self-help')">Self-help</button>
-            <button class="aside_ul_categories" onclick="filterProduct('Romance')">Romance</button>
-            <button class="aside_ul_categories" onclick="filterProduct('History')">History</button>
-            <button class="aside_ul_categories" onclick="filterProduct('Science')">Science</button>
+        <ul class="aside-ul">
+        @foreach(var category in Model) {
+                <li><button class="aside-ul-categories" onclick="categorySearch(@category.Id)">@category.Name</button></li>
+        }
         </ul>
     </div>
-    <div class="verticle-line"></div>
-</div>
-<div class="main">
-    <div class="main__top">
-        <h2 class="main__h2">Books</h2>
-
-        <form action="">
-            <select id="dropdown" name="filter">
-                <option value="most-read">Most Read</option>
-                <option value="popular">Popular</option>
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-            </select>
-        </form>
+    <div class="main">
+        <div class="main-top">
+            <h2 class="main-h2">Books</h2>
+        </div>
+        <div class="cards">
+            @await Html.PartialAsync("_LoadBooksPartial", new ShowBooksViewModel{
+                books = books,
+                UserCart = cartBookIds,
+                UserWishlist = wishlistBookIds
+            })
+        </div>
     </div>
 </div>
+
 @section Styles {
     <link href="~/css/categories.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script>
+        function categorySearch(id) {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetBooksByCategory", "Category")',
+                data: {categoryId: id},
+                success: function (result) {
+                    $(".cards").html(result);
+                },
+                error: function () {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+    </script>
 }
