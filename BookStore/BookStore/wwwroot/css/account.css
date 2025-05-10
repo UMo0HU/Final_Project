@@ -25,7 +25,7 @@ html, body {
     color: var(--first-color);
     background-color: var(--form-bg-color);
     max-width: 400px;
-    height: 475px;
+    height: 550px;
     padding: 0 75px;
     border-radius: 20px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
@@ -137,6 +137,10 @@ html, body {
     }
 
 .registration-form {
+    display: flex;
+    height: 100vh;
+    align-items:center;
+    justify-content:center;
     background-color: var(--body-color);
 }
 

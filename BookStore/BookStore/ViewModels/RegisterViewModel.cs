@@ -4,9 +4,10 @@ namespace BookStore.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage = "Name is required")]
+        [Required(ErrorMessage = "Username is required")]
         [RegularExpression(@"^[a-zA-Z][a-zA-Z0-9_-]+$", ErrorMessage = "Must start with a letter, Then use letters, numbers, dashes (-), or underscores (_).")]
-        public string Name { get; set; }
+        [Display(Name = "Username")]
+        public string Username { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress]

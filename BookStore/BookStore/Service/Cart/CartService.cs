@@ -118,11 +118,11 @@ namespace BookStore.Service.Cart
                     {
                         return books;
                     }
-                    return null;
+                    return new List<Models.Book>();
                 }
 
             }
-            return null;
+            return new List<Models.Book>();
         }
     }
 }

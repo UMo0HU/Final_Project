@@ -6,7 +6,6 @@
     <title>@ViewData["Title"] - BookStore</title>
     
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BookStore.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/font-awesome/css/all.css" />
@@ -14,44 +13,47 @@
     <link rel="stylesheet" href="~/sweetalert2/sweetalert2.min.css">
 </head>
 <body>
-    <header class="navbar navbar-expand-lg navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index"><p class="header-logo">E-Books</p></a>
-
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse text-center" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item nav-item">
-                        <a class="nav-link nav-link active" asp-controller="Admin" asp-action="Index">Admin Home</a>
-                    </li>
-                    <li class="nav-item nav-item">
-                        <a class="nav-link nav-link" asp-controller="Admin" asp-action="Books">Manage Books</a>
-                    </li>
-                    <li class="nav-item nav-item">
-                        <a class="nav-link nav-link" asp-controller="Admin" asp-action="Categories">Manage Categories</a>
-                    </li>
-                    <li class="nav-item nav-item">
-                        <a class="nav-link nav-link" href="#">Manage Orders</a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 sidebar">
+                <div class="sidebar-header">
+                    <h4>Book Store</h4>
+                </div>
+                <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a>
+                        <a class="nav-link" asp-controller="Admin" asp-action="Index">
+                            <i class="fa-solid fa-house"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="Books">
+                            <i class="fa-solid fa-book"></i> Book Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="Categories">
+                            <i class="fa-solid fa-tags"></i> Category Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa-solid fa-truck-fast"></i> Order Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Account" asp-action="Logout">
+                            <i class="fa-solid fa-door-open"></i> Logout
+                        </a>
                     </li>
                 </ul>
-            </div>
+            </nav>
+            <main role="main" class="col-md-9 col-lg-10 main-content">
+                <div class="container py-4">
+                    @RenderBody()
+                </div>
+            </main>
         </div>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

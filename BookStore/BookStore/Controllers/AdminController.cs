@@ -61,7 +61,6 @@ namespace BookStore.Controllers
             return View(updatedCategory);
         }
 
-        [HttpDelete]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             await _categoryService.DeleteCategory(id);
@@ -74,23 +73,7 @@ namespace BookStore.Controllers
             var bookViewModel = new BookViewModel();
             var books = await _bookService.GetAllBooks();
             var categories = await _categoryService.GetAllCategories();
-            bookViewModel.AllCategories = categories;
             ViewBag.Books = books;
-            return View(bookViewModel);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Books(BookViewModel bookViewModel)
-        {
-            var books = await _bookService.GetAllBooks();
-            var categories = await _categoryService.GetAllCategories();
-            if (ModelState.IsValid)
-            {
-                await _bookService.AddBook(bookViewModel);
-                return RedirectToAction("Books");
-            }
-            ViewBag.Books = books;
-            bookViewModel.AllCategories = categories;
             return View(bookViewModel);
         }
 
@@ -99,6 +82,7 @@ namespace BookStore.Controllers
         {
             var book = await _bookService.GetBookDetails(id);
             var categories = await _categoryService.GetAllCategories();
+            var bookCategory = book.Book_Categories.Select(bc => bc.CategoryId).ToList();
             var bookViewModel = new BookViewModel()
             {
                 Id = book.Id,
@@ -108,7 +92,9 @@ namespace BookStore.Controllers
                 Price = book.Price,
                 Stock = book.Stock,
                 AllCategories = categories,
+                SelectedCategoryIds = bookCategory
             };
+            ViewBag.BookImg = book.Img;
             return View(bookViewModel);
         }
 
@@ -124,7 +110,32 @@ namespace BookStore.Controllers
             return View(bookViewModel);
         }
 
-        [HttpDelete]
+        [HttpGet]
+        public async Task<IActionResult> AddBook()
+        {
+            var bookViewModel = new BookViewModel();
+            var books = await _bookService.GetAllBooks();
+            var categories = await _categoryService.GetAllCategories();
+            bookViewModel.AllCategories = categories;
+            ViewBag.Books = books;
+            return View(bookViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddBook(BookViewModel bookViewModel)
+        {
+            var books = await _bookService.GetAllBooks();
+            var categories = await _categoryService.GetAllCategories();
+            if (ModelState.IsValid)
+            {
+                await _bookService.AddBook(bookViewModel);
+                return RedirectToAction("Books");
+            }
+            ViewBag.Books = books;
+            bookViewModel.AllCategories = categories;
+            return View(bookViewModel);
+        }
+
         public async Task<IActionResult> DeleteBook(int id)
         {
             await _bookService.DeleteBook(id);

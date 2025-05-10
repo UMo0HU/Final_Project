@@ -17,12 +17,20 @@
       "PackagePath": "staticwebassets\\book-images\\Thinking_Like_a_Human.jpg"
     },
     {
+      "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\book-images\\journey_to_the_center_of_the_earth.jpeg",
+      "PackagePath": "staticwebassets\\book-images\\journey_to_the_center_of_the_earth.jpeg"
+    },
+    {
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\Manage.css",
       "PackagePath": "staticwebassets\\css\\Manage.css"
     },
     {
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\account.css",
       "PackagePath": "staticwebassets\\css\\account.css"
+    },
+    {
+      "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\addBook.css",
+      "PackagePath": "staticwebassets\\css\\addBook.css"
     },
     {
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\admin.css",
@@ -37,12 +45,24 @@
       "PackagePath": "staticwebassets\\css\\categories.css"
     },
     {
+      "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\categoryManage.css",
+      "PackagePath": "staticwebassets\\css\\categoryManage.css"
+    },
+    {
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\checkout.css",
       "PackagePath": "staticwebassets\\css\\checkout.css"
     },
     {
+      "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\editBook.css",
+      "PackagePath": "staticwebassets\\css\\editBook.css"
+    },
+    {
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\home.css",
       "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
+      "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\payment.css",
+      "PackagePath": "staticwebassets\\css\\payment.css"
     },
     {
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\profile.css",
@@ -55,6 +75,10 @@
     {
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\userOrder.css",
       "PackagePath": "staticwebassets\\css\\userOrder.css"
+    },
+    {
+      "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\css\\viewBooks.css",
+      "PackagePath": "staticwebassets\\css\\viewBooks.css"
     },
     {
       "Id": "D:\\DEPI\\test-features\\BookStore\\BookStore\\wwwroot\\favicon.ico",

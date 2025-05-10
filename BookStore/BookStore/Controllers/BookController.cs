@@ -29,11 +29,6 @@ namespace BookStore.Controllers
             _cartService = cartService;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            var books = await _bookService.GetAllBooks();
-            return View(books);
-        }
         public async Task<IActionResult> Details(int id)
         {
             ReviewViewModel reviewViewModel = new ReviewViewModel();
@@ -81,6 +76,29 @@ namespace BookStore.Controllers
         {
             var result = await _wishlistService.RemoveFromWishlist(id);
             return Json(new { success = result });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string keyword)
+        {
+            List<Book> books = await _bookService.Search(keyword);
+            var wishlist = await _wishlistService.GetUserWishlist();
+            var cart = await _cartService.GetBooksFromCart();
+
+            ViewBag.WishlistBookIds = wishlist.Select(w => w.BookId).ToList();
+            ViewBag.CartBookIds = cart.Select(b => b.Id).ToList();
+            return View(books);
+        }
+
+        public async Task<IActionResult> RecommendedAuthorBooks(string author)
+        {
+            List<Book> books = await _bookService.GetBooksByAuthor(author);
+            var wishlist = await _wishlistService.GetUserWishlist();
+            var cart = await _cartService.GetBooksFromCart();
+
+            ViewBag.WishlistBookIds = wishlist.Select(w => w.BookId).ToList();
+            ViewBag.CartBookIds = cart.Select(b => b.Id).ToList();
+            return View(books);
         }
     }
 }

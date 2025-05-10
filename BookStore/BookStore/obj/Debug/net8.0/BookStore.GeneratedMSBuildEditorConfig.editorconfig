@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/DEPI/test-features/BookStore/BookStore/Views/Admin/AddBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkQm9vay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DEPI/test-features/BookStore/BookStore/Views/Admin/Books.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,8 +64,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DEPI/test-features/BookStore/BookStore/Views/Book/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
+[D:/DEPI/test-features/BookStore/BookStore/Views/Book/RecommendedAuthorBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xSZWNvbW1lbmRlZEF1dGhvckJvb2tzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DEPI/test-features/BookStore/BookStore/Views/Book/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DEPI/test-features/BookStore/BookStore/Views/Category/Index.cshtml]
@@ -84,6 +92,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcVHJhY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/DEPI/test-features/BookStore/BookStore/Views/Payment/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DEPI/test-features/BookStore/BookStore/Views/Payment/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DEPI/test-features/BookStore/BookStore/Views/Payment/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxTdWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DEPI/test-features/BookStore/BookStore/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -98,6 +118,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/DEPI/test-features/BookStore/BookStore/Views/Shared/_BookRatePartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb29rUmF0ZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DEPI/test-features/BookStore/BookStore/Views/Shared/_LoadBooksPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2FkQm9va3NQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DEPI/test-features/BookStore/BookStore/Views/Shared/_LoginLayout.cshtml]
@@ -130,10 +154,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/DEPI/test-features/BookStore/BookStore/Views/User/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/DEPI/test-features/BookStore/BookStore/Views/User/checkout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxjaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DEPI/test-features/BookStore/BookStore/Views/User/Profile.cshtml]

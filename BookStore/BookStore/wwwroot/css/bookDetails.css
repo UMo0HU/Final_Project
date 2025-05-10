@@ -6,16 +6,36 @@
 
 .book-details {
     display: flex;
-    padding: 20px;
+    flex-direction: column;
+    padding: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .book-details {
+        flex-direction: row;
+        padding: 20px;
+    }
 }
 
 .book-cover {
     flex: 0 0 200px;
-    margin-right: 20px;
+    margin-right: 0;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+@media (min-width: 768px) {
+    .book-cover {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
 }
 
 .book-cover img {
     width: 100%;
+    max-width: 300px;
     height: auto;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -23,13 +43,26 @@
 
 .book-info {
     flex: 1;
-    padding-right: 20px;
+    padding-right: 0;
+}
+
+@media (min-width: 768px) {
+    .book-info {
+        padding-right: 20px;
+    }
 }
 
 .book-title {
-    font-size: 28px;
+    font-size: 24px;
     margin-bottom: 10px;
     color: #5c3d2e;
+    word-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+    .book-title {
+        font-size: 28px;
+    }
 }
 
 .rating {
@@ -42,7 +75,7 @@
     margin-right: 5px;
 }
 
-.author, .category {
+.author, .category, .stock {
     color: #777;
     margin-bottom: 5px;
 }
@@ -50,79 +83,88 @@
 .description {
     line-height: 1.6;
     margin-bottom: 20px;
+    word-wrap: break-word;
 }
 
-.actions button {
-    background-color: var(--buttons-color);
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-    font-size: 16px;
-    font-weight: 500;
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.actions button:first-child {
-    margin-left: 0;
-}
+    .actions button {
+        background-color: var(--buttons-color);
+        color: #fff;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        flex-grow: 1;
+    }
 
-.actions button:hover, .actions button.added:hover {
-    background-color: var(--hover-color);
-}
-
-.actions button.added {
-    background-color: var(--active-color);
-    color: #fff;
+@media (min-width: 480px) {
+    .actions button {
+        flex-grow: 0;
+    }
 }
 
 .add-review {
-    border: 1px solid #ddd; /* لون رمادي فاتح للإطار */
-    padding: 15px; /* مسافة داخلية عشان الكلام ما يكونش لازق في الإطار */
-    margin-top: 20px; /* مسافة بينه وبين القسم اللي فوقه */
-    border-radius: 5px; /* حواف مدورة بسيطة */
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
 }
 
-.add-review h3 {
-    font-size: 1.2em; 
-    color: #333;
-    margin-top: 0; 
-    margin-bottom: 10px; 
-}
+    .add-review h3 {
+        font-size: 1.2em;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
 
-.add-review .form-group {
-    margin-bottom: 15px;
-}
+    .add-review .form-group {
+        margin-bottom: 15px;
+    }
 
-.add-review label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
+    .add-review label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
 
-.add-review textarea.form-control {
-    width: 100%; 
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; 
-}
+    .add-review textarea.form-control {
+        width: 100%;
+        min-height: 100px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+    }
 
-.add-review button.btn-primary {
-    background-color: #007bff; 
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    .add-review button.btn-primary {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+@media (min-width: 480px) {
+    .add-review button.btn-primary {
+        width: auto;
+    }
 }
 
 .add-review button.btn-primary:hover {
     background-color: #0056b3;
 }
 
-/*Rating Stars Style:*/
 .star-rating {
     display: flex;
     flex-direction: row-reverse;
@@ -130,17 +172,17 @@
     cursor: pointer;
 }
 
-.star-rating input {
-    display: none;
-}
+    .star-rating input {
+        display: none;
+    }
 
-.star-rating label {
-    color: #ddd;
-    font-size: 24px;
-    padding: 0 2px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
+    .star-rating label {
+        color: #ddd;
+        font-size: 24px;
+        padding: 0 2px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 
 i.star {
     color: #ffc107;
@@ -148,32 +190,46 @@ i.star {
     padding: 0 2px;
 }
 
-
 .star-rating label:hover,
 .star-rating label:hover ~ label,
 .star-rating input:checked ~ label {
     color: #ffc107;
 }
 
-/* Comment Section Style: */
 .comment-section {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 20px;
+    max-width: 100%;
+    margin: 1rem auto;
+    padding: 15px;
     background: #f8f9fa;
     border-radius: 15px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
+@media (min-width: 768px) {
+    .comment-section {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 20px;
+    }
+}
+
 .comment-box {
-    background: #8C9A6B;
+    background-color: #917364;
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
     transition: transform 0.2s;
     border: 1px solid #e9ecef;
     font-weight: 900;
-    color: #5c3d2e;
+    color: white;
+    word-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+    .comment-box {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
 }
 
 .comment-box:hover {
@@ -182,16 +238,27 @@ i.star {
 }
 
 .user-avatar {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
 }
 
+@media (min-width: 768px) {
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+    }
+}
 
 .comment-time {
-    color: #8f7161;
-    font-size: 0.85rem;
+    color: white;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
+@media (min-width: 768px) {
+    .comment-time {
+        font-size: 0.85rem;
+    }
+}

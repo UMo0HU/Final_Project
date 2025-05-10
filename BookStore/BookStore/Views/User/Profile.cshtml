@@ -4,6 +4,8 @@
 @{
     ViewBag.Title = "Profile";
     var user = ViewBag.User as User;
+    var wishlistBookIds = ViewBag.WishlistBookIds as List<int> ?? new List<int>();
+    var cartBookIds = ViewBag.CartBookIds as List<int> ?? new List<int>();
 }
 <!-- Profile Section -->
 <div class="container profile-section">
@@ -15,30 +17,17 @@
     }
     <h2 class="profile-name">@User.Identity.Name</h2>
     <h4 class="profile-books">@Model.Count() Books</h4>
-    <p class="profile-bio">Lorem ipsum dolor sit amet consectetur.</p>
-    <div class="social-icons">
-        <a href="#" class="text-primary"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-info"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-danger"><i class="fab fa-instagram"></i></a>
-    </div>
 </div>
 <!-- Books Section -->
 <div class="container books-section">
     <h3>My Books</h3>
     <div class="cards">
-        @foreach (var book in Model)
-        {
-        <div class="cards-card">
-            <div id="wishlist-btn-@book.Id"
-                    class="card-icon book-details-page-wishlist" onclick="ToggleWishlist(@book.Id)"
-                    style="color: red">
-                <i class="fa-solid fa-heart"></i>
-            </div>
-            <a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
-                <div class="card-img"><img src="~/book-images/@book.Img" width="200" height="300" alt=""></div>
-            </a>
-        </div>
-        }
+        @await Html.PartialAsync("_LoadBooksPartial", new ShowBooksViewModel
+       {
+           books = Model,
+           UserCart = cartBookIds,
+           UserWishlist = wishlistBookIds
+       })
     </div>
 </div>
 

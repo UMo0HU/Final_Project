@@ -1,0 +1,19 @@
+﻿@model List<Book>
+
+@{
+    ViewBag.Title = "Author Books";
+    var wishlistBookIds = ViewBag.WishlistBookIds as List<int> ?? new List<int>();
+    var cartBookIds = ViewBag.CartBookIds as List<int> ?? new List<int>();
+}
+
+<div class="main-top">
+    <h2 class="main-h2">@Model.First().Author's Books:</h2>
+</div>
+<div class="cards">
+    @await Html.PartialAsync("_LoadBooksPartial", new ShowBooksViewModel
+    {
+        books = Model,
+        UserCart = cartBookIds,
+        UserWishlist = wishlistBookIds
+    })
+</div>

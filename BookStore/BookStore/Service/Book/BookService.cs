@@ -3,6 +3,7 @@ using BookStore.Service.Book;
 using BookStore.Models;
 using Microsoft.EntityFrameworkCore;
 using BookStore.ViewModels;
+using Microsoft.Identity.Client;
 
 namespace BookStore.Service.BookService
 {
@@ -116,6 +117,39 @@ namespace BookStore.Service.BookService
             }
         }
 
+        public async Task<List<Models.Book>> GetBooksForCategory(int categoryId)
+        {
+            var categoryExist = await _context.Categories.FindAsync(categoryId);
+            if(categoryExist != null)
+            {
+                return await _context.Categories.Where(c => c.Id == categoryId)
+                    .Include(c => c.Book_Categories)
+                    .ThenInclude(bc => bc.Book).SelectMany(c => c.Book_Categories.Select(bc => bc.Book)).ToListAsync();
+            }
+            return new List<Models.Book>();
+        }
+        public async Task<List<Models.Book>> Search(string keyword)
+        {
+            var matchesByTitle = _context.Books.Where(b => b.Title.Contains(keyword));
+            var matchesByAuthor = _context.Books.Where(b => b.Author.Contains(keyword));
+
+            return await matchesByTitle.Concat(matchesByAuthor).Distinct().ToListAsync();
+
+        }
+
+        public async Task<List<Models.Book>> GetBookRecommendation()
+        {
+                return await _context.Books.OrderBy(b => Guid.NewGuid()).Take(4).ToListAsync();
+        }
+        public async Task<List<string>> GetAuthorsRecommendation()
+        {
+            return await _context.Books.Select(b => b.Author).Distinct().OrderBy(a => Guid.NewGuid()).Take(3).ToListAsync();
+        }
+
+        public async Task<List<Models.Book>> GetBooksByAuthor(string author)
+        {
+            return await _context.Books.Where(b => b.Author == author).ToListAsync();
+        }
     }
-      
+
 }

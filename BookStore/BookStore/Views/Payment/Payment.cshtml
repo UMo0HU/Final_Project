@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Payment";
+}
+
+<div class="container d-flex flex-column justify-content-center align-items-center" style="height: 80vh;">
+    <div class="text-center payment-container">
+        <div id="paypal-button-container" style="width: 30%"></div>
+        <article>
+            <label>Amount: $@ViewBag.TotalAmount</label>
+        </article>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://www.paypal.com/sdk/js?client-id=Abnd93ypfqqel9qDAvoDlH3Lo_Lj5SsK3LdeWWiYt4JFgRykHFKgBoHK-4Nx2EOR5xvm35ngtWur2p6h&currency=USD"></script>
+
+
+
+    <script>
+        paypal.Buttons({
+                style: {
+                    layout: 'vertical',
+                    color: 'gold',
+                    shape: 'rect',
+                    label: 'paypal',
+                    tagline: false,
+                    fundingicons: false
+                },
+
+                fundingSource: paypal.FUNDING.PAYPAL,
+
+                createOrder: (data, actions) => {
+                    debugger
+
+                    return fetch("@Url.Action("Order")", {
+                        method: "post",
+                    }).then((response) => {
+                        if (!response.ok) {
+                            return response.json().then(error => { throw error; });
+                        }
+
+                        return response.json();
+                    }).then((order) => order.id)
+                    .catch(error => alert(error.message));
+                },
+                onApprove: (data, actions) => {
+                    return fetch(`@Url.Action("Capture")?orderId=${data.orderID}`, {
+                        method: "post",
+                    }).then((response) => {
+                        if (!response.ok) {
+                            return response.json().then(error => { throw error; });
+                        }
+
+                        window.location.href = "@Url.Action("Success")";
+                    }).catch(error => alert(error.message));
+                }
+            }).render('#paypal-button-container');
+    </script>
+}
+
+@section Styles {
+    <link href="~/css/payment.css" rel="stylesheet" />
+}

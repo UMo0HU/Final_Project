@@ -3,62 +3,31 @@
     ViewBag.Title = "Categories";
     var books = ViewBag.Books as List<Book>;
     var wishlistBookIds = ViewBag.WishlistBookIds as List<int> ?? new List<int>();
+    var cartBookIds = ViewBag.CartBookIds as List<int> ?? new List<int>();
 }
-<div class="aside">
-    <div class="aside__content">
-        <h2 class="aside__h2">Categories</h2>
+<div class="inner-container">
+    <div class="aside-content">
+        <h2 class="aside-h2">Categories</h2>
 
-        <div class="aside__search">
-            <input type="text" class="aside__search__input" placeholder=" search ">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <ul class="aside__ul">
-            <button class="aside__ul__categories active" onclick="filterProduct('All')">All</button>
-            <button class="aside__ul__categories" onclick="filterProduct('Novels')">Novels</button>
-            <button class="aside__ul__categories" onclick="filterProduct('Fantasy')">Fantasy</button>
-            <button class="aside__ul__categories" onclick="filterProduct('Literary')">Literary</button>
-            <button class="aside__ul__categories" onclick="filterProduct('Crime')">Crime</button>
-            <button class="aside__ul__categories" onclick="filterProduct('Kids')">Kids</button>
-            <button class="aside__ul__categories" onclick="filterProduct('Thrillers')">Thrillers</button>
-            <button class="aside__ul__categories" onclick="filterProduct('Self-help')">Self-help</button>
-            <button class="aside__ul__categories" onclick="filterProduct('Romance')">Romance</button>
-            <button class="aside__ul__categories" onclick="filterProduct('History')">History</button>
-            <button class="aside__ul__categories" onclick="filterProduct('Science')">Science</button>
+        <ul class="aside-ul">
+        @foreach(var category in Model) {
+                <li><button class="aside-ul-categories" onclick="categorySearch(@category.Id)">@category.Name</button></li>
+        }
         </ul>
     </div>
-    <div class="verticle-line"></div>
-</div>
-<div class="main">
-    <div class="main__top">
-        <h2 class="main__h2">Books</h2>
-
-        <form action="">
-            <select id="dropdown" name="filter">
-                <option value="most-read">Most Read</option>
-                <option value="popular">Popular</option>
-                <option value="newest">Newest</option>
-                <option value="oldest">Oldest</option>
-            </select>
-        </form>
-    </div>
-
-    <div class="main__books">
-        <div class="cards">
-            @foreach (var book in books)
-            {
-                <div class="cards-card">
-                    @await Html.PartialAsync("_WishlistButtonPartial", new WishlistButtonViewModel
-           {
-               BookId = book.Id,
-               IsInWishlist = wishlistBookIds.Contains(book.Id)
-           })
-                    <a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
-                        <div class="card-img"><img src="~/book-images/@book.Img" width="200" height="300" alt=""></div>
-                    </a>
-                </div>
-            }
+    <div class="main">
+        <div class="main-top">
+            <h2 class="main-h2">Books</h2>
         </div>
-    </div></div>
+        <div class="cards">
+            @await Html.PartialAsync("_LoadBooksPartial", new ShowBooksViewModel{
+                books = books,
+                UserCart = cartBookIds,
+                UserWishlist = wishlistBookIds
+            })
+        </div>
+    </div>
+</div>
 
 @section Styles {
     <link href="~/css/categories.css" rel="stylesheet" />
@@ -66,96 +35,22 @@
 
 @section Scripts {
     <script>
-        let filteredArray = [];
-        let mainBooks = document.querySelector(".main__books");
-
-        function displayBooks(arr) {
-            mainBooks.innerText = "";
-            for (let i = 0; i < arr.length; i++) {
-                let imgContainer = document.createElement("div");
-                imgContainer.classList.add("main__book");
-
-                let image = document.createElement("img");
-                image.classList.add("main__book__img");
-                image.setAttribute("src", arr[i].image);
-
-                imgContainer.appendChild(image);
-                mainBooks.appendChild(imgContainer);
-            }
-        }
-        displayBooks(Books);
-
-        for (let i of Books) {
-            let imgContainer = document.createElement("div");
-            imgContainer.classList.add("main__book", i.category, "hide");
-
-            let image = document.createElement("img");
-            image.classList.add("main__book__img");
-            image.setAttribute("src", i.image);
-
-            imgContainer.appendChild(image);
-            mainBooks.appendChild(imgContainer);
-        }
-
-
-
-        function filterProduct(value) {
-            let buttons = document.querySelectorAll(".aside__ul__categories");
-            buttons.forEach((button) => {
-                if (value == button.innerText) {
-                    button.classList.add("active");
-                } else {
-                    button.classList.remove("active");
-                }
-            });
-
-
-            let items = document.querySelectorAll(".main__book");
-            items.forEach((item) => {
-                if (value == "All") {
-                    item.classList.remove("hide");
-                } else {
-                    if (item.classList.contains(value)) {
-                        item.classList.remove("hide");
-                    } else {
-                        item.classList.add("hide");
-                    }
+        function categorySearch(id) {
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetBooksByCategory", "Category")',
+                data: {categoryId: id},
+                success: function (result) {
+                    $(".cards").html(result);
+                },
+                error: function () {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!",
+                    });
                 }
             });
         }
-
-
-
-        let searchInput = document.querySelector(".aside__search__input");
-
-        searchInput.addEventListener("keyup", () => {
-            let searchValue = searchInput.value;
-
-            filteredArray = Books.filter((ele) => {
-                if (ele.name.includes(searchValue)) {
-                    return ele.name;
-                }
-            });
-            if (this.value == "") {
-                displayBooks(Books);
-            } else {
-                if (filteredArray == "") {
-                    mainBooks.innerHTML = "";
-                } else {
-                    displayBooks(filteredArray);
-                    mainBooks.computedStyleMap.display = 'none';
-                }
-            }
-        })
-
-
-
-        window.onload = () => {
-            filterProduct("All");
-        }
-
-
-
     </script>
-    <script src="~/js/heartToggler.js"></script>
 }

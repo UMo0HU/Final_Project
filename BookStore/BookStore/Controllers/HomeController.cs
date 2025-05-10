@@ -2,6 +2,7 @@ using System.Diagnostics;
 using AspNetCoreGeneratedDocument;
 using BookStore.Models;
 using BookStore.Service.Book;
+using BookStore.Service.Cart;
 using BookStore.Service.Email;
 using BookStore.Service.Wishlist;
 using BookStore.ViewModels;
@@ -17,20 +18,27 @@ namespace BookStore.Controllers
         private readonly IBookService _bookService;
         private readonly IWishlistService _wishlistService;
         private readonly IEmailSenderService _emailSenderService;
+        private readonly ICartService _cartService;
 
-        public HomeController(ILogger<HomeController> logger, IBookService bookService, IWishlistService wishlistService, IEmailSenderService emailSenderService, UserManager<User> userManager)
+        public HomeController(ILogger<HomeController> logger, IBookService bookService, IWishlistService wishlistService, IEmailSenderService emailSenderService, ICartService cartService)
         {
             _logger = logger;
             _bookService = bookService;
             _wishlistService = wishlistService;
             _emailSenderService = emailSenderService;
+            _cartService = cartService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var books = await  _bookService.GetAllBooks();
-            var Wishlist = await _wishlistService.GetUserWishlist();
-            ViewBag.WishlistBookIds = Wishlist.Select(w =>  w.BookId).ToList();
+            var books = await  _bookService.GetBookRecommendation();
+            var wishlist = await _wishlistService.GetUserWishlist();
+            var cart = await _cartService.GetBooksFromCart();
+
+            ViewBag.WishlistBookIds = wishlist.Select(w =>  w.BookId).ToList();
+            ViewBag.CartBookIds = cart.Select(b => b.Id).ToList();
+            ViewBag.Authors = await _bookService.GetAuthorsRecommendation();
+
             return View(books);
         }
 

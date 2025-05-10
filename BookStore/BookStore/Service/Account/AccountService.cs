@@ -25,10 +25,10 @@ namespace BookStore.Service.Account
 
         public async Task<IdentityResult> RegisterUserAsync(RegisterViewModel model)
         {
-            var existingUsername = await _userManager.FindByNameAsync(model.Name);
+            var existingUsername = await _userManager.FindByNameAsync(model.Username);
             if (existingUsername != null)
             {
-                throw new ArgumentException("Username already Exist.", nameof(model.Name));
+                throw new ArgumentException("Username already Exist.", nameof(model.Username));
             }
             var existingEmail = await _userManager.FindByEmailAsync(model.Email);
             if (existingEmail != null)
@@ -38,7 +38,7 @@ namespace BookStore.Service.Account
 
             var user = new User
             {
-                UserName = model.Name,
+                UserName = model.Username,
                 Email = model.Email,
             };
 
@@ -123,6 +123,10 @@ namespace BookStore.Service.Account
             if (_user != null && _user.Identity.IsAuthenticated)
             {
                 var user = await _userManager.GetUserAsync(_user);
+                if (profilePicture == null || profilePicture.Length == 0)
+                {
+                    return false;
+                }
                 using (var memoryStream = new MemoryStream())
                 {
                     await profilePicture.CopyToAsync(memoryStream);
@@ -138,6 +142,30 @@ namespace BookStore.Service.Account
                     }
                     throw new ArgumentException("The File Is Too Large.", nameof(profilePicture));
                 }
+            }
+            return false;
+        }
+
+        public async Task<bool> ChangeUsername(string newUsername)
+        {
+            if (_user != null && _user.Identity.IsAuthenticated)
+            {
+                var user = await _userManager.GetUserAsync(_user);
+                if(newUsername != "" && newUsername != user.UserName)
+                {
+                    user.UserName = newUsername;
+                    user.NormalizedUserName = newUsername.ToUpper();
+
+                    var result = await _userManager.UpdateAsync(user);
+
+                    if (result.Succeeded)
+                    {
+                        await _signInManager.RefreshSignInAsync(user);
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
             }
             return false;
         }
