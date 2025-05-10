@@ -128,7 +128,6 @@ namespace BookStore.Service.BookService
             }
             return new List<Models.Book>();
         }
-
         public async Task<List<Models.Book>> Search(string keyword)
         {
             var matchesByTitle = _context.Books.Where(b => b.Title.Contains(keyword));
@@ -138,6 +137,19 @@ namespace BookStore.Service.BookService
 
         }
 
+        public async Task<List<Models.Book>> GetBookRecommendation()
+        {
+                return await _context.Books.OrderBy(b => Guid.NewGuid()).Take(4).ToListAsync();
+        }
+        public async Task<List<string>> GetAuthorsRecommendation()
+        {
+            return await _context.Books.Select(b => b.Author).Distinct().OrderBy(a => Guid.NewGuid()).Take(3).ToListAsync();
+        }
+
+        public async Task<List<Models.Book>> GetBooksByAuthor(string author)
+        {
+            return await _context.Books.Where(b => b.Author == author).ToListAsync();
+        }
     }
 
 }

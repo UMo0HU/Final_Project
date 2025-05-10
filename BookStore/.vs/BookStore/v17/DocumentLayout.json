@@ -1,26 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DEPI\\Project_Documentation\\BookStore\\",
+  "WorkspaceRootPath": "D:\\DEPI\\test-features\\BookStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\test-features\\bookstore\\bookstore\\views\\payment\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\payment\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\data\\paypalclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\test-features\\bookstore\\bookstore\\data\\paypalclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\data\\paypalclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\helper\\sessionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\helper\\sessionhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\project_documentation\\bookstore\\bookstore\\views\\payment\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\payment\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\test-features\\bookstore\\bookstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,13 +21,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-<<<<<<< HEAD
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
-=======
-          "DockedWidth": 200,
-          "SelectedChildIndex": 8,
->>>>>>> b146043d546aede81c7549d4da796170cdf44756
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -60,66 +47,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SessionHelper.cs",
-              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Helper\\SessionHelper.cs",
-              "RelativeDocumentMoniker": "BookStore\\Helper\\SessionHelper.cs",
-              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Helper\\SessionHelper.cs",
-              "RelativeToolTip": "BookStore\\Helper\\SessionHelper.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBQAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T03:59:14.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\appsettings.json",
-              "RelativeDocumentMoniker": "BookStore\\appsettings.json",
-              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\appsettings.json",
-              "RelativeToolTip": "BookStore\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-09T03:23:53.811Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Payment.cshtml",
-              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Views\\Payment\\Payment.cshtml",
-              "RelativeDocumentMoniker": "BookStore\\Views\\Payment\\Payment.cshtml",
-              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Views\\Payment\\Payment.cshtml",
-              "RelativeToolTip": "BookStore\\Views\\Payment\\Payment.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-09T03:03:21.864Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "PaymentController.cs",
-              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Controllers\\PaymentController.cs",
+              "DocumentMoniker": "D:\\DEPI\\test-features\\BookStore\\BookStore\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "BookStore\\Controllers\\PaymentController.cs",
-              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Controllers\\PaymentController.cs",
+              "ToolTip": "D:\\DEPI\\test-features\\BookStore\\BookStore\\Controllers\\PaymentController.cs",
               "RelativeToolTip": "BookStore\\Controllers\\PaymentController.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAADwv2oAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAYwHgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T03:02:59.882Z",
+              "WhenOpened": "2025-05-10T02:20:01.273Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "PaypalClient.cs",
-              "DocumentMoniker": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Data\\PaypalClient.cs",
+              "DocumentMoniker": "D:\\DEPI\\test-features\\BookStore\\BookStore\\Data\\PaypalClient.cs",
               "RelativeDocumentMoniker": "BookStore\\Data\\PaypalClient.cs",
-              "ToolTip": "D:\\DEPI\\Project_Documentation\\BookStore\\BookStore\\Data\\PaypalClient.cs",
+              "ToolTip": "D:\\DEPI\\test-features\\BookStore\\BookStore\\Data\\PaypalClient.cs",
               "RelativeToolTip": "BookStore\\Data\\PaypalClient.cs",
-              "ViewState": "AgIAALwAAAAAAAAAAAAuwOkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAqwEwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T02:47:53.749Z",
+              "WhenOpened": "2025-05-10T02:17:23.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Payment.cshtml",
+              "DocumentMoniker": "D:\\DEPI\\test-features\\BookStore\\BookStore\\Views\\Payment\\Payment.cshtml",
+              "RelativeDocumentMoniker": "BookStore\\Views\\Payment\\Payment.cshtml",
+              "ToolTip": "D:\\DEPI\\test-features\\BookStore\\BookStore\\Views\\Payment\\Payment.cshtml",
+              "RelativeToolTip": "BookStore\\Views\\Payment\\Payment.cshtml",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-10T02:15:53.936Z",
               "EditorCaption": ""
             }
           ]

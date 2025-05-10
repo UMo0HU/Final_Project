@@ -5,15 +5,32 @@
 <div class="d-flex flex-row manage-content">
     @await Html.PartialAsync("_SideNavPartial")
     <div class="page-content m-4">
-        @if (Model?.ImageChanged == true)
+        @if (Model?.ImageChanged == true && Model?.UsernameChanged == true)
         {
             <div class="alert alert-success" role="alert">
                 Profile Picture Changed Successfully.
             </div>
         }
+        else if (Model?.ImageChanged == true)
+        {
+            <div class="alert alert-success" role="alert">
+                Profile Picture & Username Changed Successfully.
+            </div>
+        }
+        else if (Model?.UsernameChanged == true)
+        {
+            <div class="alert alert-success" role="alert">
+                Username Changed Successfully.
+            </div>
+        }
         <h1>User Info</h1>
         <form asp-controller="User" asp-action="AccountManage" method="post" enctype="multipart/form-data">
             <div class="d-flex flex-column align-items-center">
+                <div class="mb-3">
+                    <label asp-for="Username" class="form-label"></label>
+                    <input class="form-control" asp-for="Username">
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
                 <div class="mb-3">
                     <label asp-for="ProfilePicture" class="form-label"></label>
                     <input type="file" accept="image/*" class="form-control" asp-for="ProfilePicture">

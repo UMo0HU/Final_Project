@@ -82,8 +82,22 @@ namespace BookStore.Controllers
         public async Task<IActionResult> Search(string keyword)
         {
             List<Book> books = await _bookService.Search(keyword);
-            var Wishlist = await _wishlistService.GetUserWishlist();
-            ViewBag.WishlistBookIds = Wishlist.Select(w => w.BookId).ToList();
+            var wishlist = await _wishlistService.GetUserWishlist();
+            var cart = await _cartService.GetBooksFromCart();
+
+            ViewBag.WishlistBookIds = wishlist.Select(w => w.BookId).ToList();
+            ViewBag.CartBookIds = cart.Select(b => b.Id).ToList();
+            return View(books);
+        }
+
+        public async Task<IActionResult> RecommendedAuthorBooks(string author)
+        {
+            List<Book> books = await _bookService.GetBooksByAuthor(author);
+            var wishlist = await _wishlistService.GetUserWishlist();
+            var cart = await _cartService.GetBooksFromCart();
+
+            ViewBag.WishlistBookIds = wishlist.Select(w => w.BookId).ToList();
+            ViewBag.CartBookIds = cart.Select(b => b.Id).ToList();
             return View(books);
         }
     }

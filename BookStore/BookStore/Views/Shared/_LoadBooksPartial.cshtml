@@ -13,11 +13,17 @@
         </a>
         <h2>@book.Title</h2>
         <p>@book.Author</p>
-        <div class="price">$@book.Price</div>
-        @await Html.PartialAsync("_CartButtonPartial", new CartButtonViewModel
-        {
-            BookId = book.Id,
-            IsInCart = Model.UserCart.Contains(book.Id)
-        })
+        <div class="price">
+            <p>$@book.Price</p>
+            @if (book.Stock != 0)
+            {
+                <p>Quantity: @book.Stock</p>
+            }
+            else
+            {
+                <p>Out Of Stock</p>
+            }
+        </div>
+
     </div>
 }

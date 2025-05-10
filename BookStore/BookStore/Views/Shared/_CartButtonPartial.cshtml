@@ -1,9 +1,0 @@
-﻿@model CartButtonViewModel
-
-@inject SignInManager<User> SignInManager
-
-@if (SignInManager.IsSignedIn(User))
-{
-    <button>Add to Cart</button>
-}
-

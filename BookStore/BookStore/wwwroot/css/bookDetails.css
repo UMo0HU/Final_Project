@@ -111,15 +111,6 @@
     }
 }
 
-.actions button:hover, .actions button.added:hover {
-    background-color: var(--hover-color);
-}
-
-.actions button.added {
-    background-color: var(--active-color);
-    color: #fff;
-}
-
 .add-review {
     border: 1px solid #ddd;
     padding: 15px;

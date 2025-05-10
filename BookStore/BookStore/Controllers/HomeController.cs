@@ -31,12 +31,13 @@ namespace BookStore.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var books = await  _bookService.GetAllBooks();
+            var books = await  _bookService.GetBookRecommendation();
             var wishlist = await _wishlistService.GetUserWishlist();
             var cart = await _cartService.GetBooksFromCart();
 
             ViewBag.WishlistBookIds = wishlist.Select(w =>  w.BookId).ToList();
             ViewBag.CartBookIds = cart.Select(b => b.Id).ToList();
+            ViewBag.Authors = await _bookService.GetAuthorsRecommendation();
 
             return View(books);
         }

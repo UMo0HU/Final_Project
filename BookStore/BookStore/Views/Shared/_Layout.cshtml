@@ -101,10 +101,15 @@
                 }
             });
         }
+
+
+
+
             function userToggler() {
                 const userTogglerList = document.querySelector(".user-toggler-list");
                 userTogglerList.classList.toggle("user-toggled");
             }
+
             window.addEventListener("resize", function(){
                 if(window.innerWidth <= 991) {
                     const userTogglerList = document.querySelector(".user-toggler-list");
@@ -123,6 +128,7 @@
                     userTogglerList.classList.add("user-toggled");
                 }
             })
+
     </script>
     @await RenderSectionAsync("Scripts", required: false)
     @RenderSection("Styles", required: false)

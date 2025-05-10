@@ -265,27 +265,42 @@ body {
 
 .card-item .price {
     font-size: 1.2em;
+    display: flex;
+    gap: 10px;
     font-weight: bold;
     color: #333;
     margin: 10px 0;
 }
 
-.card-item button {
+.card-item .price p:first-child {
+    border-right: 1px solid black;
+    padding-right: 10px;
+}
+
+.card-item .cart-button {
     background-color: #AAB396;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 10px 10px;
+    border-radius: 10px;
     font-size: 1em;
     cursor: pointer;
-    width: 100%;
     max-width: 200px;
     transition: background-color 0.3s;
 }
 
-    .card-item button:hover {
-        background-color: #6a7454;
-    }
+button:hover, button.added:hover {
+    background-color: var(--hover-color);
+}
+
+.added {
+    background-color: var(--active-color);
+    color: #fff;
+}
+
+.card-item button:hover {
+    background-color: #6a7454;
+}
 
 @media (max-width: 600px) {
     .card-item {
@@ -316,3 +331,4 @@ body {
     width: 110px;
     height: 170px;
 }
+

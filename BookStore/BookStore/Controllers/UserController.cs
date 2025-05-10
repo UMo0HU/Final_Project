@@ -20,17 +20,23 @@ namespace BookStore.Controllers
         private readonly IWishlistService _wishlistService;
         private readonly UserManager<User> _userManager;
         private readonly IAccountService _accountService;
+        private readonly ICartService _cartService;
 
-        public UserController(IWishlistService wishlistService, ICartService cartService, UserManager<User> userManager, IAccountService accountService, IOrderService orderService, PaypalClient paypalClient)
+        public UserController(IWishlistService wishlistService, ICartService cartService, UserManager<User> userManager, IAccountService accountService, IOrderService orderService)
         {
             _wishlistService = wishlistService;
             _userManager = userManager;
             _accountService = accountService;
+            _cartService = cartService;
         }
         public async Task<IActionResult> Profile()
         {
             var wishlist = await _wishlistService.GetUserWishlist();
             var books = wishlist.Select(w => w.Book).ToList();
+            var cart = await _cartService.GetBooksFromCart();
+
+            ViewBag.WishlistBookIds = wishlist.Select(w => w.BookId).ToList();
+            ViewBag.CartBookIds = cart.Select(b => b.Id).ToList();
             ViewBag.User = await _userManager.GetUserAsync(User);
             return View(books);
         }
@@ -48,10 +54,22 @@ namespace BookStore.Controllers
             {
                 try
                 {
-                    var result = await _accountService.ChangeProfilePicture(model.ProfilePicture);
-                    if(result)
+                    var imageChange = await _accountService.ChangeProfilePicture(model.ProfilePicture);
+                    var usernameChange = await _accountService.ChangeUsername(model.Username);
+                    if(imageChange)
                     {
                         model.ImageChanged = true;
+                        return View(model);
+                    }
+                    else if(usernameChange)
+                    {
+                        model.UsernameChanged = true;
+                        return View(model);
+                    }
+                    else if(imageChange && usernameChange)
+                    {
+                        model.ImageChanged = true;
+                        model.UsernameChanged = true;
                         return View(model);
                     }
                 }

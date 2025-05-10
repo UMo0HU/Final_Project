@@ -126,33 +126,6 @@
             });
         });
 
-        function cartToggler(BookId){
-                        const button = document.getElementById("cartButton");
-
-            $.ajax({
-                type: "POST",
-                url: button.classList.contains("added")? '@Url.Action("RemoveFromCart", "Cart")' : '@Url.Action("AddToCart", "Cart")',
-                data: { bookId: BookId },
-                success: function () {
-                    if (button.classList.contains("added")) {
-                        button.classList.remove("added");
-                        button.innerHTML = `<i class="fa-solid  fa-cart-plus"></i> Add To Cart`;
-                    } else {
-                        button.classList.add("added");
-                        button.innerHTML = `<i class="fa-solid  fa-cart-shopping"></i> Remove From Cart`;
-                    }
-                    Swal.fire(button.classList.contains("added")? "Book Added To Cart." : "Book Removed From Cart.");
-                },
-                error: function () {
-                    Swal.fire({
-                      icon: "error",
-                      title: "Oops...",
-                      text: "Something went wrong!",
-                    });
-                }
-            });
-        }
-
         function WishlistToggler(BookId) {
             const button = document.getElementById("wishlistButton");
 
@@ -175,6 +148,33 @@
                       icon: "error",
                       title: "Oops...",
                       text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+
+        function cartToggler(BookId){
+            const button = document.getElementById("cartButton");
+
+            $.ajax({
+                type: "POST",
+                url: button.classList.contains("added")? '@Url.Action("RemoveFromCart", "Cart")' : '@Url.Action("AddToCart", "Cart")',
+                data: { bookId: BookId },
+                success: function () {
+                    if (button.classList.contains("added")) {
+                        button.classList.remove("added");
+                        button.innerHTML = `<i class="fa-solid  fa-cart-plus"></i> Add To Cart`;
+                    } else {
+                        button.classList.add("added");
+                        button.innerHTML = `<i class="fa-solid  fa-cart-shopping"></i> Remove From Cart`;
+                    }
+                    Swal.fire(button.classList.contains("added")? "Book Added To Cart." : "Book Removed From Cart.");
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
                     });
                 }
             });

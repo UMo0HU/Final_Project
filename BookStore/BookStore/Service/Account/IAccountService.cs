@@ -15,6 +15,6 @@ namespace BookStore.Service.Account
         public Task<bool> ChangePassword(string currentPassword, string newPassword);
         public Task<bool> ChangeProfilePicture(IFormFile profilePicture);
 
-
+        public Task<bool> ChangeUsername(string newUsername);
     }
 }
