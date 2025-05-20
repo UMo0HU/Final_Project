@@ -3,6 +3,8 @@ using BookStore.Models;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Stripe;
 using System.Security.Claims;
 
 namespace BookStore.Service.Order
@@ -13,13 +15,15 @@ namespace BookStore.Service.Order
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClaimsPrincipal _user;
         private readonly UserManager<User> _userManager;
+        private readonly StripeSettings _stripeSettings;
 
-        public OrderService(BookStoreDBContext context, IHttpContextAccessor httpContextAccessor, UserManager<User> userManager)
+        public OrderService(BookStoreDBContext context, IHttpContextAccessor httpContextAccessor, UserManager<User> userManager, IOptions<StripeSettings> stripeSettings)
         {
             _context = context;
             _userManager = userManager;
             _httpContextAccessor = httpContextAccessor;
             _user = _httpContextAccessor.HttpContext?.User;
+            _stripeSettings = stripeSettings.Value;
         }
 
         public async Task<List<Models.Order>> GetAllOrders()
@@ -31,6 +35,21 @@ namespace BookStore.Service.Order
                 .ThenInclude(oi => oi.Book)
                 .ToListAsync();
         }
+
+        public async Task<List<Models.Order>> GetUserOrders()
+        {
+            if (_user != null && _user.Identity.IsAuthenticated)
+            {
+                var user = await _userManager.GetUserAsync(_user);
+                return await _context.Orders
+                    .Where(o => o.UserId == user.Id)
+                    .Include(o => o.OrderItems)
+                    .ThenInclude(oi => oi.Book)
+                    .ToListAsync();
+            }
+            return new List<Models.Order>();
+        }
+
         public async Task<Models.Order> GetOrderById(int id)
         {
             return await _context.Orders
@@ -105,8 +124,80 @@ namespace BookStore.Service.Order
                 await _context.SaveChangesAsync();
             }
 
-        } 
+        }
 
+        public async Task<bool> RefundPayment(string paymentIntentId)
+        {
+            try
+            {
+                StripeConfiguration.ApiKey = _stripeSettings.SecretKey;
+                var refundOptions = new RefundCreateOptions
+                {
+                    PaymentIntent = paymentIntentId,
+                };
+                var refundService = new RefundService();
+                Refund refund = await refundService.CreateAsync(refundOptions);
+
+                return refund.Status == "succeeded";
+            }
+            catch(StripeException ex)
+            {
+                return false;
+            }
+        }
+        public async Task<bool> CancelOrder(int orderId)
+        {
+            var order = await _context.Orders
+            .Include(o => o.Payment)
+            .FirstOrDefaultAsync(o => o.Id == orderId);
+
+            if (order != null && order.Payment != null &&
+                order.Status.ToLowerInvariant() != "canceled" &&
+                order.Status.ToLowerInvariant() != "delivered")
+            {
+                var refunded = await RefundPayment(order.Payment.PaymentIntentId);
+                if (refunded)
+                {
+                    order.Status = "CANCELED";
+                    order.Payment.Status = "REFUNDED";
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public async Task<bool> ShipOrder(ShipmentViewModel model) 
+        {
+            var order = await _context.Orders
+                .Include(o => o.Shipment)
+                .FirstOrDefaultAsync(o => o.Id == model.OrderId);
+            if (order != null && order.Status.ToLowerInvariant() != "canceled" && order.Status.ToLowerInvariant() != "delivered")
+            {
+                order.Shipment.TrackingNumber = model.TrackingNumber;
+                order.Shipment.Carrier = model.Carrier.ToString();
+                order.Shipment.Status = "SHIPPED";
+                order.Status = "SHIPPED";
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> DeliverOrder(int orderId) 
+        {
+            var order = await _context.Orders
+                .Include(o => o.Shipment)
+                .FirstOrDefaultAsync(o => o.Id == orderId);
+            if (order != null && order.Status.ToLowerInvariant() != "canceled" && order.Status.ToLowerInvariant() != "delivered")
+            {
+                order.Shipment.Status = "DELIVERED";
+                order.Status = "DELIVERED";
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
     }
 
 }

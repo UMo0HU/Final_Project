@@ -1,7 +1,13 @@
+wwwroot\book-images\JourneyToTheStars.jpg
 wwwroot\book-images\journey_to_the_center_of_the_earth.jpeg
+wwwroot\book-images\MindsetMastery.jpg
+wwwroot\book-images\ShadowService.jpg
+wwwroot\book-images\TheMountainPath.jpg
 wwwroot\book-images\TheOldManAndTheSea.jpg
 wwwroot\book-images\The_Days_(book)_book_cover.jpg
 wwwroot\book-images\Thinking_Like_a_Human.jpg
+wwwroot\book-images\WiredForHealing.jpg
+wwwroot\book-images\WorldWarOne.jpg
 wwwroot\css\account.css
 wwwroot\css\addBook.css
 wwwroot\css\admin.css
@@ -14,6 +20,7 @@ wwwroot\css\home.css
 wwwroot\css\Manage.css
 wwwroot\css\payment.css
 wwwroot\css\profile.css
+wwwroot\css\shipment.css
 wwwroot\css\site.css
 wwwroot\css\userOrder.css
 wwwroot\css\viewBooks.css

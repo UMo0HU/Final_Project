@@ -5,6 +5,8 @@ using BookStore.Service.Order;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
+using System.Threading.Tasks;
 
 namespace BookStore.Controllers
 {
@@ -26,7 +28,7 @@ namespace BookStore.Controllers
 
             var totalBooks = (await _bookService.GetAllBooks()).Count();
             var totalOrders = (await _orderService.GetAllOrders()).Count();
-            var sales = (await _orderService.GetAllOrders()).Sum(o => o.TotalAmount);
+            var sales = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() != "canceled").Sum(o => o.TotalAmount);
 
             var dashboardModel = new DashboardViewModel()
             {
@@ -164,6 +166,40 @@ namespace BookStore.Controllers
         {
             var orders = await _orderService.GetAllOrders();
             return View(orders);
+        }
+
+        [HttpGet]
+        public IActionResult Shipment(int orderId)
+        {
+            var shipmentViewModel = new ShipmentViewModel();
+            string trackingNumber = "TRK" + DateTime.Now.ToString("yyyyMMddhhmmss");
+            shipmentViewModel.TrackingNumber = trackingNumber;
+            shipmentViewModel.OrderId = orderId;
+            return View(shipmentViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Shipment(ShipmentViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+               var result = await _orderService.ShipOrder(model);
+                if (result)
+                {
+                    TempData["Shipment"] = result;
+                    return RedirectToAction("Orders", "Admin");
+                }
+                return View(model);
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByStatus(string status)
+        {
+            var orders = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() == status.ToLowerInvariant()).ToList();
+
+            return PartialView("_OrdersPartial", orders);
         }
     }
 }

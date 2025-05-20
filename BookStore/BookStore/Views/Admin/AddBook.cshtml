@@ -105,7 +105,6 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
     <script>
-        // Update file name when selected
         document.getElementById('bookImage').addEventListener('change', function(e) {
             const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
             document.querySelector('.file-name').textContent = fileName;

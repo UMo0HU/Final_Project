@@ -30,6 +30,10 @@
                             <span class="order-number">Order #@order.Id</span>
                             <span class="order-date">@order.OrderDate.ToString("MMMM dd, yyyy")</span>
                         </div>
+                        @if (order.Status.ToLowerInvariant() != "canceled" && order.Status.ToLowerInvariant() != "delivered")
+                        {
+                            <button class="btn btn-danger" onclick="cancelOrder(@order.Id)">Cancel</button>    
+                        }
                         <span class="status @order.Status.ToLowerInvariant()">@order.Status</span>
                     </div>
 
@@ -72,4 +76,44 @@
 
 @section Styles {
     <link href="~/css/userOrder.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script>
+        function cancelOrder(orderId) {
+            $.ajax({
+                url: '@Url.Action("CancelOrder", "Payment")',
+                type: 'POST',
+                data: { orderId: orderId },
+                success: function (response) {
+                    if(response.success) {
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Order Canceled successfully",
+                            icon: "success"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: response.errors.join("\n") || "Failed To Cancel Order",
+                        });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+    </script>
 }

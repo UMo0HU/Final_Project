@@ -9,8 +9,7 @@ using BookStore.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
-using System.CodeDom;
+
 
 namespace BookStore.Controllers
 {
