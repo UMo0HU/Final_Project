@@ -22,7 +22,21 @@
         </div>
 
         <p class="book-description">
-            @book.Book.Description.Substring(0, 150)...
+            @if (!string.IsNullOrEmpty(book.Book.Description))
+            {
+                if (book.Book.Description.Length > 150)
+                {
+                    @(book.Book.Description.Substring(0, 150) + "...")
+                }
+                else
+                {
+                    @book.Book.Description
+                }
+            }
+            else
+            {
+                <span>No description available.</span>
+            }
         </p>
 
         <div class="book-details">

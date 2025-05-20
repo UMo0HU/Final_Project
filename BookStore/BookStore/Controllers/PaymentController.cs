@@ -15,6 +15,7 @@ using Stripe;
 using Stripe.Checkout;
 using Microsoft.Extensions.Options;
 using Stripe.Tax;
+using System.Runtime.CompilerServices;
 
 namespace BookStore.Controllers
 {
@@ -63,7 +64,7 @@ namespace BookStore.Controllers
                     CancelUrl = cancelUrl,
                 };
 
-                foreach(var item in cartItems)
+                foreach (var item in cartItems)
                 {
                     var sessionListItem = new SessionLineItemOptions
                     {
@@ -82,10 +83,11 @@ namespace BookStore.Controllers
                     options.LineItems.Add(sessionListItem);
                 }
                 var service = new SessionService();
-                var session = service.Create(options);
-                model.PaymentIntentId = session.PaymentIntentId;
+                var session = await service.CreateAsync(options);
+
+                TempData["sessionId"] = session.Id;
                 TempData["checkoutModel"] = TempDataHelper.GetObjectString(model);
-                TempData.Keep("checkoutModel");
+                TempData.Keep();
 
                 return Redirect(session.Url);
             }
@@ -95,21 +97,62 @@ namespace BookStore.Controllers
         public async Task<IActionResult> Success()
         {
             var checkoutData = TempData["checkoutModel"] as string;
-            if (string.IsNullOrEmpty(checkoutData))
+            var sessionId = TempData["sessionId"] as string;
+            if (string.IsNullOrEmpty(checkoutData) || string.IsNullOrEmpty(sessionId))
             {
                 return RedirectToAction("CheckOut");
             }
 
             var checkoutModel = TempDataHelper.GetObject<CheckoutViewModel>(checkoutData);
-            await _orderService.CreateOrder(checkoutModel);
-
-            return View();
+            var service = new SessionService();
+            var session = await service.GetAsync(sessionId);
+            if (session.PaymentStatus.ToLower() == "paid")
+            {
+                checkoutModel.PaymentIntentId = session.PaymentIntentId;
+                await _orderService.CreateOrder(checkoutModel);
+                return View();
+            }
+            return RedirectToAction("CheckOut");
         }
 
         public IActionResult Cancel()
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CancelOrder(int orderId)
+        {
+            var result = await _orderService.CancelOrder(orderId);
+            if (result)
+                return Json(new { success = result });
+
+            return Json(new
+            {
+                success = false,
+                errors = ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList()
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> OrderDelivered(int orderId)
+        {
+            var result = await _orderService.DeliverOrder(orderId);
+            if (result)
+                return Json(new { success = result });
+            return Json(new
+            {
+                success = false,
+                errors = ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList()
+            });
+        }
+
 
     }
 }

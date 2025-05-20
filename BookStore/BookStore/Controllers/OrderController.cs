@@ -31,7 +31,7 @@ public class OrderController : Controller
     [HttpGet("/order/orderList")]
     public async Task<IActionResult> OrderList()
     {
-        var orders = await _orderService.GetAllOrders();
+        var orders = await _orderService.GetUserOrders();
 
         if (orders == null || !orders.Any())
         {

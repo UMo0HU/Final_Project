@@ -213,6 +213,7 @@ D:\DEPI\FinalProject\BookStore\BookStore\bin\Debug\net8.0\Microsoft.IdentityMode
 D:\DEPI\FinalProject\BookStore\BookStore\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 D:\DEPI\FinalProject\BookStore\BookStore\bin\Debug\net8.0\Mono.TextTemplating.dll
 D:\DEPI\FinalProject\BookStore\BookStore\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\DEPI\FinalProject\BookStore\BookStore\bin\Debug\net8.0\Stripe.net.dll
 D:\DEPI\FinalProject\BookStore\BookStore\bin\Debug\net8.0\System.ClientModel.dll
 D:\DEPI\FinalProject\BookStore\BookStore\bin\Debug\net8.0\System.CodeDom.dll
 D:\DEPI\FinalProject\BookStore\BookStore\bin\Debug\net8.0\System.Composition.AttributedModel.dll
@@ -309,4 +310,3 @@ D:\DEPI\FinalProject\BookStore\BookStore\obj\Debug\net8.0\refint\BookStore.dll
 D:\DEPI\FinalProject\BookStore\BookStore\obj\Debug\net8.0\BookStore.pdb
 D:\DEPI\FinalProject\BookStore\BookStore\obj\Debug\net8.0\BookStore.genruntimeconfig.cache
 D:\DEPI\FinalProject\BookStore\BookStore\obj\Debug\net8.0\ref\BookStore.dll
-D:\DEPI\FinalProject\BookStore\BookStore\bin\Debug\net8.0\Stripe.net.dll

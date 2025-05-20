@@ -9,7 +9,6 @@
         public decimal Amount { get; set; }
         public DateTime PaymentDate { get; set; }
         public string Status { get; set; }
-        //remove the ?
-        public string? PaymentIntentId { get; set; }
+        public string PaymentIntentId { get; set; }
     }
 }
