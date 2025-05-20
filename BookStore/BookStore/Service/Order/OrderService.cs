@@ -25,15 +25,17 @@ namespace BookStore.Service.Order
         public async Task<List<Models.Order>> GetAllOrders()
         {
             return await _context.Orders
+                .Include(o => o.User)
+                .OrderByDescending(o => o.OrderDate)
                 .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.Book)
+                .ThenInclude(oi => oi.Book)
                 .ToListAsync();
         }
         public async Task<Models.Order> GetOrderById(int id)
         {
             return await _context.Orders
                 .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.Book)
+                .ThenInclude(oi => oi.Book)
                 .FirstOrDefaultAsync(o => o.Id == id);
         }
 
@@ -46,23 +48,21 @@ namespace BookStore.Service.Order
                 var order = new Models.Order()
                 {
                     OrderDate = DateTime.UtcNow,
-                    Payment = new Models.Payment
+                    Payment = new Payment
                     {
                         Amount = model.TotalAmount,
                         PaymentDate = DateTime.UtcNow,
-                        PaymentMethod = "Paypal",
-                        Status = "Paid"
+                        PaymentMethod = "Stripe",
+                        Status = "PAID",
+                        PaymentIntentId = model.PaymentIntentId
                     },
                     Shipment = new Shipment
                     {
-                        Carrier = "FedEx",
-                        Status = "Shipped",
-                        ShipmentDate = DateTime.UtcNow,
-                        ShippingAddress = model.Address,
-                        TrackingNumber = "123456"
+                        Status = "PENDING", // required
+                        ShippingAddress = model.Address, // required
                     },
                     UserId = user.Id,
-                    Status = "Shipped",
+                    Status = "PENDING",
                     TotalAmount = model.TotalAmount,
                     OrderItems = new List<OrderItem>()
                 };

@@ -11,7 +11,6 @@ using BookStore.Service.Wishlist;
 using BookStore.Service.Category;
 using BookStore.Service.Review;
 using BookStore.Service.Cart;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using BookStore.Service.Email;
 using BookStore.Service.Order;
 
@@ -46,15 +45,11 @@ namespace BookStore
             builder.Services.AddScoped<IWishlistService, WishlistService>();
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<ICartService, CartService>();
-            builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
             builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
+            
+            builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
 
-            builder.Services.AddSingleton(s => 
-            new PaypalClient(
-                clientId: builder.Configuration["PaypalSettings:ClientId"],
-                clientSecret: builder.Configuration["PaypalSettings:Secret"],
-                mode: builder.Configuration["PaypalSettings:Mode"]
-                ));
 
             builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
             {

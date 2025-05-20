@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DashboardViewModel
+@{
     ViewData["Title"] = "Admin Home";
     Layout = "_AdminLayout";
 }
@@ -10,19 +11,19 @@
             <div class="col-md-4">
                 <div class="card p-3 mb-3">
                     <h3>Total Books</h3>
-                    <p id="totalBooks" class="fs-2">0</p>
+                    <p id="totalBooks" class="fs-2">@Model.TotalBooks</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card p-3 mb-3">
                     <h3>Orders</h3>
-                    <p id="totalOrders" class="fs-2">0</p>
+                    <p id="totalOrders" class="fs-2">@Model.TotalOrders</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card p-3 mb-3">
                     <h3>Sales</h3>
-                    <p id="totalSales" class="fs-2">$0</p>
+                    <p id="totalSales" class="fs-2">$@Model.Sales</p>
                 </div>
             </div>
         </div>
