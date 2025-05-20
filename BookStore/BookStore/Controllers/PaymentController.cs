@@ -8,20 +8,29 @@ using BookStore.Service.Wishlist;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Reflection.Metadata.Ecma335;
+using System.Text.Json.Nodes;
+using Stripe;
+using Stripe.Checkout;
+using Microsoft.Extensions.Options;
+using Stripe.Tax;
 
 namespace BookStore.Controllers
 {
+    [IgnoreAntiforgeryToken]
     public class PaymentController : Controller
     {
         private readonly ICartService _cartService;
         private readonly IOrderService _orderService;
-        private readonly PaypalClient _paypalClient;
+        private readonly StripeSettings _stripeSettings;
 
-        public PaymentController(IWishlistService wishlistService, ICartService cartService, UserManager<User> userManager, IAccountService accountService, IOrderService orderService, PaypalClient paypalClient)
+
+        public PaymentController(IWishlistService wishlistService, ICartService cartService, UserManager<User> userManager, IAccountService accountService, IOrderService orderService, IOptions<StripeSettings> stripeSettings)
         {
             _cartService = cartService;
             _orderService = orderService;
-            _paypalClient = paypalClient;
+            _stripeSettings = stripeSettings.Value;
         }
 
         [HttpGet]
@@ -32,104 +41,75 @@ namespace BookStore.Controllers
             List<Book> cartItems = await _cartService.GetBooksFromCart();
             model.CartItems = cartItems;
 
-
             return View(model);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CheckOut(CheckoutViewModel model)
+        public async Task<IActionResult> Payment(CheckoutViewModel model)
         {
             if (ModelState.IsValid)
             {
-                if (SessionHelper.GetObjectFromJson<CheckoutViewModel>(HttpContext.Session, "cart") == null)
+                var cartItems = await _cartService.GetBooksFromCart();
+                var currency = "usd";
+                var successUrl = $"{Request.Scheme}://{Request.Host}/Payment/Success";
+                var cancelUrl = $"{Request.Scheme}://{Request.Host}/Payment/Cancel";
+                StripeConfiguration.ApiKey = _stripeSettings.SecretKey;
+
+                var options = new SessionCreateOptions
                 {
-                    SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", model);
-                }
-                else
-                {
-                    CheckoutViewModel cart = SessionHelper.GetObjectFromJson<CheckoutViewModel>(HttpContext.Session, "cart");
-                    SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
-                }
-                return RedirectToAction("Payment");
-            }
-
-            return View(model);
-        }
-
-
-        public async Task<IActionResult> Payment()
-        {
-            if (SessionHelper.GetObjectFromJson<CheckoutViewModel>(HttpContext.Session, "cart") != null)
-            {
-                CheckoutViewModel cart = SessionHelper.GetObjectFromJson<CheckoutViewModel>(HttpContext.Session, "cart");
-                ViewBag.TotalAmount = cart.TotalAmount;
-                return View();
-            }
-            return RedirectToAction("Checkout", "User");
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Order(CancellationToken cancellationToken)
-        {
-            try
-            {
-                CheckoutViewModel cart = SessionHelper.GetObjectFromJson<CheckoutViewModel>(HttpContext.Session, "cart");
-
-                var price = $"{cart.TotalAmount}";
-                var currency = "USD";
-
-                var reference = GetRandomInvoiceNumber();
-
-                HttpContext.Session.SetString("paypal_reference", reference);
-
-                var response = await _paypalClient.CreateOrder(price, currency, reference);
-
-                return Ok(response);
-            }
-            catch (Exception e)
-            {
-                var error = new
-                {
-                    e.GetBaseException().Message
+                    PaymentMethodTypes = new List<string> { "card" },
+                    LineItems = new List<SessionLineItemOptions>(),
+                    Mode = "payment",
+                    SuccessUrl = successUrl,
+                    CancelUrl = cancelUrl,
                 };
 
-                return BadRequest(error);
-            }
-        }
-        public async Task<IActionResult> Capture(string orderId, CancellationToken cancellationToken)
-        {
-            try
-            {
-                var response = await _paypalClient.CaptureOrder(orderId);
-
-                var reference = HttpContext.Session.GetString("paypal_reference");
-
-                HttpContext.Session.Remove("paypal_reference");
-
-                return Ok(response);
-            }
-            catch (Exception e)
-            {
-                var error = new
+                foreach(var item in cartItems)
                 {
-                    e.GetBaseException().Message
-                };
+                    var sessionListItem = new SessionLineItemOptions
+                    {
+                        PriceData = new SessionLineItemPriceDataOptions
+                        {
+                            UnitAmountDecimal = item.Price * 100,
+                            Currency = currency,
+                            ProductData = new SessionLineItemPriceDataProductDataOptions
+                            {
+                                Name = item.Title,
+                                Description = item.Description,
+                            },
+                        },
+                        Quantity = model.Quantity[item.Id],
+                    };
+                    options.LineItems.Add(sessionListItem);
+                }
+                var service = new SessionService();
+                var session = service.Create(options);
+                model.PaymentIntentId = session.PaymentIntentId;
+                TempData["checkoutModel"] = TempDataHelper.GetObjectString(model);
+                TempData.Keep("checkoutModel");
 
-                return BadRequest(error);
+                return Redirect(session.Url);
             }
-        }
-
-        public static string GetRandomInvoiceNumber()
-        {
-            return new Random().Next(999999).ToString();
+            return View("CheckOut");
         }
 
         public async Task<IActionResult> Success()
         {
-            CheckoutViewModel cart = SessionHelper.GetObjectFromJson<CheckoutViewModel>(HttpContext.Session, "cart");
-            await _orderService.CreateOrder(cart);
-            SessionHelper.RemoveObject(HttpContext.Session, "cart");
+            var checkoutData = TempData["checkoutModel"] as string;
+            if (string.IsNullOrEmpty(checkoutData))
+            {
+                return RedirectToAction("CheckOut");
+            }
+
+            var checkoutModel = TempDataHelper.GetObject<CheckoutViewModel>(checkoutData);
+            await _orderService.CreateOrder(checkoutModel);
+
             return View();
         }
+
+        public IActionResult Cancel()
+        {
+            return View();
+        }
+
     }
 }

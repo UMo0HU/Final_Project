@@ -7,6 +7,5 @@ namespace BookStore.Service.Order
         public Task<List<Models.Order>> GetAllOrders();
         public Task<Models.Order> GetOrderById(int id);
         public Task CreateOrder(CheckoutViewModel model);
-
     }
 }

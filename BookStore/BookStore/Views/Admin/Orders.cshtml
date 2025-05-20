@@ -1,0 +1,59 @@
+﻿@model List<Order>
+@{
+    ViewData["Title"] = "Order Management";
+    Layout = "_AdminLayout";
+}
+
+<div class="card mb-4">
+    <div class="card-header">
+        <div class="row">
+            <div class=" col-lg-3 col-md-6">
+                <input type="search" class="form-control " placeholder="Search Orders...">
+
+            </div>
+            <div class="col-lg-4 col-md-6 d-flex align-items-center mt-3 mt-md-0">
+                <label class="form-label me-2 mb-0">Status</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected="">Shipped</option>
+                    <option value="1">In Progress</option>
+                    <option value="2">Delivered</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive table-card">
+            <table class="table text-nowrap mb-0 table-centered table-hover">
+                <thead class="table-light text-center">
+                    <tr>
+                        <th class="ps-1">Order ID</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Order Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @foreach(var order in Model)
+                    {
+                    <tr>
+                        <td class="ps-1">
+                            <a href="#!">@order.Id</a>
+                        </td>
+                        <td>@order.User.UserName</td>
+                        <td>@order.OrderDate.ToString("dd MMM yyyy hh:mm:ss")</td>
+                        <td>$@order.TotalAmount</td>
+                        <td><span class="badge bg-success">@order.Status</span></td>
+                        <td>
+                            <a class="btn btn-success" href="#">Shipment</a>
+                            <a class="btn btn-primary" href="#">Delivered</a>
+                            <a class="btn btn-danger" href="#">Cancel Order</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 ﻿using BookStore.Models;
 using BookStore.Service.Book;
 using BookStore.Service.Category;
+using BookStore.Service.Order;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,16 +13,31 @@ namespace BookStore.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly IBookService _bookService;
-        public AdminController(ICategoryService categoryService, IBookService bookService)
+        private readonly IOrderService _orderService;
+        public AdminController(ICategoryService categoryService, IBookService bookService, IOrderService orderService)
         {
             _categoryService = categoryService;
             _bookService = bookService;
+            _orderService = orderService;
         }
-        public IActionResult Index()
+        // Admin Dashboard:
+        public async Task<IActionResult> Index()
         {
-            return View();
+
+            var totalBooks = (await _bookService.GetAllBooks()).Count();
+            var totalOrders = (await _orderService.GetAllOrders()).Count();
+            var sales = (await _orderService.GetAllOrders()).Sum(o => o.TotalAmount);
+
+            var dashboardModel = new DashboardViewModel()
+            {
+                TotalBooks = totalBooks,
+                TotalOrders = totalOrders,
+                Sales = sales
+            };
+            return View(dashboardModel);
         }
 
+        // Categories Pages:
         [HttpGet]
         public async Task<IActionResult> Categories()
         {
@@ -67,6 +83,7 @@ namespace BookStore.Controllers
             return RedirectToAction("Categories");
         }
 
+        // Books Pages:
         [HttpGet]
         public async Task<IActionResult> Books()
         {
@@ -140,6 +157,13 @@ namespace BookStore.Controllers
         {
             await _bookService.DeleteBook(id);
             return RedirectToAction("Books");
+        }
+
+        //Orders Pages:
+        public async Task<IActionResult> Orders()
+        {
+            var orders = await _orderService.GetAllOrders();
+            return View(orders);
         }
     }
 }
