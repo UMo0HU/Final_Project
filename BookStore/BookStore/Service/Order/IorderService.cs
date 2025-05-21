@@ -1,4 +1,5 @@
-﻿using BookStore.ViewModels;
+﻿using BookStore.Models;
+using BookStore.ViewModels;
 
 namespace BookStore.Service.Order
 {
@@ -12,5 +13,6 @@ namespace BookStore.Service.Order
         public Task<bool> CancelOrder(int orderId);
         public Task<bool> ShipOrder(ShipmentViewModel model);
         public Task<bool> DeliverOrder(int orderId);
+        public Task<Shipment> GetShipment(int orderId);
     }
 }

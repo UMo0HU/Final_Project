@@ -1,0 +1,29 @@
+﻿@using BookStore.Helper
+@model BanUserViewModel
+@{
+    ViewData["Title"] = "Ban User";
+    Layout = "_AdminLayout";
+}
+
+<section class="container mt-5">
+    <h1 class="text-center">Ban User</h1>
+    <form asp-controller="Admin" asp-action="BanUser" method="post">
+        <span asp-validation-summary="ModelOnly" class="text-danger"></span>
+        <input asp-for="UserId" type="hidden" />
+        <div class="form-group">
+            <label asp-for="BanEndDate"></label>
+            <input type="datetime-local" value="@DateTime.UtcNow" asp-for="BanEndDate" class="form-control"/>
+            <span asp-validation-for="BanEndDate" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ban User</button>
+    </form>
+</section>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/shipment.css" />
+}
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

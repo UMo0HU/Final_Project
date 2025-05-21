@@ -13,12 +13,12 @@ namespace BookStore.Service.Cart
     {
         private readonly BookStoreDBContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Models.User> _userManager;
         private readonly ClaimsPrincipal _user;
         private readonly string _userId;
         private readonly bool _userCartExists;
 
-        public CartService(BookStoreDBContext context, IHttpContextAccessor httpContextAccessor, UserManager<User> userManager)
+        public CartService(BookStoreDBContext context, IHttpContextAccessor httpContextAccessor, UserManager<Models.User> userManager)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;

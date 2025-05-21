@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "My Orders";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    var orderCounter = 1;
 }
 
 <div class="header">
@@ -27,7 +27,7 @@
                 <div class="order-card">
                     <div class="order-header">
                         <div class="order-meta">
-                            <span class="order-number">Order #@order.Id</span>
+                            <span class="order-number">Order #@(orderCounter++)</span>
                             <span class="order-date">@order.OrderDate.ToString("MMMM dd, yyyy")</span>
                         </div>
                         @if (order.Status.ToLowerInvariant() != "canceled" && order.Status.ToLowerInvariant() != "delivered")
@@ -42,7 +42,6 @@
                         {
                             <div class="preview-item">
                                 <div class="book-image">
-                                    <!-- Placeholder for book cover -->
                                     <img src="~/book-images/@item.Book.Img" class="image-placeholder">
                                 </div>
                                 <div class="book-info">

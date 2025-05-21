@@ -3,36 +3,8 @@
   "WorkspaceRootPath": "D:\\DEPI\\FinalProject\\BookStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\admin\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\admin\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\shared\\_orderspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\shared\\_orderspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\viewmodels\\shipmentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\viewmodels\\shipmentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\admin\\shipment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\admin\\shipment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\service\\order\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\service\\order\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\models\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\models\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\admin\\banuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\admin\\banuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,110 +14,19 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_OrdersPartial.cshtml",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Shared\\_OrdersPartial.cshtml",
-              "RelativeDocumentMoniker": "BookStore\\Views\\Shared\\_OrdersPartial.cshtml",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Shared\\_OrdersPartial.cshtml",
-              "RelativeToolTip": "BookStore\\Views\\Shared\\_OrdersPartial.cshtml",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAIwAkAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-20T15:12:04.455Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PaymentController.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Controllers\\PaymentController.cs",
-              "RelativeDocumentMoniker": "BookStore\\Controllers\\PaymentController.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Controllers\\PaymentController.cs",
-              "RelativeToolTip": "BookStore\\Controllers\\PaymentController.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAuwJkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T14:34:32.201Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrderService.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Service\\Order\\OrderService.cs",
-              "RelativeDocumentMoniker": "BookStore\\Service\\Order\\OrderService.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Service\\Order\\OrderService.cs",
-              "RelativeToolTip": "BookStore\\Service\\Order\\OrderService.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAA4wLoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T14:34:32.221Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Orders.cshtml",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Admin\\Orders.cshtml",
-              "RelativeDocumentMoniker": "BookStore\\Views\\Admin\\Orders.cshtml",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Admin\\Orders.cshtml*",
-              "RelativeToolTip": "BookStore\\Views\\Admin\\Orders.cshtml*",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEgAAAAJAAAAAAAAAA==",
+              "Title": "BanUser.cshtml",
+              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Admin\\BanUser.cshtml",
+              "RelativeDocumentMoniker": "BookStore\\Views\\Admin\\BanUser.cshtml",
+              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Admin\\BanUser.cshtml",
+              "RelativeToolTip": "BookStore\\Views\\Admin\\BanUser.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-20T14:29:59.489Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Shipment.cshtml",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Admin\\Shipment.cshtml",
-              "RelativeDocumentMoniker": "BookStore\\Views\\Admin\\Shipment.cshtml",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Admin\\Shipment.cshtml",
-              "RelativeToolTip": "BookStore\\Views\\Admin\\Shipment.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-20T13:23:16.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ShipmentViewModel.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\ViewModels\\ShipmentViewModel.cs",
-              "RelativeDocumentMoniker": "BookStore\\ViewModels\\ShipmentViewModel.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\ViewModels\\ShipmentViewModel.cs",
-              "RelativeToolTip": "BookStore\\ViewModels\\ShipmentViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T12:44:43.975Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "BookStore\\Controllers\\AdminController.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "BookStore\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAALgAAAAAAAAAAIAwwMUAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T12:41:56.882Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Shipment.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Shipment.cs",
-              "RelativeDocumentMoniker": "BookStore\\Models\\Shipment.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Shipment.cs",
-              "RelativeToolTip": "BookStore\\Models\\Shipment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T12:45:48.259Z",
+              "WhenOpened": "2025-05-21T19:37:19.078Z",
               "EditorCaption": ""
             }
           ]

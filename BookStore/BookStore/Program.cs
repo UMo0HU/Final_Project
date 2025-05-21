@@ -13,6 +13,7 @@ using BookStore.Service.Review;
 using BookStore.Service.Cart;
 using BookStore.Service.Email;
 using BookStore.Service.Order;
+using BookStore.Service.User;
 
 namespace BookStore
 {
@@ -46,8 +47,9 @@ namespace BookStore
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<ICartService, CartService>();
             builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
-            
+
             builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
 
 

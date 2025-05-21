@@ -11,11 +11,11 @@ namespace BookStore.Service.Account
 {
     public class AccountService : IAccountService
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<Models.User> _userManager;
+        private readonly SignInManager<Models.User> _signInManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClaimsPrincipal _user;
-        public AccountService(UserManager<User> userManager, SignInManager<User> signInManager, IHttpContextAccessor httpContextAccessor)
+        public AccountService(UserManager<Models.User> userManager, SignInManager<Models.User> signInManager, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -36,7 +36,7 @@ namespace BookStore.Service.Account
                 throw new ArgumentException("Email already Exist.", nameof(model.Email));
             }
 
-            var user = new User
+            var user = new Models.User
             {
                 UserName = model.Username,
                 Email = model.Email,

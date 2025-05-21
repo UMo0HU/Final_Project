@@ -9,11 +9,11 @@ namespace BookStore.Service.Wishlist
     public class WishlistService : IWishlistService
     {
         private readonly BookStoreDBContext _context;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Models.User> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClaimsPrincipal _user;
 
-        public WishlistService(BookStoreDBContext context, UserManager<User> userManager, IHttpContextAccessor httpContextAccessor)
+        public WishlistService(BookStoreDBContext context, UserManager<Models.User> userManager, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _userManager = userManager;

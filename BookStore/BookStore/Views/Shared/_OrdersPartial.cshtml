@@ -4,7 +4,7 @@
 {
     <tr>
         <td class="ps-1">
-            <a href="#!">@order.Id</a>
+            <a asp-controller="Admin" asp-action="OrderDetails" asp-route-orderId="@order.Id">@order.Id</a>
         </td>
         <td>@order.User.UserName</td>
         <td>@order.OrderDate.ToString("dd MMM yyyy hh:mm:ss")</td>

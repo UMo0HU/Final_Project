@@ -66,6 +66,11 @@ h2 {
     color: #E65100 !important;
 }
 
+.shipped {
+    background-color: #E3F2FD;
+    color: #1976D2 !important;
+}
+
 .canceled {
     background-color: #E0F7FA;
     color: #00838F !important;
