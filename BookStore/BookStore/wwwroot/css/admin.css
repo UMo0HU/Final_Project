@@ -12,6 +12,12 @@ body {
     min-height: 100vh;
 }
 
+.header-logo {
+    font-family: "Pacifico", cursive;
+    font-size: 30px;
+    color: var(--first-color);
+}
+
 /* Sidebar Styles */
 .sidebar {
     background-color: var(--sidebar-bg);

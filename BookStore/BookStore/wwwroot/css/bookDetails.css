@@ -75,7 +75,7 @@
     margin-right: 5px;
 }
 
-.author, .category, .stock {
+.author, .category, .stock, .price {
     color: #777;
     margin-bottom: 5px;
 }

@@ -17,6 +17,11 @@
         </div>
 
         <div class="form-group">
+            <label asp-for="Address"></label>
+            <p class="form-control" />@Model.Address</p>
+        </div>
+
+        <div class="form-group">
             <label asp-for="Carrier"></label>
             <select asp-for="Carrier" asp-items="Html.GetEnumSelectList<Carrier>()" class="form-control"></select>
             <span asp-validation-for="Carrier" class="text-danger"></span>

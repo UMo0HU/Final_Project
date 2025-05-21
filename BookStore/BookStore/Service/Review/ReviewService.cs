@@ -11,11 +11,11 @@ namespace BookStore.Service.Review
     public class ReviewService : IReviewService
     {
         private readonly BookStoreDBContext _context;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Models.User> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClaimsPrincipal _user;
 
-        public ReviewService(BookStoreDBContext context, UserManager<User> userManager, IHttpContextAccessor httpContextAccessor)
+        public ReviewService(BookStoreDBContext context, UserManager<Models.User> userManager, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _userManager = userManager;

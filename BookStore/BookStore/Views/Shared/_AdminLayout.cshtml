@@ -17,9 +17,7 @@
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-3 col-lg-2 sidebar">
-                <div class="sidebar-header">
-                    <h4>Book Store</h4>
-                </div>
+                    <a class="navbar-brand" asp-controller="Admin" asp-action="Index"><p class="header-logo">E-Books</p></a>
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Admin" asp-action="Index">
@@ -39,6 +37,11 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Admin" asp-action="Orders">
                             <i class="fa-solid fa-truck-fast"></i> Order Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Admin" asp-action="Users">
+                            <i class="fa-solid fa-user"></i> User Management
                         </a>
                     </li>
                     <li class="nav-item">

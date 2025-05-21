@@ -14,10 +14,10 @@ namespace BookStore.Service.Order
         private readonly BookStoreDBContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClaimsPrincipal _user;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Models.User> _userManager;
         private readonly StripeSettings _stripeSettings;
 
-        public OrderService(BookStoreDBContext context, IHttpContextAccessor httpContextAccessor, UserManager<User> userManager, IOptions<StripeSettings> stripeSettings)
+        public OrderService(BookStoreDBContext context, IHttpContextAccessor httpContextAccessor, UserManager<Models.User> userManager, IOptions<StripeSettings> stripeSettings)
         {
             _context = context;
             _userManager = userManager;
@@ -53,6 +53,9 @@ namespace BookStore.Service.Order
         public async Task<Models.Order> GetOrderById(int id)
         {
             return await _context.Orders
+                .Include(o => o.Shipment)
+                .Include(o => o.Payment)
+                .Include(o => o.User)
                 .Include(o => o.OrderItems)
                 .ThenInclude(oi => oi.Book)
                 .FirstOrDefaultAsync(o => o.Id == id);
@@ -77,8 +80,8 @@ namespace BookStore.Service.Order
                     },
                     Shipment = new Shipment
                     {
-                        Status = "PENDING", // required
-                        ShippingAddress = model.Address, // required
+                        Status = "PENDING",
+                        ShippingAddress = model.Address, 
                     },
                     UserId = user.Id,
                     Status = "PENDING",
@@ -197,6 +200,18 @@ namespace BookStore.Service.Order
                 return true;
             }
             return false;
+        }
+
+        public async Task<Shipment> GetShipment(int orderId) 
+        {
+            var order = await _context.Orders
+                .Include(o => o.Shipment)
+                .FirstOrDefaultAsync(o => o.Id == orderId);
+            if (order != null && order.Shipment != null)
+            {
+                return order.Shipment;
+            }
+            return new Shipment();
         }
     }
 

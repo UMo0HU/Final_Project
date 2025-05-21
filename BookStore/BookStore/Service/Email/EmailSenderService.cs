@@ -9,11 +9,11 @@ namespace BookStore.Service.Email
     public class EmailSenderService : IEmailSenderService
     {
         private readonly IConfiguration _config;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Models.User> _userManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClaimsPrincipal _claims;
 
-        public EmailSenderService(IConfiguration config, UserManager<User> userManager, IHttpContextAccessor httpContextAccessor)
+        public EmailSenderService(IConfiguration config, UserManager<Models.User> userManager, IHttpContextAccessor httpContextAccessor)
         {
             _config = config;
             _userManager = userManager;

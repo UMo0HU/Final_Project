@@ -2,8 +2,10 @@
 using BookStore.Service.Book;
 using BookStore.Service.Category;
 using BookStore.Service.Order;
+using BookStore.Service.User;
 using BookStore.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using System.Threading.Tasks;
@@ -16,11 +18,15 @@ namespace BookStore.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IBookService _bookService;
         private readonly IOrderService _orderService;
-        public AdminController(ICategoryService categoryService, IBookService bookService, IOrderService orderService)
+        private readonly IUserService _userService;
+        private readonly UserManager<User> _userManager;
+        public AdminController(ICategoryService categoryService, IBookService bookService, IOrderService orderService, IUserService userService, UserManager<User> userManager)
         {
             _categoryService = categoryService;
             _bookService = bookService;
             _orderService = orderService;
+            _userService = userService;
+            _userManager = userManager;
         }
         // Admin Dashboard:
         public async Task<IActionResult> Index()
@@ -29,12 +35,20 @@ namespace BookStore.Controllers
             var totalBooks = (await _bookService.GetAllBooks()).Count();
             var totalOrders = (await _orderService.GetAllOrders()).Count();
             var sales = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() != "canceled").Sum(o => o.TotalAmount);
+            var users = (await _userService.GetAllUsers()).Count();
+            var pendingOrders = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() == "pending").Count();
+            var canceledOrders = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() == "canceled").Count();
+            var deliveredOrders = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() == "delivered").Count();
 
             var dashboardModel = new DashboardViewModel()
             {
                 TotalBooks = totalBooks,
+                Users = users,
+                Sales = sales,
                 TotalOrders = totalOrders,
-                Sales = sales
+                CanceledOrders = canceledOrders,
+                DeliveredOrders = deliveredOrders,
+                PendingOrders = pendingOrders
             };
             return View(dashboardModel);
         }
@@ -168,13 +182,21 @@ namespace BookStore.Controllers
             return View(orders);
         }
 
+        public async Task<IActionResult> OrderDetails(int orderId)
+        {
+            var order = await _orderService.GetOrderById(orderId);
+            return View(order);
+        }
+
         [HttpGet]
-        public IActionResult Shipment(int orderId)
+        public async Task<IActionResult> Shipment(int orderId)
         {
             var shipmentViewModel = new ShipmentViewModel();
             string trackingNumber = "TRK" + DateTime.Now.ToString("yyyyMMddhhmmss");
             shipmentViewModel.TrackingNumber = trackingNumber;
             shipmentViewModel.OrderId = orderId;
+            var shipment = await _orderService.GetShipment(orderId);
+            shipmentViewModel.Address = shipment.ShippingAddress;
             return View(shipmentViewModel);
         }
 
@@ -200,6 +222,44 @@ namespace BookStore.Controllers
             var orders = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() == status.ToLowerInvariant()).ToList();
 
             return PartialView("_OrdersPartial", orders);
+        }
+
+        // User Management:
+        public async Task<IActionResult> Users()
+        {
+            var users = await _userService.GetAllUsers();
+            return View(users);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> BanUser(string userId)
+        {
+            var model = new BanUserViewModel();
+            model.UserId = userId;
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> BanUser(BanUserViewModel model)
+        {
+            var result = await _userService.BanUser(model.UserId, model.BanEndDate);
+            if (result)
+            {
+                TempData["BanUser"] = result;
+                return RedirectToAction("Users", "Admin");
+            }
+            return RedirectToAction("Users", "Admin");
+        }
+
+        public async Task<IActionResult> UnBanUser(string userId)
+        {
+            var result = await _userService.UnBanUser(userId);
+            if (result)
+            {
+                TempData["UnBanUser"] = result;
+                return RedirectToAction("Users", "Admin");
+            }
+            return RedirectToAction("Users", "Admin");
         }
     }
 }

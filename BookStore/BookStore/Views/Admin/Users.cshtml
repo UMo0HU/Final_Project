@@ -1,0 +1,84 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "User Management";
+    Layout = "_AdminLayout";
+}
+
+<div class="table-responsive">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h2>User Management</h2>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead class="text-center">
+                <tr>
+                    <th>#</th>
+                    <th>Profile Picture</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Banned</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach(var user in Model)
+                {
+                <tr>
+                    <td>@user.Id</td>
+                    @if(user.ProfilePicture != null){
+                        <td><img src="data:image/*;base64,@(Convert.ToBase64String(user.ProfilePicture))" alt="Profile Image" class="profile-img" width="75" height="75" style="border-radius: 50%;"></td>
+                    } 
+                    else {
+                        <td><img src="~/images/default_user.jpg" alt="Profile Image" class="image-container" width="75" height="75" style="border-radius: 50%;"></td>
+                    }
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    @if(user.LockoutEnd.HasValue && user.LockoutEnd.Value > DateTime.UtcNow)
+                    {
+                        <td><span class="text-danger">Banned till @user.LockoutEnd.Value.ToString("g")</span></td>
+                    }
+                    else
+                    {
+                        <td><span class="text-success">Active</span></td>
+                    }
+                    <td>
+                        <div class="d-flex justify-content-around">
+                            <a asp-controller="Admin" asp-action="UnBanUser" asp-route-userId="@user.Id" title="Unban"><i class="fa-solid fa-unlock" style="color:black; transform: scale(1.2);"></i></a>
+                            <a asp-controller="Admin" asp-action="BanUser" asp-route-userId="@user.Id" title="Ban"><i class="fa-sharp fa-solid fa-ban" style="color:red; transform: scale(1.2);"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @if(TempData["BanUser"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: "User Banned Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    }
+    @if(TempData["UnBanUser"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: "User Unbanned Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    }
+}
