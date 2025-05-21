@@ -1,0 +1,28 @@
+﻿@model List<Order>
+
+@foreach (var order in Model)
+{
+    <tr>
+        <td class="ps-1">
+            <a asp-controller="Admin" asp-action="OrderDetails" asp-route-orderId="@order.Id">@order.Id</a>
+        </td>
+        <td>@order.User.UserName</td>
+        <td>@order.OrderDate.ToString("dd MMM yyyy hh:mm:ss")</td>
+        <td>$@order.TotalAmount</td>
+        <td><span class="badge bg-success">@order.Status</span></td>
+        <td>
+            @if (order.Status.ToLowerInvariant() != "canceled" && order.Status.ToLowerInvariant() != "delivered")
+            {
+                @if (order.Status.ToLowerInvariant() != "shipped")
+                {
+                    <a class="btn btn-success" asp-controller="Admin" asp-action="Shipment" asp-route-orderId="@order.Id">Shipment</a>
+                }
+                @if (order.Status.ToLowerInvariant() == "shipped")
+                {
+                    <button class="btn btn-primary" onclick="orderDelivered(@order.Id)">Delivered</button>
+                }
+                <button class="btn btn-danger" onclick="cancelOrder(@order.Id)">Cancel</button>
+            }
+        </td>
+    </tr>
+}

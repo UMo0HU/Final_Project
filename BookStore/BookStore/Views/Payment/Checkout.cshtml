@@ -1,0 +1,163 @@
+﻿@model CheckoutViewModel
+@{
+    ViewBag.Title = "Checkout";
+}
+
+@if (Model != null && Model.CartItems != null && Model.CartItems.Any())
+{
+    <form method="post" asp-controller="Payment" asp-action="Payment">
+        <section class="h-100 h-custom">
+            <div class="container h-100 py-5">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="h5">Shopping Bag</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col" class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < Model.CartItems.Count(); i++)
+                                    {
+                                        var book = Model.CartItems[i];
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="~/book-images/@book.Img" class="img-fluid rounded-3"
+                                                         style="width: 120px;" alt="Book">
+                                                    <div class="flex-column ms-4">
+                                                        <p class="mb-2">@book.Title</p>
+                                                        <p class="mb-0">@book.Author</p>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <td class="align-middle">
+                                                <div class="d-flex flex-row">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                                            onclick="changeQuantity(event, this, -1)">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+
+                                                    <input id="form1" book-price="@book.Price" name="Quantity[@book.Id]" value="1" min="1" max="@book.Stock" type="number"
+                                                           class="form-control form-control-sm quantity-input" style="width: 50px;" />
+
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                                            onclick="changeQuantity(event, this, 1)">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle">
+                                                <p class="mb-0" style="font-weight: 500;">$@book.Price</p>
+                                            </td>
+                                            <td class="align-middle">
+                                                <button onclick="RemoveFromCart(@book.Id)" class="btn btn-danger">Remove From Cart</button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+                        <div class="card-body p-4">
+                            <div class="col-lg-8 col-xl-6 w-100 m-auto">
+                                <div class="card-body p-4 text-center">
+                                    <h5>Shipping Address</h5>
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input asp-for="Address" class="form-control mb-3" placeholder="Enter your address" required />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                    <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                                        <p class="mb-2">Total</p>
+                                        <p class="mb-2" id="totalAmount">$0.00</p>
+                                    </div>
+                                    <input type="hidden" asp-for="TotalAmount" id="hiddenTotalAmount" />
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg w-50">
+                                        <span>Checkout</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+}
+else
+{
+    <h2 class="msg">There Is No Books In The Cart !</h2>
+}
+
+
+@section Styles {
+    <link href="~/css/checkout.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+
+    <script>
+        function calculateTotalAmount() {
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            let total = 0;
+            quantityInputs.forEach(input => {
+                const quantity = parseInt(input.value);
+                const price = parseFloat(input.getAttribute("book-price"));
+                total += quantity * price;
+            });
+            document.getElementById('totalAmount').innerHTML = `$${total.toFixed(2)}`;
+            document.getElementById('hiddenTotalAmount').value = total.toFixed(2);
+        }
+
+        function changeQuantity(event, button,change) {
+            event.preventDefault();
+            const input = button.parentNode.querySelector('.quantity-input');
+            if(change == 1) {
+                input.stepUp();
+            }
+            else if(change == -1) {
+                input.stepDown();
+            }
+            calculateTotalAmount();
+        }
+
+
+        function RemoveFromCart(BookId){
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("RemoveFromCart", "Cart")',
+                data: { bookId: BookId },
+                success: function () {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Book Removed From Cart successfull",
+                        icon: "success"
+
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        }
+                    });
+                },
+                error: function () {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function(){
+            calculateTotalAmount();
+        })
+    </script>
+}

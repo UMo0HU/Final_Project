@@ -1,5 +1,4 @@
-﻿@using BookStore.ViewModels;
-@model RegisterViewModel
+﻿@model RegisterViewModel
 @{
     ViewBag.Title = "Register";
     Layout = "_AccountLayout";
@@ -13,32 +12,27 @@
     <div class="col registration-form">
         <form asp-controller="Account" asp-action="Register" method="post">
             <h2 class="text-center">Create Account</h2>
-            <div class="social-icons">
-                <a href="#"><img src="/images/FacebookCircled.svg" /></a>
-                <a href="#"><img src="/images/Google.svg" /></a>
-                <a href="#"><img src="/images/LinkedInCircled.svg" /></a>
-            </div>
-            <p>or use email for registration</p>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="input-box">
                 <img draggable="false" class="input-icon" src="/images/User.svg" />
-                <input class="form-control item" asp-for="Name" placeholder="Name">
+                <input class="form-control item" asp-for="Username" placeholder="Username">
             </div>
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <span asp-validation-for="Username" class="text-danger"></span>
             <div class="input-box">
                 <img draggable="false" class="input-icon" src="/images/EmailLogo.png" />
                 <input class="form-control item" asp-for="Email" placeholder="Email">
             </div>
-            <span asp-validation-for="Email" class="text-danger"></span>
+                <span asp-validation-for="Email" class="text-danger"></span>
             <div class="input-box">
                 <img draggable="false" class="input-icon" src="/images/Password.svg" />
                 <input class="form-control item" asp-for="Password" placeholder="Password">
             </div>
-            <span asp-validation-for="Password" class="text-danger"></span>
+                <span asp-validation-for="Password" class="text-danger"></span>
             <div class="input-box">
                 <img draggable="false" class="input-icon" src="/images/Password.svg" />
                 <input class="form-control item" asp-for="ConfirmPassword" placeholder="Confirm Password">
             </div>
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-block create-account">Sign Up</button>
             </div>

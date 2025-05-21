@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> _signInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,17 +11,13 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BookStore.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/font-awesome/css/all.css" />
-
+    <script src="~/sweetalert2/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="~/sweetalert2/sweetalert2.min.css">
 </head>
 <body>
     <header class="navbar navbar-expand-lg navbar">
         <div class="container-fluid">
             <a class="navbar-brand" asp-controller="Home" asp-action="Index"><p class="header-logo">E-Books</p></a>
-
-            <div class="d-none d-lg-flex align-items-center search-container">
-                <img src="~/images/Search.png" alt="Search" style="height: 20px; width: 30px; margin-left: 10px;">
-                <input type="text" class="search-input" placeholder="Search">
-            </div>
 
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -28,34 +26,118 @@
             </button>
 
             <div class="collapse navbar-collapse text-center" id="navbarNav">
-                <div class="d-lg-none mb-3 search-container-mobile">
-                    <div class="input-group">
-                        <span class="input-group-text bg-transparent border-0">
-                            <img src="./images/Search.png" alt="Search" style="height: 20px; width: 30px;">
-                        </span>
-                        <input type="text" class="form-control search-input-mobile" placeholder="Search">
-                    </div>
-                </div>
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item nav-item">
                         <a class="nav-link nav-link active" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item nav-item">
                         <a class="nav-link nav-link" asp-controller="Category" asp-action="Index">Categories</a>
                     </li>
+                    @if (_signInManager.IsSignedIn(User)){
+                        <li class="nav-item nav-item">
+                            <a class="nav-link nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        </li>
+                    }
+                </ul>
+                
+                <div class="d-none d-lg-flex search-container mx-3">
+                    <form class="search-form" asp-controller="Book" asp-action="Search">
+                        <button type="submit" class="search-btn"><img src="~/images/Search.png" alt="Search" onclick="Search()"></button>
+                        <input type="text" class="search-input" name="keyword" placeholder="Search">
+                    </form>
+                </div>
+
+                <div class="d-lg-none mb-3 search-container-mobile w-100">
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-0">
+                            <img src="~/images/Search.png" alt="Search">
+                        </span>
+                        <input type="text" class="form-control search-input-mobile" placeholder="Search">
+                    </div>
+                </div>
+
+                <ul class="navbar-nav">
                     <partial name="_LoginPartial" />
                 </ul>
             </div>
         </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    @if (ViewData["NoContainer"] == null)
+    {
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    }
+    else
+    {
+        @RenderBody()
+    }
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        const addToWishlistUrl = '@Url.Action("AddToWishlist", "Book")';
+        const removeFromWishlistUrl = '@Url.Action("RemoveFromWishlist", "Book")';
+        function ToggleWishlist(BookId) {
+            var button = $(`#wishlist-btn-${BookId}`);
+            const isInWishlist = button.find('i').hasClass('fa-solid');
+
+            $.ajax({
+                type: "POST",
+                url: isInWishlist ? removeFromWishlistUrl : addToWishlistUrl,
+                data: { id: BookId },
+                success: function (response) {
+                    if (response.success) {
+                        button.find('i')
+                            .toggleClass('fa-solid fa-regular')
+                            .parent().css('color', isInWishlist ? 'inherit' : 'red');
+                            Swal.fire({
+                                icon: 'success',
+                                title: isInWishlist ? 'Removed from Wishlist' : 'Added to Wishlist',
+                            });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    });
+                }
+            });
+        }
+
+
+
+
+            function userToggler() {
+                const userTogglerList = document.querySelector(".user-toggler-list");
+                userTogglerList.classList.toggle("user-toggled");
+            }
+
+            window.addEventListener("resize", function(){
+                if(window.innerWidth <= 991) {
+                    const userTogglerList = document.querySelector(".user-toggler-list");
+                    userTogglerList.classList.add("user-toggled");
+                }
+                else
+                {
+                    const userTogglerList = document.querySelector(".user-toggler-list");
+                    userTogglerList.classList.remove("user-toggled");
+                }
+            })
+
+            document.addEventListener("DOMContentLoaded", function () {
+                if(window.innerWidth <= 991) {
+                    const userTogglerList = document.querySelector(".user-toggler-list");
+                    userTogglerList.classList.add("user-toggled");
+                }
+            })
+
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
     @RenderSection("Styles", required: false)
 </body>

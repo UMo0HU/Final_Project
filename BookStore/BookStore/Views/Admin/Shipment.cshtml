@@ -1,0 +1,40 @@
+﻿@using BookStore.Helper
+@model ShipmentViewModel
+@{
+    ViewData["Title"] = "Shipment";
+    Layout = "_AdminLayout";
+}
+
+<section class="container mt-5">
+    <h1 class="text-center">Shipment Management</h1>
+    <form asp-controller="Admin" asp-action="Shipment" method="post">
+        <span asp-validation-summary="ModelOnly" class="text-danger"></span>
+        <input asp-for="OrderId" type="hidden" />
+        <div class="form-group">
+            <label asp-for="TrackingNumber"></label>
+            <input asp-for="TrackingNumber" class="form-control" readonly/>
+            <span asp-validation-for="TrackingNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address"></label>
+            <p class="form-control" />@Model.Address</p>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Carrier"></label>
+            <select asp-for="Carrier" asp-items="Html.GetEnumSelectList<Carrier>()" class="form-control"></select>
+            <span asp-validation-for="Carrier" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Start Shipping</button>
+    </form>
+</section>
+
+@section Styles {
+        <link rel="stylesheet" href="~/css/shipment.css" />
+}
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

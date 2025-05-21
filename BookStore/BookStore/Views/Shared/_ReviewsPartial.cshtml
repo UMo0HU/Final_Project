@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<User> userManager
+@model List<Review>
+@{
+
+    var userId = userManager.GetUserId(User);
+}
+<h3>Customer Reviews</h3>
+
+@if (Model != null && Model.Any())
+{
+    @foreach (var review in Model)
+    {
+    <div class="comment-box">
+        <div class="d-flex gap-3">
+            @if(review.User.ProfilePicture == null) {
+                <img src="~/images/default_user.jpg" alt="User Avatar" class="user-avatar">
+            }
+            else
+            {
+                <img src="data:image/*;base64,@(Convert.ToBase64String(review.User.ProfilePicture))" alt="User Avatar" class="user-avatar">
+            }
+                <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">@review.User.UserName</h6>
+                    <span class="comment-time">Posted on @review.CreatedAt.ToLocalTime().ToString("g")</span>
+                </div>
+                <div class="animated-stars">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        if (i <= review.Rating)
+                        {
+                            <i class="fas fa-star star checked-star"></i>
+                        }
+                        else
+                        {
+                            <i class="far fa-star star"></i>
+                        }
+                    }
+                </div>
+                <p class="mb-2">
+                    @review.Content
+                </p>
+                @if (review.UserId == userId || User.IsInRole("Admin"))
+                {
+                        <button onclick="DeleteReview('@review.UserId', '@review.BookId')" class="btn btn-danger">Delete Review</button>
+                }
+            </div>
+        </div>
+    </div>
+    }
+}
+else
+{
+    <p>No reviews yet for this book.</p>
+}

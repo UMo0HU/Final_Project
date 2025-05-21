@@ -1,0 +1,27 @@
+﻿@model List<Book>
+
+@{
+    ViewBag.Title = "Search Result";
+    var wishlistBookIds = ViewBag.WishlistBookIds as List<int> ?? new List<int>();
+    var cartBookIds = ViewBag.CartBookIds as List<int> ?? new List<int>();
+}
+
+<div class="main-top">
+    <h2 class="main-h2">Search Result:</h2>
+</div>
+<div class="cards">
+    @await Html.PartialAsync("_LoadBooksPartial", new ShowBooksViewModel
+    {
+        books = Model,
+        UserCart = cartBookIds,
+        UserWishlist = wishlistBookIds
+    })
+</div>
+
+@section Styles {
+    <style>
+        .cards {
+            flex-wrap: wrap;
+        }
+    </style>
+}

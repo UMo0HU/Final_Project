@@ -1,0 +1,43 @@
+﻿@model Order
+
+@{
+    ViewBag.Title = "Order Details";
+    var orderitems = Model.OrderItems;
+    var payment = Model.Payment;
+    var shipment = Model.Shipment;
+    var user = Model.User;
+}
+
+
+
+<div class="header">
+    <h1>My Orders</h1>
+</div>
+
+<div class="container">
+    <h2>Track Your Orders</h2>
+
+    <div class="order-card">
+        <p><strong>Date:</strong> @Model.OrderDate.ToString("MM/dd/yyyy")</p>
+        <p><strong>Status:</strong> <span class="status">@Model.Status</span></p>
+        <p><strong>Address:</strong> @shipment.ShippingAddress</p>
+        <p><strong>Payment Method:</strong> @payment.PaymentMethod</p>
+        @foreach (var orderItem in orderitems)
+        {
+            <div class="preview-item mb-3">
+                <div class="book-image">
+                    <img src="~/book-images/@orderItem.Book.Img" class="image-placeholder">
+                </div>
+                <div class="book-info">
+                    <p class="book-title">@orderItem.Book?.Title</p>
+                    <p class="book-qty">Qty: @orderItem.Quantity</p>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+@section Styles {
+    <link href="~/css/userOrder.css" rel="stylesheet" />
+}

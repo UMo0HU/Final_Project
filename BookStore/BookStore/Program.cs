@@ -9,6 +9,11 @@ using BookStore.Service.BookService;
 using BookStore.Service.Account;
 using BookStore.Service.Wishlist;
 using BookStore.Service.Category;
+using BookStore.Service.Review;
+using BookStore.Service.Cart;
+using BookStore.Service.Email;
+using BookStore.Service.Order;
+using BookStore.Service.User;
 
 namespace BookStore
 {
@@ -21,8 +26,8 @@ namespace BookStore
             builder.Services.AddControllersWithViews();
 
             // Configure Entity Framework and SQL Server
-            string connectionString = @"Server=.; Database=BookStore; Integrated Security=True; TrustServerCertificate = True;";
-            builder.Services.AddDbContext<BookStoreDBContext>(options => options.UseSqlServer(connectionString));
+            //string connectionString = @"Server=.; Database=BookStore; Integrated Security=True; TrustServerCertificate = True;";
+            builder.Services.AddDbContext<BookStoreDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
 
             builder.Services.AddIdentity<User, IdentityRole>(options =>
             {
@@ -35,10 +40,30 @@ namespace BookStore
             .AddEntityFrameworkStores<BookStoreDBContext>()
             .AddDefaultTokenProviders();
 
-            builder.Services.AddScoped<IBookService, BookService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
-            builder.Services.AddScoped<IWishlistService, WishlistService>();
+            builder.Services.AddScoped<IBookService, BookService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<IWishlistService, WishlistService>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
+            builder.Services.AddScoped<ICartService, CartService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
+
+            builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("StripeSettings"));
+
+
+            builder.Services.Configure<DataProtectionTokenProviderOptions>(options =>
+            {
+                options.TokenLifespan = TimeSpan.FromHours(1);
+            });
+
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             var app = builder.Build();
 
@@ -54,6 +79,8 @@ namespace BookStore
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 

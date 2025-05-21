@@ -1,0 +1,125 @@
+﻿@model BookViewModel
+
+@{
+    ViewData["Title"] = "Add Book";
+    Layout = "_AdminLayout";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Add New Book</h2>
+</div>
+
+<div class="card add-book-card">
+    <div class="card-body">
+        <form asp-controller="Admin" asp-action="AddBook" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" placeholder="Enter book title">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Author" class="form-label"></label>
+                <input asp-for="Author" class="form-control" placeholder="Enter author name">
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter book description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label asp-for="Price" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input asp-for="Price" class="form-control" placeholder="0.00" step="0.01" min="0">
+                    </div>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Stock" class="form-label"></label>
+                    <input asp-for="Stock" class="form-control" placeholder="0" min="0">
+                    <span asp-validation-for="Stock" class="text-danger"></span>
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Categories</label>
+                <div class="d-flex flex-wrap">
+                    @foreach (var category in Model.AllCategories)
+                    {
+                        <div class="form-check me-3 mb-2">
+                            <input class="form-check-input" type="checkbox"
+                                   name="SelectedCategoryIds" value="@category.Id" id="category-@category.Id">
+                            <label class="form-check-label" for="category-@category.Id">
+                                @category.Name
+                            </label>
+                        </div>
+                    }
+                    <span asp-validation-for="SelectedCategoryIds" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center buttons-container">
+                <div>
+                    <div class="mb-4">
+                        <label class="form-label">Book Image</label>
+                        <div class="file-upload">
+                            <label for="bookImage" class="btn btn-upload">
+                                <i class="fa fa-cloud-arrow-up"></i> Browse...
+                            </label>
+                            <input type="file" accept="image/*" id="bookImage" asp-for="ClientFile" class="d-none">
+                            <span class="file-name">No file selected</span>
+                            <span asp-validation-for="ClientFile" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Books" class="btn btn-cancel">
+                            <i class="fa fa-circle-xmark"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-add">
+                            <i class=" fa-solid fa-square-plus"></i> Add Book
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-4 book-container">
+                    <label class="form-label">Book Cover</label>
+                    <img src="" class="current-cover-img">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Styles {
+    <link href="~/css/addBook.css" rel="stylesheet"/>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.getElementById('bookImage').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
+            document.querySelector('.file-name').textContent = fileName;
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.querySelector(".current-cover-img");
+                    img.classList.add("img-thumbnail");
+                    img.src = e.target.result;
+                    img.width = 200;
+                    img.height = 200;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+}

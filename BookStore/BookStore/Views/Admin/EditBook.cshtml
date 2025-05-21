@@ -1,77 +1,142 @@
 ﻿@model BookViewModel
 @{
     ViewBag.Title = "Edit Book";
+    Layout = "_AdminLayout";
+    string img = ViewBag.BookImg ?? "";
 }
 
-<form asp-controller="Admin" asp-action="EditBook" asp-route-Id="@Model.Id" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
-    </div>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Edit Book</h2>
+</div>
 
-    <div class="form-group">
-        <label asp-for="Author"></label>
-        <input asp-for="Author" class="form-control" />
-        <span asp-validation-for="Author" class="text-danger"></span>
-    </div>
+<div class="card edit-book-card">
+    <div class="card-body">
+        <form asp-Controller="Admin" asp-action="EditBook" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+                                
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label asp-for="Title" class="form-label"></label>
+                    <input asp-for="Title" class="form-control">
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Author" class="form-label"></label>
+                    <input asp-for="Author" class="form-control">
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <textarea asp-for="Description" class="form-control"></textarea>
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
 
-    <div class="form-group">
-        <label asp-for="Price"></label>
-        <input asp-for="Price" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label asp-for="Price" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input asp-for="Price" class="form-control" step="0.01">
+                    </div>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Stock" class="form-label"></label>
+                    <input asp-for="Stock" class="form-control">
+                    <span asp-validation-for="Stock" class="text-danger"></span>
+                </div>
+                <div class="col-md-4 d-flex flex-column">
+                    <label class="form-label">Current Cover</label>
+                    @if (img != "")
+                    {
+                        <img src="~/book-images/@img" class="current-cover-img" alt="Book Cover">
+                    }
+                    else
+                    {
+                        <div class="current-cover">
+                            <div class="cover-text">
+                                <strong>@Model.Title.Split(' ').First().ToUpper()</strong><br>
+                                @string.Join(" ", Model.Title.Split(' ').Skip(1)).ToUpper()<br>
+                                <em>@Model.Author</em>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label asp-for="Stock"></label>
-        <input asp-for="Stock" class="form-control" />
-        <span asp-validation-for="Stock" class="text-danger"></span>
-    </div>
+            <div class="mb-3">
+                <label class="form-label">Categories</label>
+                <div class="d-flex flex-wrap">
+                    @foreach (var category in Model.AllCategories)
+                    {
+                        <div class="form-check me-3 mb-2">
+                            @if(Model.SelectedCategoryIds.Contains(category.Id))
+                            {
+                                <input class="form-check-input" type="checkbox"
+                                       name="SelectedCategoryIds" value="@category.Id"
+                                       id="category-@category.Id"
+                                    checked="checked">
+                            }
+                            else {
+                                <input class="form-check-input" type="checkbox"
+                                       name="SelectedCategoryIds" value="@category.Id"
+                                       id="category-@category.Id">
+                            }
+                            <label class="form-check-label" for="category-@category.Id">
+                                @category.Name
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label asp-for="SelectedCategoryIds">Categories</label>
-        <select asp-for="SelectedCategoryIds" asp-items="@(new MultiSelectList(Model.AllCategories, "Id", "Name"))" multiple class="form-control">
-        </select>
-        <span asp-validation-for="SelectedCategoryIds" class="text-danger"></span>
-    </div>
+            <div class="mb-4">
+                <label class="form-label">Update Cover Image</label>
+                <div class="file-upload">
+                    <label for="bookImage" class="btn btn-upload">
+                        <i class="fa fa-cloud-arrow-up"></i> Browse...
+                    </label>
+                    <input type="file" accept="image/*" id="bookImage" asp-for="ClientFile" class="d-none">
+                    <span class="file-name">No file selected</span>
+                    <span asp-validation-for="ClientFile" class="text-danger"></span>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label asp-for="ClientFile"></label>
-        <input type="file" id="input_image" accept="image/*" class="form-control" asp-for="ClientFile">
-        <span asp-validation-for="ClientFile" class="text-danger"></span>
+            <div class="d-flex justify-content-between">
+                <a asp-action="Books" class="btn btn-cancel">
+                    <i class="fa fa-circle-xmark"></i> Cancel
+                </a>
+                <button type="submit" class="btn btn-save">
+                    <i class="fa fa-save"></i> Save Changes
+                </button>
+            </div>
+        </form>
     </div>
-    <div id="preview" class="form-group d-flex justify-content-center align-content-center mt-3">
-    </div>
-    <div class="form-group d-flex justify-content-center align-content-center mt-3">
-        <button type="submit" class="w-50 fs-1 btn btn-primary text-center">Edit Book</button>
-    </div>
-</form>
+</div>
 
+@section Styles {
+    <link href="~/css/editBook.css" rel="stylesheet" />
+}
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
     <script>
-        const inputImage = document.getElementById("input_image");
-        const previewContainer = document.getElementById("preview");
-        inputImage.addEventListener("change", function (event) {
-            const file = event.target.files[0];
+        // Update file name when selected
+        document.getElementById('bookImage').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
+            document.querySelector('.file-name').textContent = fileName;
+            const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function (e) {
-                    const img = document.createElement("img");
+                    const img = document.querySelector(".current-cover-img");
                     img.classList.add("img-thumbnail");
                     img.src = e.target.result;
                     img.width = 200;
                     img.height = 200;
-                    previewContainer.appendChild(img);
                 };
                 reader.readAsDataURL(file);
             }

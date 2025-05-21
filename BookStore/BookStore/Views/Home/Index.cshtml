@@ -1,42 +1,41 @@
-﻿    @{
+﻿@model List<Book>
+
+@{
     ViewData["Title"] = "Home Page";
+    var wishlistBookIds = ViewBag.WishlistBookIds as List<int> ?? new List<int>();
+    var cartBookIds = ViewBag.CartBookIds as List<int> ?? new List<int>();
+    List<string> authors = ViewBag.Authors;
 }
 
 
-    <div id="home">
-        <div class="home-info">
-            <h2 class="home-title">read free library books online !</h2>
-            <div class="home-description">search, explore, enjoy. Our digital library puts millions of books and articles at your fingertips. Join us today!</div>
-        </div>
-        <div class="home-image"><img src="~/images/6046205542424233186.jpg" alt=""></div>
+<div id="home">
+    <div class="home-info">
+        <h2 class="home-title">read free library books online !</h2>
+        <div class="home-description">search, explore, enjoy. Our digital library puts millions of books and articles at your fingertips. Join us today!</div>
     </div>
-    <div class="popular">
-        <p class="main-line">_________________________________________________________________________________________________</p>
-        <h3 class="popular-title">popular</h3>
-        <div class="cards">
-            <div class="cards-card">
-                <div class="card-img"><img src="~/images/image (3).png" alt=""></div>
-                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-            </div>
-            <div class="cards-card">
-                <div class="card-img"><img src="~/images/image (5).png" alt=""></div>
-                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-            </div>
-            <div class="cards-card">
-                <div class="card-img "><img src="~/images/image (4).png" alt=""></div>
-                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-            </div>
-            <div class="cards-card">
-                <div class="card-img"><img src="~/images/Group 104.png" alt=""></div>
-                <div class="card-icon book-details-page-wishlist"><i class="fa-regular fa-heart"></i></div>
-            </div>
-        </div>
+    <div class="home-image"><img src="~/images/6046205542424233186.jpg" alt=""></div>
+</div>
+<div class="popular">
+    <p class="main-line">_________________________________________________________________________________________________</p>
+    <h3 class="popular-title">Recommended Books</h3>
+    <div class="cards">
+        @await Html.PartialAsync("_LoadBooksPartial", new ShowBooksViewModel
+        {
+            books = Model,
+            UserCart = cartBookIds,
+            UserWishlist = wishlistBookIds
+        })
     </div>
-
+</div>
+<div class="popular">
+<p class="main-line">_________________________________________________________________________________________________</p>
+    <h3 class="popular-title">Authors</h3>
+        <div class="author-item">
+        @foreach(var author in authors) {
+            <div><a class="btn" asp-controller="Book" asp-action="RecommendedAuthorBooks" asp-route-author="@author">@author</a></div>
+        }
+        </div>
+</div>
 @section Styles {
     <link href="~/css/home.css" rel="stylesheet" />
-}
-
-@section Scripts {
-    <script src="~/js/heartToggler.js"></script>
 }

@@ -39,7 +39,6 @@ namespace BookStore.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Img")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
@@ -98,9 +97,6 @@ namespace BookStore.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -171,9 +167,6 @@ namespace BookStore.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -200,6 +193,10 @@ namespace BookStore.Migrations
 
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentIntentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PaymentMethod")
                         .IsRequired()
@@ -232,9 +229,6 @@ namespace BookStore.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
@@ -254,13 +248,12 @@ namespace BookStore.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Carrier")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ShipmentDate")
+                    b.Property<DateTime?>("ShipmentDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ShippingAddress")
@@ -272,7 +265,6 @@ namespace BookStore.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TrackingNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -357,9 +349,6 @@ namespace BookStore.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.HasKey("UserId", "BookId");
@@ -595,7 +584,7 @@ namespace BookStore.Migrations
             modelBuilder.Entity("BookStore.Models.Review", b =>
                 {
                     b.HasOne("BookStore.Models.Book", "Book")
-                        .WithMany("reviews")
+                        .WithMany("Reviews")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -698,11 +687,11 @@ namespace BookStore.Migrations
 
                     b.Navigation("CartItems");
 
+                    b.Navigation("Reviews");
+
                     b.Navigation("Wishlists");
 
                     b.Navigation("orderItems");
-
-                    b.Navigation("reviews");
                 });
 
             modelBuilder.Entity("BookStore.Models.Cart", b =>

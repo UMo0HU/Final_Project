@@ -1,0 +1,146 @@
+﻿@model List<Order>
+@{
+    ViewData["Title"] = "Order Management";
+    Layout = "_AdminLayout";
+    bool shipment = TempData["Shipment"] != null ? (bool)TempData["Shipment"] : false;
+}
+
+<div class="card mb-4">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-center mt-3 mt-md-0">
+                <label class="form-label me-2 mb-0">Status</label>
+                <select class="form-select" onchange="getByStatus()">
+                    <option value="PENDING">Pending</option>
+                    <option value="SHIPPED">Shipped</option>
+                    <option value="DELIVERED">Delivered</option>
+                    <option value="CANCELED">Canceled</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive table-card">
+            <table class="table text-nowrap mb-0 table-centered table-hover">
+                <thead class="table-light text-center">
+                    <tr>
+                        <th class="ps-1">Order ID</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Order Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @await Html.PartialAsync("_OrdersPartial", Model)
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @if (shipment)
+    {
+        <script>
+            Swal.fire({
+            title: "Success!",
+                    text: "Order Shipped successfully",
+                    icon: "success"
+            });
+        </script>
+    }
+    <script>
+        function getByStatus() {
+            var status = $("select").val();
+            $.ajax({
+                url: '@Url.Action("GetByStatus", "Admin")',
+                type: 'GET',
+                data: { status: status },
+                success: function (response) {
+                    $('tbody').html(response); // Directly insert the partial view HTML
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+        function orderDelivered(orderId) {
+            $.ajax({
+                url: '@Url.Action("OrderDelivered", "Payment")',
+                type: 'POST',
+                data: { orderId: orderId },
+                success: function (response) {
+                    if(response.success) {
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Order Delivered successfully",
+                            icon: "success"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: response.errors.join("\n") || "Failed To Deliver Order",
+                        });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+
+        function cancelOrder(orderId) {
+            $.ajax({
+                url: '@Url.Action("CancelOrder", "Payment")',
+                type: 'POST',
+                data: { orderId: orderId },
+                success: function (response) {
+                    if(response.success) {
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Order Canceled successfully",
+                            icon: "success"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: response.errors.join("\n") || "Failed To Cancel Order",
+                        });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+    </script>
+}

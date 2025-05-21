@@ -1,0 +1,61 @@
+﻿@model ContactUsViewModel 
+@{
+    ViewBag.Title = "Contact Us";
+}
+
+<section class="py-3 py-md-5">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                <h3 class="fs-6 text-secondary mb-2 text-uppercase text-center">Get in Touch</h3>
+                <h1 class="display-5 mb-4 mb-md-5 text-center">We're always here for you.</h1>
+                <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row gy-3 gy-md-4 gy-lg-0 align-items-xl-center">
+            <div class="col-12 col-lg-6">
+                <img class="img-fluid rounded" loading="lazy" src="~/images/contactUsImage.jpg" alt="Get in Touch">
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                        <div class="bg-white border rounded shadow-sm overflow-hidden">
+                            @if (Model?.SentSuccessfully == true)
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    Your Request Sent Successfully.
+                                </div>
+                            }
+                            <form asp-Controller="Home" asp-action="ContactUs" method="post">
+                                <div class="p-3">
+                                    <div class="mb-3">
+                                        <label asp-for="Subject" class="form-label"></label>
+                                        <input class="form-control" asp-for="Subject">
+                                        <span asp-validation-for="Subject" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label asp-for="Message" class="form-label"></label>
+                                        <textarea class="form-control" asp-for="Message"></textarea>
+                                        <span asp-validation-for="Message" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-3 d-flex justify-content-center">
+                                        <button class="btn btn-primary btn-lg" type="submit">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

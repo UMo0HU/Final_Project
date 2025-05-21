@@ -1,52 +1,255 @@
-﻿@using BookStore.Models; 
-@model Book
-
+﻿@using Microsoft.AspNetCore.Identity;
+@model ReviewViewModel
+@inject SignInManager<User> SignInManager
 @{
     ViewBag.Title = "Book Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Book = Model.Book;
+    var bookCategories = ViewBag.BookCategories as List<Category>;
+    var userReview = ViewBag.UserReview as Review ?? null;
+    bool bookInWishlist = ViewBag.BookInWishlist;
+    bool bookInCart = ViewBag.BookInCart;
+    double bookRating = ViewBag.BookRating;
+
 }
 
 <div class="container book-details">
     <div class="book-cover">
-        <img src="~/book-images/@Model.Img" alt="@Model.Img">
+        <img src="~/book-images/@Book.Img" alt="@Book.Img">
     </div>
     <div class="book-info">
-        <h1 class="book-title">I Don't Love You Anymore</h1>
-        <div class="rating">
-            <span class="star"><i class="fas fa-star"></i></span>
-            <span class="star"><i class="fas fa-star"></i></span>
-            <span class="star"><i class="fas fa-star"></i></span>
-            <span class="star"><i class="fas fa-star"></i></span>
-            <span class="star-empty"><i class="far fa-star"></i></span>
-            <span class="rating-value">4.0</span>
+        <h1 class="book-title">@Book.Title</h1>
+        <div id="ratingContainer">
+            @await Html.PartialAsync("_BookRatePartial", bookRating)
         </div>
-        <p class="author">Auther: @Model.Author</p>
-        <p class="category">Category: 
-            @foreach (var bookCategory in Model.Book_Categories)
+        <p class="author"><strong>Auther:</strong> @Book.Author</p>
+        <p class="category"><strong>Category:</strong> 
+            @foreach (var category in bookCategories)
             {
-                <span class="category-item">@bookCategory.Category.Name</span>
+                if (category == bookCategories.Last())
+                {
+                    <span>@category.Name.</span>
+                }
+                else {
+                    <span>@category.Name, </span>
+                }
             }
-        </p>
+            </p>
+        @if(Book.Stock != 0) {
+            <p class="stock"><strong>Stock:</strong> @Book.Stock</p>
+        }
+        <p class="price"><strong>Price:</strong> $@Book.Price</p>
         <div class="description">
-            <p>@Model.Description</p>
+            <p>@Book.Description</p>
         </div>
-        <div class="actions">
-            <button class="read-button">Read</button>
-            <button class="download-button">Download</button>
-        </div>
-        <div class="wishlist">
-            <a href="#"><i class="far fa-heart"></i> Add To WishList</a>
-        </div>
-        <div class="share">
-            <span>Share</span>
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div class="actions">
+            @if(Book.Stock == 0) {
+
+                <button id="cartButton" class="read-button"><i class="fa-solid fa-cart-shopping"></i> Out Of Stock</button>
+            }
+            else {
+                <button id="cartButton" onclick="cartToggler(@Book.Id)" class="read-button @(bookInCart? "added" : "")"><i class="fa-solid @(bookInCart? "fa-cart-shopping" : "fa-cart-plus")"></i> @(bookInCart ? "Remove From Cart" : "Add To Cart")</button>
+            }
+                <button id="wishlistButton" onclick="WishlistToggler(@Book.Id)" class="download-button @(bookInWishlist? "added" : "")"><i class="fa-solid fa-heart" style="color: @(bookInWishlist? "red" : "white");"></i> @(bookInWishlist? "Remove From Wishlist" : "Add To Wishlist")</button>
+            </div>
+        }
+        else {
+            <h3 class="login-prompt">Please <a class="btn btn-primary" href="@Url.Action("Login", "Account")">login</a> to add this book to your wishlist/cart.</h3>
+        }
     </div>
+</div>
+
+<hr />
+
+<div id="reviwesContainer">
+    @await Html.PartialAsync("_ReviewsPartial", Book.Reviews.ToList())
+</div>
+<div class="add-review">
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <h3 class="login-prompt">Please login to add a review.</h3>
+    }
+    else
+    {
+        @if (userReview != null)
+        {
+            <h3 class="login-prompt">You have already reviewed this book.</h3>
+        }
+        else
+        {
+            <h3>Add Comment </h3>
+            <form id="reviewForm" method="post">
+                <input type="hidden" asp-for="BookId" value="@Book.Id" />
+                <h5 class="mb-2">Rating:</h5>
+                <div class="form-group">
+                    <div class="star-rating animated-stars">
+                        <input type="radio" id="star5" asp-for="Rating" value="5">
+                        <label for="star5" class="fas fa-star"></label>
+                        <input type="radio" id="star4" asp-for="Rating" value="4">
+                        <label for="star4" class="fas fa-star"></label>
+                        <input type="radio" id="star3" asp-for="Rating" value="3">
+                        <label for="star3" class="fas fa-star"></label>
+                        <input type="radio" id="star2" asp-for="Rating" value="2">
+                        <label for="star2" class="fas fa-star"></label>
+                        <input type="radio" id="star1" asp-for="Rating" value="1" checked>
+                        <label for="star1" class="fas fa-star"></label>
+                    </div>
+                </div>
+                <span asp-validation-for="Rating" class="text-danger"></span>
+                <div class="form-group">
+                    <label for="Comment">Comments:</label>
+                    <textarea class="form-control" asp-for="Content" rows="4" required></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        }
+    }
+
 </div>
 
 @section Styles {
     <link href="~/css/bookDetails.css" rel="stylesheet" />
 }
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+    <script>
+        document.querySelectorAll('.star-rating:not(.readonly) label').forEach(star => {
+            star.addEventListener('click', function() {
+                this.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+
+        function WishlistToggler(BookId) {
+            const button = document.getElementById("wishlistButton");
+
+            $.ajax({
+                type: "POST",
+                url: button.classList.contains("added")? '@Url.Action("RemoveFromWishlist", "Book")' : '@Url.Action("AddToWishlist", "Book")',
+                data: { id: BookId },
+                success: function () {
+                    if (button.classList.contains("added")) {
+                        button.classList.remove("added");
+                        button.innerHTML = `<i class="fa-solid fa-heart" style="color: white"></i> Add to wishlist`;
+                    } else {
+                        button.classList.add("added");
+                        button.innerHTML = `<i class="fa-solid fa-heart" style="color: red"></i> Remove from wishlist`;
+                    }
+                    Swal.fire(button.classList.contains("added")? "Book Added To Wishlist." : "Book Removed From Wishlist.");
+                },
+                error: function () {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+
+        function cartToggler(BookId){
+            const button = document.getElementById("cartButton");
+
+            $.ajax({
+                type: "POST",
+                url: button.classList.contains("added")? '@Url.Action("RemoveFromCart", "Cart")' : '@Url.Action("AddToCart", "Cart")',
+                data: { bookId: BookId },
+                success: function () {
+                    if (button.classList.contains("added")) {
+                        button.classList.remove("added");
+                        button.innerHTML = `<i class="fa-solid  fa-cart-plus"></i> Add To Cart`;
+                    } else {
+                        button.classList.add("added");
+                        button.innerHTML = `<i class="fa-solid  fa-cart-shopping"></i> Remove From Cart`;
+                    }
+                    Swal.fire(button.classList.contains("added")? "Book Added To Cart." : "Book Removed From Cart.");
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+
+        function DeleteReview(userId, bookId) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("DeleteReview", "Review")',
+                data: {bookId: bookId, userId: userId},
+                success: function () {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Review Deleted successfull",
+                        icon: "success"
+
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        }
+                    });
+                },
+                error: function () {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+
+        $("#reviewForm").submit(function (e) {
+            e.preventDefault();
+
+            const formData = {
+                BookId: $('input[name="BookId"]').val(),
+                Rating: $('input[name="Rating"]:checked').val(),
+                Content: $('textarea[name="Content"]').val(),
+            };
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddReview", "Review")',
+                data: formData,
+                success: function (response) {
+                    if(response.success) {
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Review Added successfully",
+                            icon: "success"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: response.errors.join("\n") || "Failed To Add Review",
+                        });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+            });
+        });
+    </script>
+}
+

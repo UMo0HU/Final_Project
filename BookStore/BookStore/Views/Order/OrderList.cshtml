@@ -1,0 +1,118 @@
+﻿@model List<Order>
+
+@{
+    ViewBag.Title = "My Orders";
+    var orderCounter = 1;
+}
+
+<div class="header">
+    <h1>My Orders</h1>
+</div>
+
+<div class="container">
+    <h2>Order History</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="empty-orders">
+            <p>You haven't placed any orders yet.</p>
+            <a href="@Url.Action("Index", "Shop")" class="shop-btn">Start Shopping</a>
+        </div>
+    }
+    else
+    {
+        <div class="orders-list">
+            @foreach (var order in Model.OrderByDescending(o => o.OrderDate))
+            {
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-meta">
+                            <span class="order-number">Order #@(orderCounter++)</span>
+                            <span class="order-date">@order.OrderDate.ToString("MMMM dd, yyyy")</span>
+                        </div>
+                        @if (order.Status.ToLowerInvariant() != "canceled" && order.Status.ToLowerInvariant() != "delivered")
+                        {
+                            <button class="btn btn-danger" onclick="cancelOrder(@order.Id)">Cancel</button>    
+                        }
+                        <span class="status @order.Status.ToLowerInvariant()">@order.Status</span>
+                    </div>
+
+                    <div class="order-preview">
+                        @foreach (var item in order.OrderItems.Take(2))
+                        {
+                            <div class="preview-item">
+                                <div class="book-image">
+                                    <img src="~/book-images/@item.Book.Img" class="image-placeholder">
+                                </div>
+                                <div class="book-info">
+                                    <p class="book-title">@item.Book?.Title</p>
+                                    <p class="book-qty">Qty: @item.Quantity</p>
+                                </div>
+                            </div>
+                        }
+                        @if (order.OrderItems.Count > 2)
+                        {
+                            <div class="additional-items">
+                                +@(order.OrderItems.Count - 2) more item@(order.OrderItems.Count - 2 > 1 ? "s" : "")
+                            </div>
+                        }
+                    </div>
+
+                    <div class="order-footer">
+                        <div class="total-amount">
+                            <span>Total:</span>
+                            <span>
+                                $@order.OrderItems.Sum(oi => oi.Quantity * (oi.Book?.Price ?? 0)).ToString("0.00")
+                            </span>
+                        </div>
+                        <a href="@Url.Action("Track", "Order", new { id = order.Id })" class="view-details">View Details</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@section Styles {
+    <link href="~/css/userOrder.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script>
+        function cancelOrder(orderId) {
+            $.ajax({
+                url: '@Url.Action("CancelOrder", "Payment")',
+                type: 'POST',
+                data: { orderId: orderId },
+                success: function (response) {
+                    if(response.success) {
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Order Canceled successfully",
+                            icon: "success"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.reload();
+                            }
+                        });
+                    }
+                    else
+                    {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: response.errors.join("\n") || "Failed To Cancel Order",
+                        });
+                    }
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
+            });
+        }
+    </script>
+}

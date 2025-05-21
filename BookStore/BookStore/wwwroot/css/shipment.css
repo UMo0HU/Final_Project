@@ -1,0 +1,26 @@
+﻿form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+form button {
+    width: 50%;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    form {
+        width: 100%;
+    }
+    form button {
+        width: 100%;
+    }
+})

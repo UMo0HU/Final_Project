@@ -34,6 +34,7 @@ namespace BookStore.Service.Category
             if (category != null)
             {
                 category.Name = updatedCategory.Name;
+                category.Description = updatedCategory.Description;
                 await _context.SaveChangesAsync();
             } 
         }

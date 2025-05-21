@@ -1,5 +1,13 @@
 using System.Diagnostics;
+using AspNetCoreGeneratedDocument;
 using BookStore.Models;
+using BookStore.Service.Book;
+using BookStore.Service.Cart;
+using BookStore.Service.Email;
+using BookStore.Service.Wishlist;
+using BookStore.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
@@ -7,20 +15,56 @@ namespace BookStore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IBookService _bookService;
+        private readonly IWishlistService _wishlistService;
+        private readonly IEmailSenderService _emailSenderService;
+        private readonly ICartService _cartService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBookService bookService, IWishlistService wishlistService, IEmailSenderService emailSenderService, ICartService cartService)
         {
             _logger = logger;
+            _bookService = bookService;
+            _wishlistService = wishlistService;
+            _emailSenderService = emailSenderService;
+            _cartService = cartService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var books = await  _bookService.GetBookRecommendation();
+            var wishlist = await _wishlistService.GetUserWishlist();
+            var cart = await _cartService.GetBooksFromCart();
+
+            ViewBag.WishlistBookIds = wishlist.Select(w =>  w.BookId).ToList();
+            ViewBag.CartBookIds = cart.Select(b => b.Id).ToList();
+            ViewBag.Authors = await _bookService.GetAuthorsRecommendation();
+
+            return View(books);
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult ContactUs()
         {
-            return View();
+            var model = new ContactUsViewModel();
+            if (TempData["SentSuccessfully"] != null)
+            {
+                model.SentSuccessfully = true;
+            }
+
+            return View(model);
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> ContactUs(ContactUsViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                await _emailSenderService.ContactUsAsync(model.Subject, model.Message);
+                TempData["SentSuccessfully"] = true;
+
+                return RedirectToAction("ContactUs");
+            }
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
