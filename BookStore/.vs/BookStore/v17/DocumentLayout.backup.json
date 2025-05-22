@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\DEPI\\FinalProject\\BookStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\account\\forgetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\account\\forgetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\order\\orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\order\\orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\wwwroot\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\wwwroot\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\order\\track.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\order\\track.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +18,32 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "account.css",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\account.css",
-              "RelativeDocumentMoniker": "BookStore\\wwwroot\\css\\account.css",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\account.css",
-              "RelativeToolTip": "BookStore\\wwwroot\\css\\account.css",
-              "ViewState": "AgIAAK4AAAAAAAAAAAAAAGUAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-22T15:31:43.895Z",
+              "DocumentIndex": 0,
+              "Title": "OrderList.cshtml",
+              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Order\\OrderList.cshtml",
+              "RelativeDocumentMoniker": "BookStore\\Views\\Order\\OrderList.cshtml",
+              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Order\\OrderList.cshtml",
+              "RelativeToolTip": "BookStore\\Views\\Order\\OrderList.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-22T22:26:35.756Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ResetPassword.cshtml",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Account\\ResetPassword.cshtml",
-              "RelativeDocumentMoniker": "BookStore\\Views\\Account\\ResetPassword.cshtml",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Account\\ResetPassword.cshtml",
-              "RelativeToolTip": "BookStore\\Views\\Account\\ResetPassword.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAA+AAAAAAAAAA==",
+              "Title": "Track.cshtml",
+              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Order\\Track.cshtml",
+              "RelativeDocumentMoniker": "BookStore\\Views\\Order\\Track.cshtml",
+              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Order\\Track.cshtml",
+              "RelativeToolTip": "BookStore\\Views\\Order\\Track.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-22T15:29:11.713Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ForgetPassword.cshtml",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Account\\ForgetPassword.cshtml",
-              "RelativeDocumentMoniker": "BookStore\\Views\\Account\\ForgetPassword.cshtml",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Account\\ForgetPassword.cshtml",
-              "RelativeToolTip": "BookStore\\Views\\Account\\ForgetPassword.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-22T15:26:21.454Z",
+              "WhenOpened": "2025-05-22T22:26:28.556Z",
               "EditorCaption": ""
             }
           ]
