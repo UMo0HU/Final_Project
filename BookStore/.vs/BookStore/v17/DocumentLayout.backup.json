@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "D:\\DEPI\\FinalProject\\BookStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Migrations\\20250522143411_deletedCartItemQuantity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookStore\\Migrations\\20250522143411_deletedCartItemQuantity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\account\\forgetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\account\\forgetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|d:\\depi\\finalproject\\bookstore\\bookstore\\wwwroot\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1C0CB143-36F4-4DFA-A927-C77E451B6DF6}|BookStore\\BookStore.csproj|solutionrelative:bookstore\\wwwroot\\css\\account.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +22,45 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20250522143411_deletedCartItemQuantity.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Migrations\\20250522143411_deletedCartItemQuantity.cs",
-              "RelativeDocumentMoniker": "BookStore\\Migrations\\20250522143411_deletedCartItemQuantity.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Migrations\\20250522143411_deletedCartItemQuantity.cs",
-              "RelativeToolTip": "BookStore\\Migrations\\20250522143411_deletedCartItemQuantity.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:34:11.456Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Review.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Review.cs",
-              "RelativeDocumentMoniker": "BookStore\\Models\\Review.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Review.cs",
-              "RelativeToolTip": "BookStore\\Models\\Review.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:20:33.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Payment.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Payment.cs",
-              "RelativeDocumentMoniker": "BookStore\\Models\\Payment.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Payment.cs",
-              "RelativeToolTip": "BookStore\\Models\\Payment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:20:30.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderItem.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\OrderItem.cs",
-              "RelativeDocumentMoniker": "BookStore\\Models\\OrderItem.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\OrderItem.cs",
-              "RelativeToolTip": "BookStore\\Models\\OrderItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:20:28.966Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "BookStore\\Models\\Order.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Order.cs",
-              "RelativeToolTip": "BookStore\\Models\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:20:26.85Z",
+              "DocumentIndex": 2,
+              "Title": "account.css",
+              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\account.css",
+              "RelativeDocumentMoniker": "BookStore\\wwwroot\\css\\account.css",
+              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\wwwroot\\css\\account.css",
+              "RelativeToolTip": "BookStore\\wwwroot\\css\\account.css",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAAAGUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-22T15:31:43.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CartItem.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\CartItem.cs",
-              "RelativeDocumentMoniker": "BookStore\\Models\\CartItem.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\CartItem.cs",
-              "RelativeToolTip": "BookStore\\Models\\CartItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:20:24.148Z",
+              "Title": "ResetPassword.cshtml",
+              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeDocumentMoniker": "BookStore\\Views\\Account\\ResetPassword.cshtml",
+              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeToolTip": "BookStore\\Views\\Account\\ResetPassword.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-22T15:29:11.713Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Cart.cs",
-              "RelativeDocumentMoniker": "BookStore\\Models\\Cart.cs",
-              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Models\\Cart.cs",
-              "RelativeToolTip": "BookStore\\Models\\Cart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T14:20:22.76Z",
+              "DocumentIndex": 0,
+              "Title": "ForgetPassword.cshtml",
+              "DocumentMoniker": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Account\\ForgetPassword.cshtml",
+              "RelativeDocumentMoniker": "BookStore\\Views\\Account\\ForgetPassword.cshtml",
+              "ToolTip": "D:\\DEPI\\FinalProject\\BookStore\\BookStore\\Views\\Account\\ForgetPassword.cshtml",
+              "RelativeToolTip": "BookStore\\Views\\Account\\ForgetPassword.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-22T15:26:21.454Z",
               "EditorCaption": ""
             }
           ]
