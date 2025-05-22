@@ -47,7 +47,10 @@
                     }
                     <td>
                         <div class="d-flex justify-content-around">
-                            <a asp-controller="Admin" asp-action="UnBanUser" asp-route-userId="@user.Id" title="Unban"><i class="fa-solid fa-unlock" style="color:black; transform: scale(1.2);"></i></a>
+                            @if (user.LockoutEnd.HasValue && user.LockoutEnd.Value > DateTime.UtcNow)
+                            {
+                                <a asp-controller="Admin" asp-action="UnBanUser" asp-route-userId="@user.Id" title="Unban"><i class="fa-solid fa-unlock" style="color:black; transform: scale(1.2);"></i></a>
+                            }
                             <a asp-controller="Admin" asp-action="BanUser" asp-route-userId="@user.Id" title="Ban"><i class="fa-sharp fa-solid fa-ban" style="color:red; transform: scale(1.2);"></i></a>
                         </div>
                     </td>

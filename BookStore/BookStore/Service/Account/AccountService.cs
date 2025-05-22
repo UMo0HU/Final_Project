@@ -151,7 +151,7 @@ namespace BookStore.Service.Account
             if (_user != null && _user.Identity.IsAuthenticated)
             {
                 var user = await _userManager.GetUserAsync(_user);
-                if(newUsername != "" && newUsername != user.UserName)
+                if(newUsername != null && newUsername != user.UserName)
                 {
                     user.UserName = newUsername;
                     user.NormalizedUserName = newUsername.ToUpper();
