@@ -5,7 +5,9 @@ using System.Linq;
 using System.Collections.Generic;
 using BookStore.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize]
 public class OrderController : Controller
 {
     private readonly IOrderService _orderService;
