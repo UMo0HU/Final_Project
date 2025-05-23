@@ -126,7 +126,7 @@ namespace BookStore.Controllers
                 );
                 string subject = "Password Reset Request";
                 string message = $@"
-                    <img src=""https://i.ibb.co/0R9YD3WJ/smile.jpg"" alt=""reset-Password-Image"" border=""0"" width=""200"" height=""200"">
+                    <img src=""https://i.ibb.co/sdt2Qngr/smile.jpg"" alt=""reset-Password-Image"" border=""0"" width=""200"" height=""200"">
                     <p>This Link Is To Reset Your Password, <a href='{resetLink}'>Click Me</a> If You Want To Reset IT.</p>
                     <p>This Link Expires In 1 Hour.</p>
                 ";
