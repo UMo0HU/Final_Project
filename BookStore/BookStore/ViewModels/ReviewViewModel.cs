@@ -8,7 +8,6 @@ namespace BookStore.ViewModels
     {
         public int BookId { get; set; }
         [Required]
-        [MinLength(10, ErrorMessage = "Content must be at least 10 characters long.")]
         public string Content { get; set; }
         [Required]
         [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
