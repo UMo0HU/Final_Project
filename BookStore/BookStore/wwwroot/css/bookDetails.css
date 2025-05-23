@@ -46,6 +46,14 @@
     padding-right: 0;
 }
 
+.added {
+    background-color: #674636 !important;
+}
+
+button:hover {
+    background-color: var(--hover-color) !important;
+}
+
 @media (min-width: 768px) {
     .book-info {
         padding-right: 20px;
