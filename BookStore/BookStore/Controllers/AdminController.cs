@@ -33,22 +33,26 @@ namespace BookStore.Controllers
         {
 
             var totalBooks = (await _bookService.GetAllBooks()).Count();
+            var totalCategories = (await _categoryService.GetAllCategories()).Count();
             var totalOrders = (await _orderService.GetAllOrders()).Count();
             var sales = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() != "canceled").Sum(o => o.TotalAmount);
             var users = (await _userService.GetAllUsers()).Count();
             var pendingOrders = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() == "pending").Count();
             var canceledOrders = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() == "canceled").Count();
+            var shippedOrders = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() == "shipped").Count();
             var deliveredOrders = (await _orderService.GetAllOrders()).Where(o => o.Status.ToLowerInvariant() == "delivered").Count();
 
             var dashboardModel = new DashboardViewModel()
             {
                 TotalBooks = totalBooks,
+                TotalCategories = totalCategories,
                 Users = users,
                 Sales = sales,
                 TotalOrders = totalOrders,
                 CanceledOrders = canceledOrders,
                 DeliveredOrders = deliveredOrders,
-                PendingOrders = pendingOrders
+                PendingOrders = pendingOrders,
+                SippedOrders = shippedOrders
             };
             return View(dashboardModel);
         }
@@ -132,14 +136,29 @@ namespace BookStore.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditBook(int id, BookViewModel bookViewModel)
+        public async Task<IActionResult> EditBook(int id, BookViewModel model)
         {
-            bookViewModel.Id = id;
+            model.Id = id;
             if (ModelState.IsValid)
             {
-                await _bookService.EditBook(bookViewModel);
+                await _bookService.EditBook(model);
                 return RedirectToAction("Books");
             }
+            var book = await _bookService.GetBookDetails(id);
+            var categories = await _categoryService.GetAllCategories();
+            var bookCategory = book.Book_Categories.Select(bc => bc.CategoryId).ToList();
+            var bookViewModel = new BookViewModel()
+            {
+                Id = book.Id,
+                Title = book.Title,
+                Author = book.Author,
+                Description = book.Description,
+                Price = book.Price,
+                Stock = book.Stock,
+                AllCategories = categories,
+                SelectedCategoryIds = bookCategory
+            };
+            ViewBag.BookImg = book.Img;
             return View(bookViewModel);
         }
 

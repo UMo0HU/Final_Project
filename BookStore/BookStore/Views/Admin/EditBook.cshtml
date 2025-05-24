@@ -12,7 +12,8 @@
 <div class="card edit-book-card">
     <div class="card-body">
         <form asp-Controller="Admin" asp-action="EditBook" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
-                                
+            <span asp-validation-summary="ModelOnly" class="text-danger"></span>
+
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label asp-for="Title" class="form-label"></label>
@@ -89,6 +90,7 @@
                         </div>
                     }
                 </div>
+                <span asp-validation-for="SelectedCategoryIds" class="text-danger"></span>
             </div>
 
             <div class="mb-4">

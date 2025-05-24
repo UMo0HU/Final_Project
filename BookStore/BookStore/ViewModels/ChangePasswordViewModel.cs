@@ -8,6 +8,7 @@ namespace BookStore.ViewModels
         [Display(Name = "Current Password")]
         public string CurrentPassword { get; set; }
         [DataType(DataType.Password)]
+        [StringLength(40, MinimumLength = 8, ErrorMessage = "The {0} must be at {2} and at max {1} character.")]
         [Display(Name = "New Password")]
         public string NewPassword { get; set; }
         [DataType(DataType.Password)]

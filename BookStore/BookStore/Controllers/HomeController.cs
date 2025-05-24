@@ -6,6 +6,7 @@ using BookStore.Service.Cart;
 using BookStore.Service.Email;
 using BookStore.Service.Wishlist;
 using BookStore.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,7 @@ namespace BookStore.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult ContactUs()
         {
             var model = new ContactUsViewModel();
@@ -53,8 +55,10 @@ namespace BookStore.Controllers
 
             return View(model);
         }
-        
+
+
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> ContactUs(ContactUsViewModel model)
         {
             if(ModelState.IsValid)
